@@ -16,10 +16,8 @@ constructor(private userService:UserServiceService){}
   DoLogin(){
     this.userService.DoLogin(this.loginObj).subscribe(data =>{
       console.log(data,'hhhhhhhhhhhhhhhhhh');
-      
-
     })
-
-
   }
+
 }
+
