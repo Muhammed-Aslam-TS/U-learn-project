@@ -1,0 +1,22 @@
+<!-- <div>
+    <img class="img" src="../../../../assets/images/bg1.jpg" alt="" srcset="">
+
+</div> -->
+
+<div class="flex justify-center py-20 pr-20 " >
+  <div class="card ">
+      <span class="card__title">Subscribe</span>
+      <p class="card__content">Get fresh web design resources delivered straight to your inbox every week.
+      </p>
+
+      <div class="card__form">
+        <input placeholder="First name" type="text" [(ngModel)]="sinUpObj.Fname">
+        <input placeholder="Last Name" type="text" [(ngModel)]="sinUpObj.Lname">
+        <input placeholder="Your Email" type="text" [(ngModel)]="sinUpObj.Email">
+        <input placeholder="Your Phone" type="text" [(ngModel)]="sinUpObj.Phone">
+        <input placeholder="Your Password" type="text" [(ngModel)]="sinUpObj.Password">
+        <input placeholder="Confirm Password" type="text" [(ngModel)]="sinUpObj.ConfirmPassword">
+          <button class="sign-up text-center" (click)="DoSignUp()">Log In</button>
+      </div>
+  </div>
+</div>
