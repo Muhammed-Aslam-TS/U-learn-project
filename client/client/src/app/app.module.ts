@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
-import {MatMenuModule} from '@angular/material/menu';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +14,9 @@ import { UserSignUpComponent } from './features/userFeatures/user-sign-up/user-s
 import { LandingPageComponent } from './features/homePageFeatures/landing-page/landing-page.component';
 import { AdminNavbarComponent } from './shared/navBar/admin/admin-navbar/admin-navbar.component';
 import { UserNavbarComponent } from './shared/navBar/user/user-navbar/user-navbar.component';
+import {RouterModule} from '@angular/router'
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { UserNavbarComponent } from './shared/navBar/user/user-navbar/user-navba
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    ReactiveFormsModule,
+    RouterModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

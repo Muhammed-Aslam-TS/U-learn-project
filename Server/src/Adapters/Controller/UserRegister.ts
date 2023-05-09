@@ -32,6 +32,10 @@ const UserController = (
 
         let {Email,Password}:UserInterFace = req.body 
         const response = await userLogin(Email,Password,UserdbRepo,UserAuthServices)
+        console.log(response.refreshToken,'jjjjjjjjjjjjjjjjjjjjjjjjjjj');
+
+     
+        
         res.cookie('refreshtoken',response.refreshToken,{httpOnly:true})
         res.json(response)
     })

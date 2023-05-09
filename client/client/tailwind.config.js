@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // display:['group-focus'],
+      // opacity:['group-focus'],
+      // inset:['group-focus'],
+    },
   },
   plugins: [],
 }

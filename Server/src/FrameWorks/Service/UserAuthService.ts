@@ -18,7 +18,7 @@ export const UserAuthService = ()=>{
     }
 
     const GenerateAccessToken = async (payload:string)=>{
-        const token = await jwt.sign({payload},dotenvConfig.access_token_key,{expiresIn:'50s'})
+        const token = await jwt.sign({payload},dotenvConfig.access_token_key,{expiresIn:'30s'})
         return token
     }
 

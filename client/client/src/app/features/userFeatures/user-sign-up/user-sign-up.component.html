@@ -4,17 +4,26 @@
 
 
     <div class="card__form">
-      <form action="">
-        <input placeholder="First name" type="text" [(ngModel)]="sinUpObj.Fname">
-        <input placeholder="Last Name" type="text" [(ngModel)]="sinUpObj.Lname">
-        <input placeholder="Your Email" type="text" [(ngModel)]="sinUpObj.Email">
-        <input placeholder="Your Phone" type="text" [(ngModel)]="sinUpObj.Phone">
-        <input placeholder="Your Password" type="text" [(ngModel)]="sinUpObj.Password">
-        <input placeholder="Confirm Password" type="text" [(ngModel)]="sinUpObj.ConfirmPassword">
-      </form>
-      <button class="sign-up text-center" (click)="DoSignUp()">Register Your Account</button>
-      
 
+      <div>
+        <input placeholder="Last Name" type="text" [(ngModel)]="signupObj.Fname">
+        <input placeholder="Last Name" type="text" [(ngModel)]="signupObj.Lname">
+
+        <input placeholder="Your Email" type="text" [(ngModel)]="signupObj.Email">
+
+        <input placeholder="Your Phone" [(ngModel)]="signupObj.Phone" type="number">
+
+        <input placeholder="Your Password" type="text" [(ngModel)]="signupObj.Password">
+        <input placeholder="Confirm Password" type="text" [(ngModel)]="signupObj.ConfirmPassword">
+
+      </div>
+      <button (click)="DoSignUp()">Register Your Account</button>
     </div>
+
+
   </div>
+
+
+
+
 </div>
