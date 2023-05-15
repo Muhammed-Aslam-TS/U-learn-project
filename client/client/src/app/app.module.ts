@@ -16,6 +16,14 @@ import { AdminNavbarComponent } from './shared/navBar/admin/admin-navbar/admin-n
 import { UserNavbarComponent } from './shared/navBar/user/user-navbar/user-navbar.component';
 import {RouterModule} from '@angular/router'
 import { MatButtonModule } from '@angular/material/button';
+import { AllCoursesComponent } from './features/Course/all-courses/all-courses.component';
+import { TextEditorComponent } from './features/Course/text-editor/text-editor.component';
+import { AddCourseFormComponent } from './features/Course/add-course-form/add-course-form.component';import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
+
 
 
 @NgModule({
@@ -28,6 +36,9 @@ import { MatButtonModule } from '@angular/material/button';
     LandingPageComponent,
     AdminNavbarComponent,
     UserNavbarComponent,
+    AllCoursesComponent,
+    TextEditorComponent,
+    AddCourseFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,10 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatStepperModule,
+    MatInputModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

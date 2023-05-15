@@ -1,22 +1,28 @@
-<div class="h-screen w-full flex justify-center items-center">
+<div class="flex h-screen w-full justify-center items-center">
   <div class="card">
     <span class="card__title">Login Your Account</span>
-    <p class="card__content">Get fresh web design resources delivered straight to your inbox every week.
+    <p class="card__content">Get fresh web design resdfgdsfgdfsgsdfgsdfgsdfgdfgources delivered straight to your inbox every week.
     </p>
 
     <div class="card__form">
       <input placeholder="Your Email" type="text" [(ngModel)]="loginObj.Email">
-      <input placeholder="Your Password" type="text" [(ngModel)]="loginObj.Password">
-
+      <input placeholder="Your Password" type="password" [(ngModel)]="loginObj.Password">
       <button class="button-card" (click)="DoLogin()">Log In</button>
 
-      <hr class="border-slate-700">
+      <div
+        class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+        <p class="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
+          OR
+        </p>
+      </div>
 
       <button routerLink="/signup"
-        class="text-white bg-[#4285F4] width-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-        (click)="DoLogin()">Sign In</button>
+        class="flex justify-center text-white bg-[#4285F4] width-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+        (click)="DoLogin()">Sign In
+      </button>
+
       <button type="button"
-        class=" text-white bg-[#4285F4] width-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">
+        class="flex justify-center text-white bg-[#4285F4] width-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">
         <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
           role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
           <path fill="currentColor"

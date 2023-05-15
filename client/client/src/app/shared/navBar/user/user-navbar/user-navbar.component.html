@@ -95,12 +95,14 @@
     <div class="hidden lg:block">
       <ul class="inline-flex">
         <li><a class="px-4 font-bold" href="">Home</a></li>
+        <li *ngIf="!show"><a class="px-4 hover:text-gray-800" href="#">Courses</a></li>
         <li><a class="px-4 hover:text-gray-800" href="#">About</a></li>
         <li><a class="px-4 hover:text-gray-800" href="#">Contact</a></li>
 
+        <li *ngIf="!show"><a class="px-4 hover:text-gray-800" href="#">My Account</a></li>
         <li>
-          <button *ngIf="shwo" routerLink="login" (click)="logIn()" type="button" class="text-dark">LogIn</button>
-          <button *ngIf="!shwo" (click)="LogOut()" type="button" class="text-dark">LogOut</button>
+          <button *ngIf="show" routerLink="login" (click)="logIn()" type="button" class="text-dark">LogIn</button>
+          <button *ngIf="!show" (click)="LogOut()" type="button" class="text-dark">LogOut</button>
         </li>
 
       </ul>

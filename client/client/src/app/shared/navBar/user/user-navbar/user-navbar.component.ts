@@ -9,21 +9,21 @@ import { Router } from '@angular/router';
 export class UserNavbarComponent {
   // button = 'LogIn'
 
-  shwo = true;
+  show = true;
 
   UserToken = localStorage.getItem('userToken');
 
   constructor(private router: Router) {
     if (this.UserToken) {
-      this.shwo = false;
+      this.show = false;
     } else {
-      this.shwo = true;
+      this.show = true;
     }
   }
   logIn() {}
 
   LogOut() {
     localStorage.removeItem('userToken');
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 }
