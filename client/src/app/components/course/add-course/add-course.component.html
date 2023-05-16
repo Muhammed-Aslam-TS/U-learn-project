@@ -1,0 +1,106 @@
+<div class="flex justify-evenly h-screen items-center">
+
+  <form action="">
+    <div class="bg-gradient-to-r from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 ">
+
+      <label for="Enter your Course">Enter your Course</label>
+      <div class="py-6">
+        <input aria-required="true" type="text" class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Enter your Course">
+      </div>
+
+      <label for="">Course Plan</label>
+      <div class="flex space-x-5 py-5">
+        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="0 Month">
+        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="5 Month">
+        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="0 year">
+      </div>
+
+      <label for="">Upload Date</label>
+      <div class="flex space-x-5 py-5">
+        <input aria-required="true" type="date" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="0 Month">
+
+        <input aria-required="true" type="file" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="5 Month">
+      </div>
+
+      <div class="py-5">
+        <!-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" aria-required="true"
+          class="w-65 flex flex-col items-center px-4 py-6 bg-slate-300 text-blue rounded-xl shadow-xl tracking-wide uppercase border border-blue cursor-pointer hover:text-red-600">
+          <svg class="w-9 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path
+              d="M15.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+          </svg>
+          <span class="mt-3 text-base leading-normal">Upload Course Details</span>
+          <input type='file' class="hidden" />
+        </button> -->
+
+
+        <!-- text editor____________________________ -->
+        <app-text-editor></app-text-editor>
+        <!-- text editor____________________________ -->
+
+      </div>
+
+
+      <div class="flex justify-end">
+        <button
+          class="bg-slate-301 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md	uppercase hover:text-green-700">Submit
+          Course</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<mat-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" optional>
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matSteppersubmit>Next</button>
+            </div>
+        </form>
+    </mat-step>
+   
+</mat-stepper> -->

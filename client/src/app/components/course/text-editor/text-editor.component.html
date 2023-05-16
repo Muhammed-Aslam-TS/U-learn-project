@@ -1,0 +1,9 @@
+<p-editor [(ngModel)]="htmlEditor" (onInit)="onEditorInit($event)"></p-editor>
+
+<div class="output">
+  <h3>Editor Output:</h3>
+  <div [innerHTML]="htmlEditor"></div>
+</div>
+
+
+<button (click)="saveData()" type="button" class="btn btn-outline-primary">Save data</button>
