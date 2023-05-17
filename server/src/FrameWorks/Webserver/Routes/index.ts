@@ -1,5 +1,7 @@
 import { Application } from "express";
-import Signup from "./UserRouter/UserRouter";
+import UserRouter from "./UserRouter/UserRouter";
+import AddCourseRouter from "./UserRouter/AddCourseRouter";
+
 
 const Router = (app:Application)=>{
     // app.use('/',(req:Request,res:Response)=>{
@@ -7,8 +9,8 @@ const Router = (app:Application)=>{
     //    res.end('helloWorld');
         
     // })
-    app.use("/",Signup);
-    // app.use('/',login)
+    app.use("/",UserRouter);
+    app.use('/',AddCourseRouter)
 };
 
 export default Router;

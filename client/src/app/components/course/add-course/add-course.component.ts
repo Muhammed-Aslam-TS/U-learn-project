@@ -1,39 +1,64 @@
+import { Router } from '@angular/router';
+import { CourseServiceService } from './../service/course-service.service';
 import { Component } from '@angular/core';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { TextEditorComponent } from '../text-editor/text-editor.component';
+import { Editor } from 'primeng/editor';
 
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
   styleUrls: ['./add-course.component.css'],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
-    },
-  ],
+  providers: [],
 })
 export class AddCourseComponent {
-//  firstFormGroup = this._formBuilder.group({
-//     firstCtrl: ['', Validators.required],
-//   });
-//   secondFormGroup = this._formBuilder.group({
-//     secondCtrl: '',
-//   });
-//   isOptional = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: CourseServiceService,
+    private router: Router
+  ) { }
 
-//   constructor(private _formBuilder: FormBuilder) {}
 
-firstFormGroup = this._formBuilder.group({
-  firstCtrl: ['', Validators.required],
-});
-secondFormGroup = this._formBuilder.group({
-  secondCtrl: ['', Validators.required],
-});
+  submit = false
+  formData = {}
+  // htmlEditor!: string;
+  // object: object | undefined;
 
-constructor(private _formBuilder: FormBuilder) {}
+  CourseData = this.formBuilder.group({
+    courseName: ['', Validators.required],
+    date: new FormControl('', [Validators.required]),
+    plan1: new FormControl('', [Validators.required]),
+    plan2: new FormControl('', [Validators.required]),
+    plan3: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+  })
+
+  get f() {
+    return this.CourseData.controls
+  }
+
+
+  onsubmit() {
+    this.submit = true
+    this.formData = this.CourseData.value
+
+    this.service.addCourse(this.formData).subscribe((data) => {
+      if (!data) {
+        window.alert('form not Submitted')
+      } else {
+        if (data) {
+          window.alert('form Submitted')
+          this.router.navigate(['']);
+        } else {
+          this.router.navigate(['addCourse']);
+        }
+      }
+    });
+  }
+
 
 
 
 }
-// }
+

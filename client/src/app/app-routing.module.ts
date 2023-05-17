@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'signup', component: UserRegisterComponent,canActivate:[UserUnAuthGuardeServiceService]},
   { path: '', component: HomePageComponent},
   { path: 'addCourse', component: AddCourseComponent,canActivate:[UserAuthGuardeServiceService]},
-  { path: 'text', component: TextEditorComponent,canActivate:[UserAuthGuardeServiceService]},
+  // { path: 'text', component: TextEditorComponent,canActivate:[UserAuthGuardeServiceService]},
 
 
 ];

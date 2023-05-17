@@ -1,61 +1,70 @@
 <div class="flex justify-evenly h-screen items-center">
 
-  <form action="">
-    <div class="bg-gradient-to-r from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 ">
 
-      <label for="Enter your Course">Enter your Course</label>
-      <div class="py-6">
-        <input aria-required="true" type="text" class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="Enter your Course">
-      </div>
+  <!-- <div class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 "> -->
 
-      <label for="">Course Plan</label>
+
+  <form action="" [formGroup]="CourseData" (ngSubmit)="onsubmit()"
+    class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 ">
+    <p *ngIf="f&&f.courseName.invalid &&f.courseName.touched" class="text-red-600">Course Name is invalid</p>
+    <p *ngIf="f&&f.plan1.invalid &&f.plan1.touched" class="text-red-600">Plan 1 is invalid</p>
+    <p *ngIf="f&&f.plan2.invalid &&f.plan2.touched" class="text-red-600">Plan 2 is invalid</p>
+    <p *ngIf="f&&f.plan3.invalid &&f.plan3.touched" class="text-red-600">Plan 3 is invalid</p>
+    <p *ngIf="f&&f.date.invalid &&f.date.touched" class="text-red-600">Date is invalid</p>
+    <p *ngIf="f&&f.image.invalid &&f.image.touched" class="text-red-600">File is invalid</p>
+    <p *ngIf="f&&f.description.invalid &&f.description.touched" class="text-red-600">Description is invalid</p>
+
+
+
+    <label for="Enter your Course">Enter your Course</label>
+    <div>
+      <input type="text" formControlName="courseName"
+        [ngClass]="{'@error(courseName) border-red-500 @enderror':submit&&f.courseName.errors}"
+        class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4" placeholder="Enter your Course">
+    </div>
+    <label for="">Course Plan</label>
+    <div>
+      <input type="text" formControlName="plan1"
+        [ngClass]="{'@error(plan1) border-red-500 @enderror':submit&&f.plan1.errors}"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="0 Month">
+      <input type="text" formControlName="plan2"
+        [ngClass]="{'@error(plan2) border-red-500 @enderror':submit&&f.plan2.errors}"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="5 Month">
+      <input type="text" formControlName="plan3"
+        [ngClass]="{'@error(plan3) border-red-500 @enderror':submit&&f.plan3.errors}"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="1 year">
+    </div>
+    <br>
+    <label for="">Upload Date</label>
+    <div>
+      <input type="date" formControlName="date"
+        [ngClass]="{'@error(date) border-red-500 @enderror':submit&&f.date.errors}"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="0 Month">
+
+      <input type="file" formControlName="image" (change)="onFileSelecete($event)"
+        [ngClass]="{'@error(file) border-red-500 @enderror':submit&&f.image.errors}"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="5 Month">
+    </div>
+
+    <label for="">Description About Course</label>
+    <div>
+      <input type="text" formControlName="description"
+        [ngClass]="{'@error(description) border-red-500 @enderror':submit&&f.description.errors}"
+        class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4" placeholder="Enter your Description">
+    </div>
+
+    <!-- <label for="">Write a Small Blog About your Course </label>
       <div class="flex space-x-5 py-5">
-        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="0 Month">
-        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="5 Month">
-        <input aria-required="true" type="text" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="0 year">
-      </div>
-
-      <label for="">Upload Date</label>
-      <div class="flex space-x-5 py-5">
-        <input aria-required="true" type="date" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="0 Month">
-
-        <input aria-required="true" type="file" class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-          placeholder="5 Month">
-      </div>
-
-      <div class="py-5">
-        <!-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" aria-required="true"
-          class="w-65 flex flex-col items-center px-4 py-6 bg-slate-300 text-blue rounded-xl shadow-xl tracking-wide uppercase border border-blue cursor-pointer hover:text-red-600">
-          <svg class="w-9 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path
-              d="M15.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-          </svg>
-          <span class="mt-3 text-base leading-normal">Upload Course Details</span>
-          <input type='file' class="hidden" />
-        </button> -->
-
-
-        <!-- text editor____________________________ -->
         <app-text-editor></app-text-editor>
-        <!-- text editor____________________________ -->
-
-      </div>
-
-
-      <div class="flex justify-end">
-        <button
-          class="bg-slate-301 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md	uppercase hover:text-green-700">Submit
-          Course</button>
-      </div>
+      </div> -->
+    <div class="flex justify-end">
+      <button [disabled]="CourseData.invalid"
+        class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md	uppercase hover:text-green-700">Submit
+        Course</button>
     </div>
   </form>
+  <!-- </div> -->
 </div>
-
 
 
 

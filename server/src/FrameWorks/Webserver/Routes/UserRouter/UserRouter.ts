@@ -6,13 +6,14 @@ import { UserAuthService } from '../../../Service/UserAuthService';
 import { UserAuthServiceInterFace } from '../../../../applications/Services/UserAuthserviceInterFacw';
 
 
+
 const app = express.Router()
 
 const Controller = UserController(
     UserDatabase,
     UserReppo,
     UserAuthService,
-    UserAuthServiceInterFace
+    UserAuthServiceInterFace,
 )
 
 app.post('/signup', Controller.DoSignup)
