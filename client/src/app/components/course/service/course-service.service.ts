@@ -13,6 +13,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CourseServiceService {
+  uploadFile(file: File, bucketName: string, key: string) {
+    throw new Error('Method not implemented.');
+  }
   private ApiUrl = 'http://localhost:4000/';
 
   constructor(private http: HttpClient) { }
@@ -26,13 +29,5 @@ export class CourseServiceService {
     )
   }
 
-  addTextEdtor(data:any):Observable<any>{
-    console.log(data,'text editor vannu_________________________________________');
-    return this.http.post<any>(
-      `${this.ApiUrl}addCourse`,
-      JSON.stringify(data),
-      httpOptions
-    )
-  }
 
 }

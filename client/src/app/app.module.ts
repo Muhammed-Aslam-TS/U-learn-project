@@ -19,6 +19,8 @@ import { AboutPageComponent } from './components/home/about-page/about-page.comp
 import { NavBarComponent } from './shared/components/user/nav-bar/nav-bar.component';
 import { AdminNavBarComponent } from './shared/components/admin/admin-nav-bar/admin-nav-bar.component';
 import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
+import { UserDashBoardComponent } from './components/user/user-dash-board/user-dash-board.component';
+
 
 
 
@@ -35,6 +37,7 @@ import { TextEditorComponent } from './components/course/text-editor/text-editor
     NavBarComponent,
     AdminNavBarComponent,
     TextEditorComponent,
+    UserDashBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { TextEditorComponent } from './components/course/text-editor/text-editor
     HttpClientModule,
     BrowserAnimationsModule,
     MatStepperModule,
-    EditorModule
+    EditorModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

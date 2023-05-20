@@ -19,10 +19,10 @@ export class TextEditorComponent {
 
   saveData() {
     console.log(this.object);
-    this.service.addTextEdtor(this.object).subscribe((data) => {
-      console.log(data);
+    // this.service.addTextEdtor(this.object).subscribe((data) => {
+    //   console.log(data);
 
-    })
+    // })
   }
 
 }

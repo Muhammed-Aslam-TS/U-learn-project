@@ -26,18 +26,24 @@ const CourseController = (
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
         const CorseData: CourseInterface = req.body
         console.log(CorseData, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-        const response = await addCourse(CorseData,CourseAddRepo,UserCorseServices)
+        console.log(req.body.File[1], 'ffffffffffffffffffffffffffffffffffffffffile');
+
+        const response = await addCourse(CorseData, CourseAddRepo, UserCorseServices)
+
+        res.status(200).json({ message: 'Course data received successfully' });
+
+
 
     });
 
-    const textEditor = asyncHandler (async(req:Request,res:Response)=>{
-        const TextEditor = req.body
-        console.log(TextEditor, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-    })
+    // const textEditor = asyncHandler (async(req:Request,res:Response)=>{
+    //     const TextEditor = req.body
+    //     console.log(TextEditor, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+    // })
 
     return {
         addCourseDatails,
-        textEditor
+        // textEditor
     };
 };
 

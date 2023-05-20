@@ -2,8 +2,12 @@ import { Router } from '@angular/router';
 import { CourseServiceService } from './../service/course-service.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { TextEditorComponent } from '../text-editor/text-editor.component';
-import { Editor } from 'primeng/editor';
+import { environment } from 'src/environments/environments.prod';
+import { UploadResponse } from 'aws-s3-upload-ash/dist/types';
+import AWSS3UploadAshClient from 'aws-s3-upload-ash';
+// import * as AWS from 'aws-sdk';
+
+
 
 @Component({
   selector: 'app-add-course',
@@ -12,26 +16,35 @@ import { Editor } from 'primeng/editor';
   providers: [],
 })
 export class AddCourseComponent {
+  event: any;
+
+  // private s3: AWS.S3;
   constructor(
     private formBuilder: FormBuilder,
     private service: CourseServiceService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {
+  }
 
+  fileSelected: any = null
+
+
+
+  // S3CustomClient: AWSS3UploadAshClient = new AWSS3UploadAshClient(this.config);
 
   submit = false
-  formData = {}
-  // htmlEditor!: string;
-  // object: object | undefined;
+  images: any = null;
+  multyImages = []
+
+
 
   CourseData = this.formBuilder.group({
     courseName: ['', Validators.required],
-    date: new FormControl('', [Validators.required]),
-    plan1: new FormControl('', [Validators.required]),
-    plan2: new FormControl('', [Validators.required]),
-    plan3: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
+    plan1: ['', Validators.required],
+    plan2: ['', Validators.required],
+    plan3: ['', Validators.required],
+    date: ['', Validators.required],
+    description: ['', Validators.required]
   })
 
   get f() {
@@ -39,11 +52,22 @@ export class AddCourseComponent {
   }
 
 
-  onsubmit() {
-    this.submit = true
-    this.formData = this.CourseData.value
 
-    this.service.addCourse(this.formData).subscribe((data) => {
+  onFileSelecete(event: any) {
+    const file: File = event.target.files[0];
+    console.log(file);
+    
+  }
+
+  onsubmit() {
+
+    this.CourseData = this.images
+
+      const data = this.CourseData
+
+
+
+    this.service.addCourse(data).subscribe((data) => {
       if (!data) {
         window.alert('form not Submitted')
       } else {
@@ -59,6 +83,8 @@ export class AddCourseComponent {
 
 
 
-
 }
+
+
+
 
