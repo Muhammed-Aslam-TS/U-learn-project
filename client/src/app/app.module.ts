@@ -19,7 +19,9 @@ import { AboutPageComponent } from './components/home/about-page/about-page.comp
 import { NavBarComponent } from './shared/components/user/nav-bar/nav-bar.component';
 import { AdminNavBarComponent } from './shared/components/admin/admin-nav-bar/admin-nav-bar.component';
 import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
-import { UserDashBoardComponent } from './components/user/user-dash-board/user-dash-board.component';
+import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
+import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
+import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-bar/dash-bord-nav-bar.component';
 
 
 
@@ -37,7 +39,9 @@ import { UserDashBoardComponent } from './components/user/user-dash-board/user-d
     NavBarComponent,
     AdminNavBarComponent,
     TextEditorComponent,
-    UserDashBoardComponent,
+    DashBoardComponent,
+    ChatBoxComponent,
+    DashBordNavBarComponent,
   ],
   imports: [
     BrowserModule,

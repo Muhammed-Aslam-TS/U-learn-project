@@ -23,7 +23,7 @@ export const UserAuthService = ()=>{
     };
 
     const generateRefreshToken = async(payload : string )=>{
-        const token = await jwt.sign({payload}, dotenvConfig.refresh_token_key , {expiresIn:"12w"});
+        const token = await jwt.sign({payload}, dotenvConfig.refresh_token_key , {expiresIn:"1h"});
         return token;
     };
 

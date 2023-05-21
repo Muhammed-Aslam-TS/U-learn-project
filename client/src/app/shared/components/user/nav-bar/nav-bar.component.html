@@ -20,7 +20,7 @@
           <li><a class="px-4 hover:text-gray-800" href="#">About</a></li>
           <li><a class="px-4 hover:text-gray-800" href="#">Contact</a></li>
   
-          <li *ngIf="!show"><a class="px-4 hover:text-gray-800" href="#">My Account</a></li>
+          <li *ngIf="!show"><a class="px-4 hover:text-gray-800" routerLink="dashBoard">My Account</a></li>
           <li>
             <button *ngIf="show" (click)="logIn()" type="button" class="text-dark">LogIn</button>
             <button *ngIf="!show" (click)="LogOut()" type="button" class="text-dark">LogOut</button>

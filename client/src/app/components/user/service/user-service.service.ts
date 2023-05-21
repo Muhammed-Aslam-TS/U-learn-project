@@ -12,6 +12,12 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserServiceService {
+  getLoggedInUser() {
+    throw new Error('Method not implemented.');
+  }
+  getChatRoomsChat(chatroom: string | undefined) {
+    throw new Error('Method not implemented.');
+  }
 
   private ApiUrl = 'http://localhost:4000/';
 
