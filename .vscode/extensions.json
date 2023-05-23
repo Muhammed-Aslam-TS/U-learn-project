@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "formulahendry.terminal"
+        "formulahendry.terminal",
+        "ms-azuretools.vscode-docker"
     ]
 }

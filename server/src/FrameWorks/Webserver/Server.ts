@@ -1,5 +1,7 @@
 import { Application } from "express";
 
+
+
 const Server= (app:Application)=>{
     app.listen(4000,()=>{
         // eslint-disable-next-line no-console
@@ -7,4 +9,17 @@ const Server= (app:Application)=>{
     })
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 export default Server
+

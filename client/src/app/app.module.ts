@@ -22,6 +22,7 @@ import { TextEditorComponent } from './components/course/text-editor/text-editor
 import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-bar/dash-bord-nav-bar.component';
+import { ChatUserComponent } from './components/user/user-dash-board/chat-user/chat-user.component';
 
 
 
@@ -42,6 +43,7 @@ import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-
     DashBoardComponent,
     ChatBoxComponent,
     DashBordNavBarComponent,
+    ChatUserComponent,
   ],
   imports: [
     BrowserModule,

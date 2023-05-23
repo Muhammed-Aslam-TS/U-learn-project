@@ -6,7 +6,7 @@ import { UserAuthGuardeServiceService } from './guard/user/user-auth-guarde-serv
 import { UserUnAuthGuardeServiceService } from './guard/user/user-un-auth-guarde-service.service';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { AddCourseComponent } from './components/course/add-course/add-course.component';
-import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
+// import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
 import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 

@@ -5,11 +5,11 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import compression from "compression";
 
-import socketIo from "socket.io";
 
-import multer from "multer";
 
-const upload = multer({ dest: "uploads/" })
+// import multer from "multer";
+
+// const upload = multer({ dest: "uploads/" })
 
 // const Io = sockeIo(server)
 
@@ -22,6 +22,7 @@ const corsOption = {
 }
 
 
+
 const ExpressConfig = (app: Application) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }))
@@ -30,9 +31,13 @@ const ExpressConfig = (app: Application) => {
   app.use(express.static("public"))
   app.use(compression())
   app.use(cors(corsOption))
+  
   // app.use(socketIo(socketIo))
 
 }
+
+
+
 
 
 export default ExpressConfig
