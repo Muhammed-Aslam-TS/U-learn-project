@@ -21,7 +21,7 @@ export class NavBarComponent {
     }
   }
   logIn() {
-    this.router.navigate(['logIn'])
+    this.router.navigate(['login'])
   }
 
   LogOut() {

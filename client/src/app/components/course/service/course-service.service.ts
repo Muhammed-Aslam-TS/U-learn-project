@@ -20,7 +20,8 @@ export class CourseServiceService {
 
   constructor(private http: HttpClient) { }
 
-  addCourse(data: any): Observable<any> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  addCourse(data:any): Observable<any> {
     console.log(data,'data vannu-------------------------');
     return this.http.post<any>(
       `${this.ApiUrl}addCourse`,

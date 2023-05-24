@@ -7,6 +7,8 @@ import { CourseDatabase } from '../../../Database/MongoDb/Repositories/AddCoures
 import CourseReppo from '../../../../applications/Repositories/CourseReppo';
 
 
+
+
 const app = express.Router()
 
 const Controller = CourseController(
@@ -16,7 +18,7 @@ const Controller = CourseController(
     UserCourseServiceInterface,
 )
 
-app.post('/addCourse',Controller.addCourseDatails)
+// app.post('/addCourse',upload.single('courseImage'),Controller.addCourseDatails)
 // app.post('/textEditor',(req:Request,res:Response)=>{
 //     // eslint-disable-next-line no-console
 //     console.log(req.body);

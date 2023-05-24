@@ -26,7 +26,7 @@ const CourseController = (
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
         const CorseData: CourseInterface = req.body
         console.log(CorseData, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-        console.log(req.body.File[1], 'ffffffffffffffffffffffffffffffffffffffffile');
+        console.log(req.body.File, 'ffffffffffffffffffffffffffffffffffffffffile');
 
         const response = await addCourse(CorseData, CourseAddRepo, UserCorseServices)
 

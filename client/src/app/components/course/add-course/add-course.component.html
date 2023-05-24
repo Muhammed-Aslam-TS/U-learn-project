@@ -1,55 +1,84 @@
 <div class="flex justify-evenly h-screen items-center">
-
-
   <!-- <div class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 "> -->
 
-
-  <form action="" [formGroup]="CourseData" (ngSubmit)="onsubmit()" enctype="multipart/form-data"
-    class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8 ">
-    <p *ngIf="f&&f.courseName.invalid &&f.courseName.touched" class="text-red-600">Course Name is invalid</p>
+  <form
+    action=""
+    (ngSubmit)="onsubmit()"
+    enctype="multipart/form-data"
+    class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8"
+  >
+    <!-- <p *ngIf="f&&f.courseName.invalid &&f.courseName.touched" class="text-red-600">Course Name is invalid</p>
     <p *ngIf="f&&f.plan1.invalid &&f.plan1.touched" class="text-red-600">Plan 1 is invalid</p>
     <p *ngIf="f&&f.plan2.invalid &&f.plan2.touched" class="text-red-600">Plan 2 is invalid</p>
     <p *ngIf="f&&f.plan3.invalid &&f.plan3.touched" class="text-red-600">Plan 3 is invalid</p>
     <p *ngIf="f&&f.date.invalid &&f.date.touched" class="text-red-600">Date is invalid</p>
-    <!-- <p *ngIf="f&&f.image.invalid &&f.image.touched" class="text-red-600">File is invalid</p> -->
-    <p *ngIf="f&&f.description.invalid &&f.description.touched" class="text-red-600">Description is invalid</p>
-
-
+  <p *ngIf="f&&f.image.invalid &&f.image.touched" class="text-red-600">File is invalid</p>
+    <p *ngIf="f&&f.description.invalid &&f.description.touched" class="text-red-600">Description is invalid</p>  -->
 
     <label for="Enter your Course">Enter your Course</label>
     <div>
-      <input type="text" formControlName="courseName"
-        [ngClass]="{'@error(courseName) border-red-500 @enderror':submit&&f.courseName.errors}"
-        class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4" placeholder="Enter your Course">
+      <input
+      [(ngModel)]="courseName"
+        type="text"
+        name="courseName"
+        class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="Enter your Course"
+      />
     </div>
     <label for="">Course Plan</label>
     <div>
-      <input type="text" formControlName="plan1"
-        [ngClass]="{'@error(plan1) border-red-500 @enderror':submit&&f.plan1.errors}"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="0 Month">
-      <input type="text" formControlName="plan2"
-        [ngClass]="{'@error(plan2) border-red-500 @enderror':submit&&f.plan2.errors}"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="5 Month">
-      <input type="text" formControlName="plan3"
-        [ngClass]="{'@error(plan3) border-red-500 @enderror':submit&&f.plan3.errors}"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="1 year">
+      <input
+      [(ngModel)]="plan1"
+        type="text"
+        name="plan1"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="0 Month"
+      />
+      <input
+      [(ngModel)]="plan2"
+        type="text"
+        name="plan2"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="5 Month"
+      />
+      <input
+      [(ngModel)]="plan3"
+        type="text"
+        name="plan3"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="1 year"
+      />
     </div>
-    <br>
+    <br />
     <label for="">Upload Date</label>
     <div>
-      <input type="date" formControlName="date"
-        [ngClass]="{'@error(date) border-red-500 @enderror':submit&&f.date.errors}"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="0 Month">
+      <input
+      [(ngModel)]="date"
+        type="date"
+        name="date"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="0 Month"
+      />
 
-      <input type="file" formControlName="image" (change)="onFileSelecete($event)"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4" placeholder="5 Month">
+      <input
+      [(ngModel)]="image"
+        type="file"
+        name="image"
+        (change)="onFileSelecte($event)"
+        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="5 Month"
+      />
     </div>
 
     <label for="">Description About Course</label>
     <div>
-      <input type="text" formControlName="description"
-        [ngClass]="{'@error(description) border-red-500 @enderror':submit&&f.description.errors}"
-        class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4" placeholder="Enter your Description">
+      <input
+      [(ngModel)]="discription"
+        type="text"
+        name="description"
+        class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4"
+        placeholder="Enter your Description"
+      />
     </div>
 
     <!-- <label for="">Write a Small Blog About your Course </label>
@@ -57,32 +86,17 @@
         <app-text-editor></app-text-editor>
       </div> -->
     <div class="flex justify-end">
-      <button [disabled]="CourseData.invalid"
-        class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md	uppercase hover:text-green-700">Submit
-        Course</button>
+      <button
+        class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md uppercase hover:text-green-700"
+      >
+        Submit Course
+      </button>
     </div>
   </form>
   <!-- </div> -->
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
+<!--
 
 <mat-stepper labelPosition="bottom" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -110,5 +124,5 @@
             </div>
         </form>
     </mat-step>
-   
+
 </mat-stepper> -->

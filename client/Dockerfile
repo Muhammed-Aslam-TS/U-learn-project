@@ -23,7 +23,7 @@ FROM nginx:1.21.0-alpine
 # Copy the built Angular app from the previous stage
 COPY --from=build /app/dist/angular-app /usr/share/nginx/html
 
-# Expose the port on which the app will run (default: 80)
+# Exposethe port on which the app will run (default: 80)
 EXPOSE 80
 
 # Start the NGINX server

@@ -1,26 +1,12 @@
-FROM node:18.16.0
-
-ARG WORK_DIR=/frontend
-ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
-
-RUN mkdir ${WORK_DIR}
-WORKDIR ${WORK_DIR}
-
-COPY package.json ${WORK_DIR}
-COPY package-lock.json ${WORK_DIR}
-
-RUN npm install @angular/cli
+# Stage 1: Build an Angular Docker Image
+FROM node as build
+WORKDIR /app
+COPY package*.json /app/
 RUN npm install
-
-COPY . ${WORK_DIR}
-
-EXPOSE 4200
-
-CMD ng serve --host 0.0.0.0
-# docker build -t aslu/client .
-
-
-
-
-
-
+COPY . /app
+ARG configuration=production
+RUN npm run build -- --outputPath=./dist/out --configuration $configuration
+# Stage 2, use the compiled app, ready for production with Nginx
+FROM nginx
+COPY --from=build /app/dist/out/ /usr/share/nginx/html
+COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf

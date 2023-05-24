@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { Request, Response } from "express";
+import initializeApp from "firebase-admin"
 import asyncHandler from "express-async-handler";
 import { UserInterFace } from "../../Types/UserInterFace";
 import { TypeOfUserDb } from "../../FrameWorks/Database/MongoDb/Repositories/UserDb";
@@ -39,11 +40,21 @@ const UserController = (
         res.json(response);
     });
 
-  
+    
+  const GoogleSignUp = asyncHandler (async (req: Request, res: Response)=>{
+    
+    console.log(req.body,'google login token vannu');
+    const user = req.body.token
+    // console.log(initializeApp.credential.cert().getAccessToken(),'fffffffffire____________');
+    
+
+  })
+
 
     return {
         DoSignup,
         DoLogin,
+        GoogleSignUp
     };
 };
 

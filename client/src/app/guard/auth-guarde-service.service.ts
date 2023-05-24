@@ -8,4 +8,5 @@ export class AuthGuardeServiceService {
   IsUserLoggedIn() {
     return !!localStorage.getItem('userToken');
   }
+  
 }

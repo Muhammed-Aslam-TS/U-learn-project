@@ -28,8 +28,8 @@
               "src/styles.css",
               "node_modules/quill/dist/quill.snow.css",
               "node_modules/font-awesome/css/font-awesome.css"
-              
-             
+
+
             ],
             "scripts": []
           },
@@ -55,7 +55,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -79,10 +85,10 @@
           }
         },
         "test": {
+
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
@@ -115,4 +121,6 @@
       "@angular-eslint/schematics"
     ]
   }
+
+
 }
