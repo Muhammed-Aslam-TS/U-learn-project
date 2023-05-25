@@ -8,3 +8,10 @@ export interface UserInterFace {
     ConfirmPassword: string;
 
 }
+
+export interface GoogleUserInterface {
+    uid?:string;
+    userName?:string;
+    email?:string;
+    image?:string
+}

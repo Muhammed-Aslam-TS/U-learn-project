@@ -37,6 +37,22 @@ const UserSchema = new mongoose.Schema({
     ConfirmPassword: {
         type: String,
         required: true,
+    },
+    uid:{
+        type: String,
+        required: true,
+    },
+    userName:{
+        type: String,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true,
+    },
+    image:{
+        type: String,
+        required: true,
     }
 })
 

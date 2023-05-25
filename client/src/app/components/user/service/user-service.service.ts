@@ -44,11 +44,11 @@ export class UserServiceService {
   }
 
 
-  googleSignIn(token: string) {
-    console.log(token, 'ttttttttttttttttttttttttttt')
+  googleSignIn(data:any) {
+    console.log(data, 'ttttttttttttttttttttttttttt')
     return this.http.post<any>(
       `${this.ApiUrl}googleSignup`,
-      JSON.stringify({token}),
+      JSON.stringify({data}),
       httpOptions
     )
   }

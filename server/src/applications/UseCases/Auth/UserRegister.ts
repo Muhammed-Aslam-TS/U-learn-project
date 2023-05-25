@@ -5,6 +5,7 @@ import { typeOfUserRepo } from "../../Repositories/UserReppo";
 import { typeOfUserAuthServiceInterFace } from "../../Services/UserAuthserviceInterFacw";
 
 
+
 export const addUser = async (
     UserData: UserInterFace,
     UserDb: ReturnType<typeOfUserRepo>,
@@ -16,7 +17,6 @@ export const addUser = async (
 
     UserData.ConfirmPassword = await UserAuthService.EncriptPassword(UserData.ConfirmPassword);
     const User = await UserDb.DoSignUP(UserData);
-
     return {
         User
     };
@@ -40,6 +40,7 @@ export const userLogin = async (
         const refreshToken = await UserAuthService.generateRefreshToken(User._id as string);
         return { User, token, refreshToken };
     }
-
-
 };
+
+
+

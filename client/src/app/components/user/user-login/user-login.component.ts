@@ -15,6 +15,7 @@ export class UserLoginComponent {
   form!: FormGroup;
   token:any = ''
 
+
   constructor(
     private userService: UserServiceService,
     private router: Router,
@@ -43,20 +44,31 @@ export class UserLoginComponent {
   }
 
   signInWithGoole() {
-    console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+    this.fireauth.signInWithPopup(new GoogleAuthProvider).then((res) => {
+      // console.log(data,'________________________jjjjjjjjjjjjjjjjjjjjjj')
+      const data = res.additionalUserInfo?.profile
+      console.log(data);
+      
+        this.userService.googleSignIn(res).subscribe((respons) => {
+   console.log(respons.Uid, '______________________________________');
+          if (!respons.Uid) {
+            window.alert('token not existed')
+          } else {
+            if (respons.Uid) {
+              window.alert('id ok')
+              localStorage.setItem('userToken', JSON.stringify(respons.Uid))
+              this.router.navigate(['']);
+            } else {
+              this.router.navigate(['login']);
+            }
+          }
 
-    this.fireauth.signInWithPopup(new GoogleAuthProvider).then((res: any) => {
-      this.router.navigate([''])
-      localStorage.setItem('userToken', JSON.stringify(res.user?.uid))
-      this.token = localStorage.getItem("userToken")
-      console.log(this.token,'+++++++++++++++++++++++');
 
-      const token = this.token
-      if (token) {
-        this.userService.googleSignIn(token).subscribe((data) => {
-          console.log(data.message, '______________________________________');
+
+       
+          // this.router.navigate([''])
+
         })
-       }
     })
   }
 
