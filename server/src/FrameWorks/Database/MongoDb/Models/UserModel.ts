@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 import validator from "validator";
 
 const UserSchema = new mongoose.Schema({
@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
         validator: [
             {
                 validator: function(value: string ) {
-                    return /^\d{10}$/.test(value)
+                    return /^\d{10}$/.test(value);
                 },
                 message: "Invalid Number" 
             }
@@ -38,23 +38,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    uid:{
-        type: String,
-        required: true,
-    },
-    userName:{
-        type: String,
-        required: true,
-    },
-    email:{
-        type: String,
-        required: true,
-    },
-    image:{
-        type: String,
-        required: true,
-    }
-})
+    
+});
 
-const userModel = mongoose.model('users', UserSchema)
+const userModel = mongoose.model("users", UserSchema);
 export default userModel;

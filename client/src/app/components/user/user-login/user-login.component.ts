@@ -13,7 +13,7 @@ import { GoogleAuthProvider, GithubAuthProvider, } from "@angular/fire/auth"
 })
 export class UserLoginComponent {
   form!: FormGroup;
-  token:any = ''
+  token: any = ''
 
 
   constructor(
@@ -48,32 +48,32 @@ export class UserLoginComponent {
       // console.log(data,'________________________jjjjjjjjjjjjjjjjjjjjjj')
       const data = res.additionalUserInfo?.profile
       console.log(data);
-      
-        this.userService.googleSignIn(res).subscribe((respons) => {
-   console.log(respons.Uid, '______________________________________');
-          if (!respons.Uid) {
-            window.alert('token not existed')
+
+      this.userService.googleSignIn(res).subscribe((respons) => {
+        // console.log(respons.uid, '______________________________________');
+        if (!respons.uid) {
+          window.alert('token not existed')
+        } else {
+          if (respons.uid) {
+            window.alert('id ok')
+            localStorage.setItem('userToken', JSON.stringify(respons.uid))
+            this.router.navigate(['']);
           } else {
-            if (respons.Uid) {
-              window.alert('id ok')
-              localStorage.setItem('userToken', JSON.stringify(respons.Uid))
-              this.router.navigate(['']);
-            } else {
-              this.router.navigate(['login']);
-            }
+            this.router.navigate(['login']);
           }
+        }
 
 
 
-       
-          // this.router.navigate([''])
 
-        })
+        // this.router.navigate([''])
+
+      })
     })
   }
 
   // ngOnInit(){
-  
+
   // }
 }
 

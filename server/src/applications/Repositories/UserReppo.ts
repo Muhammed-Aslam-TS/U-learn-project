@@ -1,16 +1,16 @@
-import { TypeOfUserDb } from '../../FrameWorks/Database/MongoDb/Repositories/UserDb';
-import { UserInterFace } from '../../Types/UserInterFace';
+import { TypeOfUserDb } from "../../FrameWorks/Database/MongoDb/Repositories/UserDb";
+import { UserInterFace } from "../../Types/UserInterFace";
 
 
 const UserReppo = (Repository: ReturnType<TypeOfUserDb>) => {
 
-    const DoSignUP = (userData: UserInterFace) => { return Repository.DoSignUP(userData) }
+    const DoSignUP = (userData: UserInterFace) => { return Repository.DoSignUP(userData); };
 
-    const findByEmail = (Email: string) => { return Repository.findByEmail(Email) }
+    const findByEmail = (Email: string) => { return Repository.findByEmail(Email); };
 
-    const GoogleSignUP = (userData: object) => { return Repository.googleSignUp(userData) }
+    const GoogleSignUP = (userData: object) => { return Repository.googleSignUp(userData); };
 
-    const findUid = (userData:object)=>{ return Repository.findGoogleData(userData)}
+    const findUid = (userData:object)=>{ return Repository.findGoogleData(userData);};
 
 
 
@@ -20,9 +20,9 @@ const UserReppo = (Repository: ReturnType<TypeOfUserDb>) => {
         findByEmail,
         GoogleSignUP,
         findUid
-    }
-}
+    };
+};
 
-export default UserReppo
+export default UserReppo;
 
 export type typeOfUserRepo = typeof UserReppo

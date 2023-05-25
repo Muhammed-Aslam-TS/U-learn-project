@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 import validator from "validator";
 
 const GoogleUserSchema = new mongoose.Schema({
@@ -18,7 +18,7 @@ const GoogleUserSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
-})
+});
 
-const GoogleUserModel = mongoose.model('GoogleUsers', GoogleUserSchema)
+const GoogleUserModel = mongoose.model("GoogleUsers", GoogleUserSchema);
 export default GoogleUserModel;

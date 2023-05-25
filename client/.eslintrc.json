@@ -41,7 +41,13 @@
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
-      "rules": {}
+      "rules": {
+        "no-console":"error",
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"],
+        "no-extra-semi": "off",
+        "@typescript-eslint/no-extra-semi": "error"
+      }
     }
   ]
 }

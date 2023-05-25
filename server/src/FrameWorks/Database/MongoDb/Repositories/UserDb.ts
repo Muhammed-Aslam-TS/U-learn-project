@@ -5,30 +5,25 @@ import { GoogleUserInterface, UserInterFace } from "../../../../Types/UserInterF
 export function UserDatabase() {
 
     const DoSignUP = async (userData: UserInterFace) => {
-        const User = await userModel.create(userData)
-        return User
-    }
+        const User = await userModel.create(userData);
+        return User;
+    };
 
     const findByEmail = async (Email: string) => {
-        const User: UserInterFace | null = await userModel.findOne({ 'Email': Email })
-        return User
-    }
+        const User: UserInterFace | null = await userModel.findOne({ "Email": Email });
+        return User;
+    };
 
     const googleSignUp = async (userData: GoogleUserInterface) => {
-        const User = await GoogleUserModel.create(userData)
-        return User
-    }
+        const User = await GoogleUserModel.create(userData);
+        return User;
+    };
 
     const findGoogleData = async (userData: GoogleUserInterface) => {
-        console.log(userData.email);
-        const Email = userData.email
-
-        console.log(Email,'Email_____________________-----');
-        
-        
-        const googleData = await GoogleUserModel.findOne({ 'email':Email })
-        return googleData
-    }
+        const Email = userData.email;
+        const googleData = await GoogleUserModel.findOne({ "email":Email });
+        return googleData;
+    };
 
 
     return {
@@ -36,7 +31,7 @@ export function UserDatabase() {
         findByEmail,
         googleSignUp,
         findGoogleData
-    }
+    };
 }
 
 export type TypeOfUserDb = typeof UserDatabase

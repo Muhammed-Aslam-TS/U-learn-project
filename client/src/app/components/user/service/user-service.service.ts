@@ -43,9 +43,7 @@ export class UserServiceService {
     )
   }
 
-
   googleSignIn(data:any) {
-    console.log(data, 'ttttttttttttttttttttttttttt')
     return this.http.post<any>(
       `${this.ApiUrl}googleSignup`,
       JSON.stringify({data}),

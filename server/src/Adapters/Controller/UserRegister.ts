@@ -43,31 +43,27 @@ const UserController = (
 
     const GoogleSignUp = asyncHandler(async (req: Request, res: Response) => {
 
-        const user = req.body.data.user
+        const user = req.body.data.user;
         const userData = {
             uid: user.uid,
             userName: user.displayName,
             email: user.email,
             image: user.photoURL
-        }
+        };
 
-        const GoogleUser = await googleData(UserdbRepo, userData)
-
-        console.log(GoogleUser.googleData?.email, 'googleIser___________________________________');
-
+        const GoogleUser = await googleData(UserdbRepo, userData);
 
         if (userData.email === GoogleUser.googleData?.email) {
-            const response = { email: GoogleUser.googleData?.email, Uid: GoogleUser.googleData?.uid }
+            const response = { email: GoogleUser.googleData?.email,uid:GoogleUser.googleData?.uid };
             res.json(response);
         } else {
             const response = await googleLogin(userData, UserdbRepo);
-            console.log(response, 'rrrrrrrrrrrrrrrrrrrrrsopese');
             res.json(response);
         }
 
 
 
-    })
+    });
 
 
 

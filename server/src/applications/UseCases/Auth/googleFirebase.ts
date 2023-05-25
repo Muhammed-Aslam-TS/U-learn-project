@@ -8,23 +8,23 @@ import { typeOfUserAuthServiceInterFace } from "../../Services/UserAuthserviceIn
 export const googleLogin = async (
     userData: object,
     UserDb: ReturnType<typeOfUserRepo>,
-) => {
-
+) => {  
     const User = await UserDb.GoogleSignUP(userData);
+ 
 
     return {
         User
-    }
+    };
 
 };
 
 export const googleData = async (
     UserDb: ReturnType<typeOfUserRepo>,
     userData: object) => {
-    const googleData = await UserDb.findUid(userData)
+    const googleData = await UserDb.findUid(userData);
 
 
     return {
         googleData
-    }
-}
+    };
+};
