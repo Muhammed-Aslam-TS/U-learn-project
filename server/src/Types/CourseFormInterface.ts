@@ -6,5 +6,6 @@ export interface CourseInterface {
     plan1: number;
     plan2: number;
     plan3: number;
+    discription:string;
 
 }

@@ -10,7 +10,7 @@ const Router = (app:Application)=>{
         
     // })
     app.use("/",UserRouter);
-    app.use('/',AddCourseRouter)
+    app.use("/",AddCourseRouter);
 };
 
 export default Router;

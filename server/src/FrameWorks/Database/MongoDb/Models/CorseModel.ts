@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 import validator from "validator";
 
 const CourseSchema = new mongoose.Schema({
@@ -26,11 +26,11 @@ const CourseSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    description: {
+    discription: {
         type: String,
         required: true,
     }
-})
+});
 
-const courseModel = mongoose.model('Course', CourseSchema)
+const courseModel = mongoose.model("Course", CourseSchema);
 export default courseModel;

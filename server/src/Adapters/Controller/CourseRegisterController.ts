@@ -10,8 +10,6 @@ import { typeOfCourseRepo } from "../../applications/Repositories/CourseReppo";
 
 
 
-
-
 const CourseController = (
     CourseDatabase: TypeOfCourseDb,
     CourseRepo: typeOfCourseRepo,
@@ -24,6 +22,8 @@ const CourseController = (
     const UserCorseServices = UserCourseServiceInterface(UserCorseService());
 
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
+        console.log(req.file,"/////////////////////////////////");
+        
         const CorseData: CourseInterface = req.body;
         console.log(CorseData, "hhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         console.log(req.body.File, "ffffffffffffffffffffffffffffffffffffffffile");

@@ -5,9 +5,9 @@ import { Application } from "express";
 const Server= (app:Application)=>{
     app.listen(4000,()=>{
         // eslint-disable-next-line no-console
-        console.log(`server start on port 4000`);  
-    })
-}
+        console.log("server start on port 4000");  
+    });
+};
 
 
 
@@ -21,5 +21,5 @@ const Server= (app:Application)=>{
 
 
 
-export default Server
+export default Server;
 

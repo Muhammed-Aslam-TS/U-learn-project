@@ -4,5 +4,5 @@ export interface addCourseInterface {
     plan2 : number,
     plan3 : number,
     courseName:string,
-    file:ImageBitmap
+    discription:string;
 }
