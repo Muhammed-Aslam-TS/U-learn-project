@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
-import { addCourseInterface } from 'src/app/models/interFace';
+// import { addCourseInterface } from 'src/app/models/interFace';
 
 
 
@@ -24,7 +24,7 @@ export class CourseServiceService {
     console.log(data,'data vannu-------------------------');
     return this.http.post<any>(
       `${this.ApiUrl}addCourse`,
-      JSON.stringify({data}),
+      JSON.stringify(data),
       httpOptions
     )
   }

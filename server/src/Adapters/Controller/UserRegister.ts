@@ -54,7 +54,7 @@ const UserController = (
         const GoogleUser = await googleData(UserdbRepo, userData);
 
         if (userData.email === GoogleUser.googleData?.email) {
-            const response = { email: GoogleUser.googleData?.email,uid:GoogleUser.googleData?.uid };
+            const response = { email: GoogleUser.googleData?.email, uid: GoogleUser.googleData?.uid };
             res.json(response);
         } else {
             const response = await googleLogin(userData, UserdbRepo);

@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { AdminModule } from './components/admin/admin.module';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,13 +21,11 @@ import { UserRegisterComponent } from './components/user/user-register/user-regi
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { AboutPageComponent } from './components/home/about-page/about-page.component';
 import { NavBarComponent } from './shared/components/user/nav-bar/nav-bar.component';
-import { AdminNavBarComponent } from './shared/components/admin/admin-nav-bar/admin-nav-bar.component';
 import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
 import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-bar/dash-bord-nav-bar.component';
 import { ChatUserComponent } from './components/user/user-dash-board/chat-user/chat-user.component';
-
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -49,12 +48,12 @@ const firebase = {
     HomePageComponent,
     AboutPageComponent,
     NavBarComponent,
-    AdminNavBarComponent,
     TextEditorComponent,
     DashBoardComponent,
     ChatBoxComponent,
     DashBordNavBarComponent,
     ChatUserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -68,6 +67,8 @@ const firebase = {
     BrowserAnimationsModule,
     MatStepperModule,
     AngularFireModule.initializeApp(firebase),
+    AdminModule,
+    
 
   ],
   providers: [],

@@ -11,15 +11,14 @@ import { DashBoardComponent } from './components/user/user-dash-board/dash-board
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 
 const routes: Routes = [
-   { path: 'login', component: UserLoginComponent,canActivate:[UserUnAuthGuardeServiceService] },
-  { path: 'signup', component: UserRegisterComponent,canActivate:[UserUnAuthGuardeServiceService]},
-  { path: '', component: HomePageComponent},
-  { path: 'addCourse', component: AddCourseComponent,canActivate:[UserAuthGuardeServiceService]},
+  { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
+  { path: 'signup', component: UserRegisterComponent, canActivate: [UserUnAuthGuardeServiceService] },
+  { path: '', component: HomePageComponent },
+  { path: 'addCourse', component: AddCourseComponent, canActivate: [UserAuthGuardeServiceService] },
   // { path: 'userDashboard', component: UserDashBoardComponent,canActivate:[UserAuthGuardeServiceService]},
-  { path: 'dashBoard', component: DashBoardComponent,canActivate:[UserAuthGuardeServiceService]},
-  { path: 'chatBox', component: ChatBoxComponent,canActivate:[UserAuthGuardeServiceService]},
-
-
+  { path: 'dashBoard', component: DashBoardComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'chatBox', component: ChatBoxComponent, canActivate: [UserAuthGuardeServiceService] },
+  
 ];
 
 @NgModule({

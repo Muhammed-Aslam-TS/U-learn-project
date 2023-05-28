@@ -39,8 +39,14 @@ export class AddCourseComponent  {
       formData.append('discription', this.uploadForm.value.discription);
       formData.append('file', this.selectedFile);
       
-      this.service.addCourse(formData).subscribe(
-        (response) => {
+   formData.forEach((value:FormDataEntryValue,key:string)=>{
+    console.log(`key: ${key}`);
+    console.log(`value: ${value}`);
+   })
+
+   console.log(formData.getAll,'2222222222222222222222222222');
+
+      this.service.addCourse(formData).subscribe((response) => {
           console.log(response);
         },
         (error) => {

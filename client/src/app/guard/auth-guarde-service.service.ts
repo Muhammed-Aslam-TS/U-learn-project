@@ -8,5 +8,9 @@ export class AuthGuardeServiceService {
   IsUserLoggedIn() {
     return !!localStorage.getItem('userToken');
   }
+
+  IsAdminLoggedIn(){
+    return !!localStorage.getItem('adminEmail')
+  }
   
 }

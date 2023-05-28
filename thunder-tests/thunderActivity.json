@@ -1,0 +1,59 @@
+[
+  {
+    "_id": "35b0215a-78a3-4b57-b9d2-dad76210f5ff",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost:4000/adminLogin",
+    "url": "https://localhost:4000/adminLogin",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-05-27T06:56:24.598Z",
+    "modified": "2023-05-27T06:56:24.598Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n   \"Email\":\"admin@gmail.com\",\n    \"Password\" : \"admin123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "02490cc5-4638-4d81-909c-e915149017ed",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:4000/adminLogin",
+    "url": "localhost:4000/adminLogin",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-05-27T06:58:08.191Z",
+    "modified": "2023-05-27T06:58:08.191Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n   \"Email\":\"admin@gmail.com\",\n    \"Password\" : \"admin123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "337eb425-c769-4997-85a6-697b7e4f02ea",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:4000/admin/adminLogin",
+    "url": "localhost:4000/admin/adminLogin",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-05-27T07:03:00.196Z",
+    "modified": "2023-05-27T07:03:00.196Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n   \"Email\":\"admin@gmail.com\",\n    \"Password\" : \"admin123\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

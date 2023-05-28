@@ -1,0 +1,25 @@
+<div class="flex h-screen w-full justify-center items-center">
+  <div class="card">
+    <span class="card__title">Login Admin Account</span>
+    <p class="card__content">
+      Get fresh web design resdfgdsfgdfsgsdfgsdfgsdfgdfgources delivered
+      straight to your inbox every week.
+    </p>
+
+    <div class="card__form">
+      <input
+        placeholder="Your Email"
+        value="admin@gmail.com"
+        type="text"
+        [(ngModel)]="loginObj.Email"
+      />
+      <input
+        placeholder="Your Password"
+        value="admin123"
+        type="password"
+        [(ngModel)]="loginObj.Password"
+      />
+      <button class="button-card" (click)="DoLogin()">Log In</button>
+    </div>
+  </div>
+</div>
