@@ -34,7 +34,9 @@ export class UserLoginComponent {
         window.alert('token not existed')
       } else {
         if (data.token) {
+          
           localStorage.setItem('userToken', data.token);
+          localStorage.setItem('userId', data.User._id);
           this.router.navigate(['']);
         } else {
           this.router.navigate(['login']);
@@ -45,18 +47,19 @@ export class UserLoginComponent {
 
   signInWithGoole() {
     this.fireauth.signInWithPopup(new GoogleAuthProvider).then((res) => {
-      // console.log(data,'________________________jjjjjjjjjjjjjjjjjjjjjj')
+      console.log(res,'________________________jjjjjjjjjjjjjjjjjjjjjj')
       const data = res.additionalUserInfo?.profile
       console.log(data);
 
       this.userService.googleSignIn(res).subscribe((respons) => {
-        // console.log(respons.uid, '______________________________________');
+        console.log(respons, '______________________________________');
         if (!respons.uid) {
           window.alert('token not existed')
         } else {
           if (respons.uid) {
             window.alert('id ok')
             localStorage.setItem('userToken', JSON.stringify(respons.uid))
+            localStorage.setItem('userId', JSON.stringify(respons.userId))
             this.router.navigate(['']);
           } else {
             this.router.navigate(['login']);

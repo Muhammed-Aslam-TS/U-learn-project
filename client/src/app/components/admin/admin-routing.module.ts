@@ -5,6 +5,7 @@ import { AdminLogInComponent } from './admin-log-in/admin-log-in.component';
 import { AdminDashBoardComponent } from './admin-dash-board/admin-dash-board.component';
 import { AdminAuthGuardService } from 'src/app/guard/admin/admin-auth-guard.service';
 import { AdminUnAuthGuardService } from 'src/app/guard/admin/admin-un-auth-guard.service';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'login', component: AdminLogInComponent,canActivate: [AdminUnAuthGuardService] },
       { path: 'dashBoard', component: AdminDashBoardComponent,canActivate: [AdminAuthGuardService] },
+      { path: 'allUsers', component: AllUsersComponent,canActivate: [AdminAuthGuardService] },
     ]
   },
 

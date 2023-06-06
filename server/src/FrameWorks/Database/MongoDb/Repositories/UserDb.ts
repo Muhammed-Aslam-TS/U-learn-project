@@ -5,6 +5,8 @@ import { GoogleUserInterface, UserInterFace } from "../../../../Types/UserInterF
 export function UserDatabase() {
 
     const DoSignUP = async (userData: UserInterFace) => {
+       
+        userData.Status = "Offline";
         const User = await userModel.create(userData);
         return User;
     };
@@ -15,6 +17,7 @@ export function UserDatabase() {
     };
 
     const googleSignUp = async (userData: GoogleUserInterface) => {
+        userData.Status = "Offline";
         const User = await GoogleUserModel.create(userData);
         return User;
     };

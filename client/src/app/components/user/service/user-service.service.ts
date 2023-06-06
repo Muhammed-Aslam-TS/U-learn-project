@@ -15,12 +15,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserServiceService {
-  // getLoggedInUser() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // getChatRoomsChat(chatroom: string | undefined) {
-  //   throw new Error('Method not implemented.');
-  // }
 
   private ApiUrl = 'http://localhost:4000/';
 
@@ -43,10 +37,10 @@ export class UserServiceService {
     )
   }
 
-  googleSignIn(data:any) {
+  googleSignIn(data: any): Observable<any> {
     return this.http.post<any>(
-      `${this.ApiUrl}googleSignup`,
-      JSON.stringify({data}),
+      `${this.ApiUrl}dashBoard`,
+      JSON.stringify({ data }),
       httpOptions
     )
   }

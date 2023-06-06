@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
-  constructor(private router: Router) {
+export class HomePageComponent implements OnInit{
+
+  courseData:any[] =[]
+  userId?:string
+
+  constructor(private router: Router,private service:HomeService) {
     const user = localStorage.getItem('userToken');
     user?this.show1=true :this.show1=false
   }
@@ -16,5 +21,29 @@ export class HomePageComponent {
 
   signUp() {
     this.router.navigate(['login']);
+  }
+
+  ngOnInit() {
+    this.service.GetAllCourse().subscribe((data: any) => {
+      this.courseData = data
+      console.log(this.courseData,'course dataaaaaaaaaaaaaa');
+      
+    })
+  }
+
+  handleClick(ownerId:string,coursId:string){
+    const UserId = localStorage.getItem('userId')
+
+    const data = {
+    userId:UserId,
+    ownerId:ownerId,
+    coursId:coursId
+    }
+
+this.service.chatRoom(data).subscribe((data:any)=>{
+  console.log(data);
+})
+
+    this.router.navigate(['chatBox'])
   }
 }

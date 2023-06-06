@@ -18,6 +18,7 @@ const Controller = UserController(
 
 app.post("/signup", Controller.DoSignup);
 app.post("/login", Controller.DoLogin); 
+app.post("/logOut", Controller.logOut); 
 app.post("/googleSignup", Controller.GoogleSignUp); 
 
 

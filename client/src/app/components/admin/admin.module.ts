@@ -13,6 +13,7 @@ import { AdminDashBoardComponent } from './admin-dash-board/admin-dash-board.com
 import { AdminComponent } from './admin.component';
 import { NavBarComponent } from 'src/app/shared/components/admin/nav-bar/nav-bar.component';
 import { DashBoardNavBarComponent } from 'src/app/shared/components/admin/dash-board-nav-bar/dash-board-nav-bar.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 
 
@@ -22,7 +23,8 @@ import { DashBoardNavBarComponent } from 'src/app/shared/components/admin/dash-b
     AdminDashBoardComponent,
     AdminComponent,
     NavBarComponent,
-    DashBoardNavBarComponent
+    DashBoardNavBarComponent,
+    AllUsersComponent
   ],
   imports: [
     CommonModule,

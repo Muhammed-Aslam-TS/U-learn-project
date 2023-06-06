@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,12 +9,19 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
   // button = 'LogIn'
+  UserId = localStorage.getItem('userId');
+  UserToken = localStorage.getItem('userToken');
+  
+response = {
+  response:"User LogOut",
+  userId:this.UserId
+}
+
 
   show = true;
 
-  UserToken = localStorage.getItem('userToken');
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private service:UserService) {
     if (this.UserToken) {
       this.show = false;
     } else {
@@ -25,8 +33,18 @@ export class NavBarComponent {
   }
 
   LogOut() {
-    localStorage.removeItem('userToken');
-    this.router.navigate(['/']);
+   console.log('kkkkkkkkkkkkkkkkkk');
+   console.log(this.UserId);
+   
+    this.service.logOut(this.response).subscribe((data:object)=>{
+      console.log(data,"data?>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      
+      if(data){
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('userId');
+        this.router.navigate(['/']);
+      }
+    })
   }
 }
 

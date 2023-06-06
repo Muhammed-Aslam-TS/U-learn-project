@@ -5,7 +5,7 @@ import { UserCourseServiceInterface } from "../../../../applications/Services/Us
 import CourseController from "../../../../Adapters/Controller/CourseRegisterController";
 import { CourseDatabase } from "../../../Database/MongoDb/Repositories/AddCoureseDb";
 import CourseReppo from "../../../../applications/Repositories/CourseReppo";
-import {upload} from "../../Middilewear/multer";
+// import {upload} from "../../Middilewear/multer";
 // const upload = multer({ dest: "uploads/" });
 
 
@@ -20,7 +20,10 @@ const Controller = CourseController(
 );
 
 // app.post("/addCourse",Controller.addCourseDatails);
-app.post("/addCourse",upload.single("courseImage"),Controller.addCourseDatails);
+app.post("/addCourse",Controller.addCourseDatails);
+app.get("/",Controller.GetallCourses);
+app.get("/dashBoard",Controller.GetCourses);
+app.get("/Allcourse",Controller.Allcourse);
 
 
 

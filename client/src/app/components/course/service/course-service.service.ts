@@ -20,11 +20,10 @@ export class CourseServiceService {
   constructor(private http: HttpClient) { }
 
 
-  addCourse(data:any): Observable<any> {
+  addCourse(data:any,userId:any): Observable<any> {
     console.log(data,'data vannu-------------------------');
     return this.http.post<any>(
-      `${this.ApiUrl}addCourse`,
-      JSON.stringify(data),
+      `${this.ApiUrl}addCourse?userId=${userId}`,(data),
       httpOptions
     )
   }

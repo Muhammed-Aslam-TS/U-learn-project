@@ -1,87 +1,200 @@
-<div class="flex justify-evenly h-screen items-center">
+<app-dash-bord-nav-bar></app-dash-bord-nav-bar>
+<div class="p-20 sm:ml-64">
 
-  <form
-    action=""
-    [formGroup]="uploadForm"
-    (ngSubmit)="onSubmit()"
-    class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8"
-  >
-
-    <label for="Enter your Course">Enter your Course</label>
-    <div>
-      <input
-        formControlName="courseName"
-        type="text"
-        name="courseName"
-        class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="Enter your Course"
-      />
-    </div>
-    <label for="">Course Plan</label>
-    <div>
-      <input
-        formControlName="plan1"
-        type="text"
-        name="plan1"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="0 Month"
-      />
-      <input
-        formControlName="plan2"
-        type="text"
-        name="plan2"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="5 Month"
-      />
-      <input
-        formControlName="plan3"
-        type="text"
-        name="plan3"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="1 year"
-      />
-    </div>
-    <br />
-    <br />
-    <label for="">Upload Date</label>
-    <div>
-      <input
-        formControlName="date"
-        type="date"
-        name="date"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="0 Month"
-      />
-      <input
-        type="file"
-        (change)="onFileSelected($event)"
-        class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="5 Month"
-      />
-    </div>
-    <br />
-    <label for="">Description About Course</label>
-    <div>
-      <input
-        formControlName="discription"
-        type="text"
-        name="description"
-        class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4"
-        placeholder="Enter your Description"
-      />
-    </div>
-
-    <div class="flex justify-end">
-      <button
-        class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md uppercase hover:text-green-700"
-      >
-        Submit Course
-      </button>
-    </div>
-  </form>
-
+  <div class="flex justify-evenly h-screen items-center">
+    <form
+      action
+      [formGroup]="uploadForm"
+      (ngSubmit)="onSubmit()"
+      class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8">
+      <label for="Enter your Course">Enter your Course</label>
+      <div>
+        <input
+          formControlName="courseName"
+          type="text"
+          name="courseName"
+          class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Enter your Course" />
+      </div>
+      <label for>Course Plan</label>
+      <div>
+        <input
+          formControlName="plan1"
+          type="text"
+          name="plan1"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="0 Month" />
+        <input
+          formControlName="plan2"
+          type="text"
+          name="plan2"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="5 Month" />
+        <input
+          formControlName="plan3"
+          type="text"
+          name="plan3"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="1 year" />
+      </div>
+      <br /><br />
+  
+      <label for>Plan Details for 1 month</label>
+      <div>
+        <input
+          formControlName="Details1"
+          type="text"
+          name="Details1"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 1" />
+        <input
+          formControlName="Details2"
+          type="text"
+          name="Details2"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 2" />
+        <input
+          formControlName="Details3"
+          type="text"
+          name="Details3"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 3" />
+      </div>
+      <div>
+        <input
+          formControlName="Details4"
+          type="text"
+          name="Details4"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 4" />
+        <input
+          formControlName="Details5"
+          type="text"
+          name="Details5"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 5" />
+      </div>
+      <br />
+      <br />
+  
+      <label for>Plan Details for 6 Month</label>
+      <div>
+        <input
+          formControlName="Details1"
+          type="text"
+          name="Details11"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 1" />
+        <input
+          formControlName="Details21"
+          type="text"
+          name="Details2"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 2" />
+        <input
+          formControlName="Details31"
+          type="text"
+          name="Details3"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 3" />
+      </div>
+      <div>
+        <input
+          formControlName="Details41"
+          type="text"
+          name="Details4"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 4" />
+        <input
+          formControlName="Details51"
+          type="text"
+          name="Details5"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 5" />
+      </div>
+      <br />
+      <br />
+  
+      <label for>Plan Details for 1 Year</label>
+      <div>
+        <input
+          formControlName="Details12"
+          type="text"
+          name="Details1"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 1" />
+        <input
+          formControlName="Details22"
+          type="text"
+          name="Details2"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 2" />
+        <input
+          formControlName="Details32"
+          type="text"
+          name="Details3"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 3" />
+      </div>
+      <div>
+        <input
+          formControlName="Details42"
+          type="text"
+          name="Details4"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 4" />
+        <input
+          formControlName="Details52"
+          type="text"
+          name="Details5"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Details 5" />
+      </div>
+      <br />
+      <br />
+      <label for>Upload Date</label>
+      <div>
+        <input
+          formControlName="date"
+          type="date"
+          name="date"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="0 Month" />
+        <!-- <input
+          type="file"
+          (change)="onFileSelected($event)"
+          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="5 Month"
+        /> -->
+      </div>
+      <br />
+      <label for>Description About Course</label>
+      <div>
+        <input
+          formControlName="discription"
+          type="text"
+          name="description"
+          class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          placeholder="Enter your Description" />
+  
+        <input
+          [(ngModel)]="userId"
+          formControlName="userId"
+          hidden
+          type="text"
+          name="userId"
+          class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4" />
+      </div>
+  
+      <div class="flex justify-end">
+        <button
+          class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md uppercase hover:text-green-700">
+          Submit Course
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
-
 
 
 <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">

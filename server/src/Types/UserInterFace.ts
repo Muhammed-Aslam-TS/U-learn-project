@@ -1,4 +1,5 @@
 export interface UserInterFace {
+    Status: string;
     _id?: string;
     Fname?: string;
     Lname?: string;
@@ -10,6 +11,7 @@ export interface UserInterFace {
 }
 
 export interface GoogleUserInterface {
+    Status: string;
     uid?:string;
     userName?:string;
     email?:string;

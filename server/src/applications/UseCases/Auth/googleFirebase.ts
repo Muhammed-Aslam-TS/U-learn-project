@@ -1,4 +1,5 @@
 
+import { GoogleUserInterface } from "../../../Types/UserInterFace";
 import { typeOfUserRepo } from "../../Repositories/UserReppo";
 import { typeOfUserAuthServiceInterFace } from "../../Services/UserAuthserviceInterFacw";
 
@@ -6,7 +7,7 @@ import { typeOfUserAuthServiceInterFace } from "../../Services/UserAuthserviceIn
 
 
 export const googleLogin = async (
-    userData: object,
+    userData: GoogleUserInterface,
     UserDb: ReturnType<typeOfUserRepo>,
 ) => {  
     const User = await UserDb.GoogleSignUP(userData);
@@ -20,7 +21,7 @@ export const googleLogin = async (
 
 export const googleData = async (
     UserDb: ReturnType<typeOfUserRepo>,
-    userData: object) => {
+    userData: GoogleUserInterface) => {
     const googleData = await UserDb.findUid(userData);
 
 

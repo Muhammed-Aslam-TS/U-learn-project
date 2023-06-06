@@ -17,6 +17,9 @@ const GoogleUserSchema = new mongoose.Schema({
     image:{
         type: String,
         required: true,
+    },
+    Status:{
+        type:String,
     }
 });
 

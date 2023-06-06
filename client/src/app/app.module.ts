@@ -13,6 +13,10 @@ import { environment } from 'src/environments/environment';
 import { AdminModule } from './components/admin/admin.module';
 
 
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCourseComponent } from './components/course/add-course/add-course.component';
@@ -26,6 +30,8 @@ import { DashBoardComponent } from './components/user/user-dash-board/dash-board
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-bar/dash-bord-nav-bar.component';
 import { ChatUserComponent } from './components/user/user-dash-board/chat-user/chat-user.component';
+import { PremiumComponent } from './components/course/premium/premium.component';
+import { GetAllCoursesComponent } from './components/user/user-dash-board/get-all-courses/get-all-courses.component';
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -53,7 +59,8 @@ const firebase = {
     ChatBoxComponent,
     DashBordNavBarComponent,
     ChatUserComponent,
-    
+    PremiumComponent,
+    GetAllCoursesComponent, 
   ],
   imports: [
     BrowserModule,
@@ -68,8 +75,7 @@ const firebase = {
     MatStepperModule,
     AngularFireModule.initializeApp(firebase),
     AdminModule,
-    
-
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

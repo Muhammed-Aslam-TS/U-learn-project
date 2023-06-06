@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 import validator from "validator";
 
 const CourseSchema = new mongoose.Schema({
+    userId:{
+        type : String,
+        required:true
+    },
     courseName: {
         type: String,
         required: true,
@@ -10,10 +14,10 @@ const CourseSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    image: {
-        type: String,
-        required: true,
-    },
+    // image: {
+    //     type: String,
+    //     required: true,
+    // },
     plan1: {
         type: Number,
         required: true,
@@ -27,6 +31,27 @@ const CourseSchema = new mongoose.Schema({
         required: true,
     },
     discription: {
+        type: String,
+        required: true,
+  
+    },
+    Details1: {
+        type: String,
+        required: true,
+    },
+    Details2: {
+        type: String,
+        required: true,
+    },
+    Details3: {
+        type: String,
+        required: true,
+    },
+    Details4: {
+        type: String,
+        required: true,
+    },
+    Details5: {
         type: String,
         required: true,
     }

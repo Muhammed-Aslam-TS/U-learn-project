@@ -30,4 +30,13 @@ export class AdminService {
       httpOptions
     )
   }
+
+  AllUsers(): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}admin/allUsers`,
+      httpOptions
+    )
+  }
+
+  
 }

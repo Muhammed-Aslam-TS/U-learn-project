@@ -8,5 +8,4 @@ const Controller = AdminController();
 
 app.post("/adminLogin", Controller.AdminLogin); 
 
-
 export default app;

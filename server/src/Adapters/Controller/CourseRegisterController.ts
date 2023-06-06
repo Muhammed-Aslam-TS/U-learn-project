@@ -7,6 +7,7 @@ import { typeOfUserCourseServiceInterface } from "../../applications/Services/Us
 import { addCourse } from "../../applications/UseCases/AddCourse/addCourse";
 import { TypeOfCourseDb } from "../../FrameWorks/Database/MongoDb/Repositories/AddCoureseDb";
 import { typeOfCourseRepo } from "../../applications/Repositories/CourseReppo";
+import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
 
 
 
@@ -22,23 +23,35 @@ const CourseController = (
     const UserCorseServices = UserCourseServiceInterface(UserCorseService());
 
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
-        console.log(req.file,"/////////////////////////////////");
-        
         const CorseData: CourseInterface = req.body;
-        console.log(CorseData, "hhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-        console.log(req.body.File, "ffffffffffffffffffffffffffffffffffffffffile");
-
         const response = await addCourse(CorseData, CourseAddRepo, UserCorseServices);
-
-        res.status(200).json({ message: "Course data received successfully" });
-
-
+        res.status(200).json({ message: "Course data received successfully", response });
 
     });
 
+    const GetallCourses = asyncHandler(async (req: Request, res: Response) => {
+        courseModel.find().then((data) => {
+            res.json(data);
+        });
+    });
+
+    const GetCourses = asyncHandler(async (req: Request, res: Response) => {
+        const { userId } = req.query;
+        courseModel.find({ userId: userId }).limit(5).then((data) => {
+            res.json(data);
+        });
+    });
+
+    const Allcourse = asyncHandler(async (req: Request, res: Response) => {
+        const courses = await courseModel.find();
+        res.json(courses);
+    });
 
     return {
         addCourseDatails,
+        GetallCourses,
+        GetCourses,
+        Allcourse
     };
 };
 
