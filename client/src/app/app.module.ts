@@ -32,6 +32,12 @@ import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-
 import { ChatUserComponent } from './components/user/user-dash-board/chat-user/chat-user.component';
 import { PremiumComponent } from './components/course/premium/premium.component';
 import { GetAllCoursesComponent } from './components/user/user-dash-board/get-all-courses/get-all-courses.component';
+import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
+import { PymentOptionsComponent } from './components/pyment-options/pyment-options.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { StripeComponent } from './components/pyment-options/stripe/stripe.component';
+import { PaymentSuccessFullComponent } from './components/pyment-options/payment-success-full/payment-success-full.component';
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -60,7 +66,11 @@ const firebase = {
     DashBordNavBarComponent,
     ChatUserComponent,
     PremiumComponent,
-    GetAllCoursesComponent, 
+    GetAllCoursesComponent,
+    CourseDetailsComponent,
+    PymentOptionsComponent,
+    StripeComponent,
+    PaymentSuccessFullComponent, 
   ],
   imports: [
     BrowserModule,
@@ -75,7 +85,9 @@ const firebase = {
     MatStepperModule,
     AngularFireModule.initializeApp(firebase),
     AdminModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    GooglePayButtonModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

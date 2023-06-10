@@ -1,0 +1,23 @@
+<div class>
+    <div class="flex">
+        <div class="payment-box flex gap-3">
+            <div id="card"
+                class="border border-solid h-10 rounded-xl w-80 items-center justify-center">
+            </div>
+            <p class="card-errors" role="alert"></p>
+        </div>
+    </div>
+    <br>
+
+    <div class>
+        <div>
+            
+            <input placeholder="Card Holder Name" [(ngModel)]="HolderName" (ngModelChange)="HolderName = HolderName.toUpperCase()"
+                class="border rounded-xl w-80 h-10 outline-none" type="text">
+        </div>
+    </div>
+    <br>
+    <button id="button"
+        class="py-2 px-4 bg-blue-500 text-white rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500">PlaceOrder</button>
+
+</div>

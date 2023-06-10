@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { S3UploadService } from './s3-upload.service';
+import { PymentService } from './pyment.service';
 
-describe('S3UploadService', () => {
-  let service: S3UploadService;
+describe('PymentService', () => {
+  let service: PymentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(S3UploadService);
+    service = TestBed.inject(PymentService);
   });
 
   it('should be created', () => {

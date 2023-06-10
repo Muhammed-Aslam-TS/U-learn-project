@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpHeaders} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
 // import { addCourseInterface } from 'src/app/models/interFace';
 
@@ -20,10 +20,16 @@ export class CourseServiceService {
   constructor(private http: HttpClient) { }
 
 
-  addCourse(data:any,userId:any): Observable<any> {
-    console.log(data,'data vannu-------------------------');
-    return this.http.post<any>(
-      `${this.ApiUrl}addCourse?userId=${userId}`,(data),
+  addCourse(formData: FormData): Observable<any> {
+    return this.http.post(`${this.ApiUrl}addCourse`, formData);
+  }
+
+
+  getCoures(data: any) {
+    console.log(data,"xxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+    return this.http.get<any>(
+      `${this.ApiUrl}courseDetails?courseId=${data}`,
       httpOptions
     )
   }

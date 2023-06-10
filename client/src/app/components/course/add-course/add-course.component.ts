@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CourseServiceService } from '../service/course-service.service';
 
@@ -8,54 +8,58 @@ import { CourseServiceService } from '../service/course-service.service';
   styleUrls: ['./add-course.component.css'],
   providers: [],
 })
-export class AddCourseComponent {
-  // uploadForm!: FormGroup;
+export class AddCourseComponent implements OnInit {
+  uploadForm!: FormGroup;
   userId = localStorage.getItem("userId")
-  constructor(private formBuilder: FormBuilder, private service: CourseServiceService) { }
-  uploadForm: FormGroup = new FormGroup({
-    courseName: new FormControl(),
-    discription: new FormControl(),
-    plan1: new FormControl(),
-    plan2: new FormControl(),
-    plan3: new FormControl(),
-    date: new FormControl(),
-    Details1: new FormControl(),
-    Details2: new FormControl(),
-    Details3: new FormControl(),
-    Details4: new FormControl(),
-    Details5: new FormControl(),    
-    Details11: new FormControl(),
-    Details21: new FormControl(),
-    Details31: new FormControl(),
-    Details41: new FormControl(),
-    Details51: new FormControl(),    
-    Details12: new FormControl(),
-    Details22: new FormControl(),
-    Details32: new FormControl(),
-    Details42: new FormControl(),
-    Details52: new FormControl(),
-    userId: new FormControl(),
-    // file: new FormControl(),
-  });
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: CourseServiceService
+  ) { }
 
-  onSubmit() {
-    if (this.uploadForm.valid) {
-      // Get the form data
-      const formData = this.uploadForm.value;
-      
-
-      // Send the form data to the server
-      this.service.addCourse(formData,this.userId).subscribe((response) => {
-        console.log(response, "response_____________________Form");
-      })
-    }
+  ngOnInit() {
+    this.uploadForm = this.formBuilder.group({
+      courseName: '',
+      discription: '',
+      userId: '',
+      Price:'',
+      date:'',
+      Category:'',
+      CourseImage: null
+    });
   }
 
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    this.uploadForm.patchValue({
+      CourseImage: file
+    });
+
+  }
+
+  onSubmit() {
+console.log(this.uploadForm.get("date")?.value);
+
+    const formData = new FormData();
+    formData.append('courseName', this.uploadForm.get("courseName")?.value);
+    formData.append('discription', this.uploadForm.get("discription")?.value);
+    formData.append('date', this.uploadForm.get("date")?.value);
+    formData.append('userId', this.uploadForm.get("userId")?.value);
+    formData.append('CourseImage', this.uploadForm.get("CourseImage")?.getRawValue());
+    formData.append('Price', this.uploadForm.get("Price")?.value);
+    formData.append('Category', this.uploadForm.get("Category")?.value);
+
+    console.log('Form Data:', formData); // Console log the form data
+    this.service.addCourse(formData).subscribe((response) => {
+      console.log(response);
+
+    })
+  }
 }
 
 
-  //  formData.forEach((value:FormDataEntryValue,key:string)=>{
-  //   console.log(`key: ${key}`);
-  //   console.log(`value: ${value}`);
-  //  })
+
+   //  formData.forEach((value:FormDataEntryValue,key:string)=>{
+    //   console.log(`key: ${key}`);
+    //   console.log(`value: ${value}`);
+    //  })

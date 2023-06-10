@@ -14,6 +14,7 @@ import { AdminComponent } from './admin.component';
 import { NavBarComponent } from 'src/app/shared/components/admin/nav-bar/nav-bar.component';
 import { DashBoardNavBarComponent } from 'src/app/shared/components/admin/dash-board-nav-bar/dash-board-nav-bar.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { AllCoursesComponent } from './all-courses/all-courses.component';
 
 
 
@@ -24,7 +25,8 @@ import { AllUsersComponent } from './all-users/all-users.component';
     AdminComponent,
     NavBarComponent,
     DashBoardNavBarComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    AllCoursesComponent
   ],
   imports: [
     CommonModule,

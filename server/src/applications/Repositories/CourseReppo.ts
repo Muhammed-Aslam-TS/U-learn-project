@@ -6,8 +6,8 @@ import { CourseInterface } from "../../Types/CourseFormInterface";
 
 const CourseReppo = (Repository: ReturnType<TypeOfCourseDb>) => {
 
-    const addCourse = (CourseData: CourseInterface) => { 
-        return Repository.addCourse(CourseData);
+    const addCourse = (imageUrl:string,CourseData: CourseInterface) => { 
+        return Repository.addCourse(imageUrl,CourseData);
     };
 
 

@@ -14,10 +14,8 @@ import multer from "multer";
   });
 
   // Create the multer instance with the defined storage
-  export const upload = multer({ storage });
+  export const upload = multer({ storage:multer.memoryStorage() });
 
 
-  module.exports={
-    upload
-  };
+  export default upload;
 

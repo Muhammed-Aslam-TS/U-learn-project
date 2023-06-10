@@ -4,13 +4,14 @@ import { CourseInterface } from "../../../Types/CourseFormInterface";
 
 
 export const addCourse = async (
+    imageUrl:string,
     CourseData: CourseInterface,
     coursDbRepo: ReturnType<TypeOfCourseDb>,
     CourseService: ReturnType<typeOfUserCourseServiceInterface>,
     
     
 ) => {
-    const AddCourse = await coursDbRepo.addCourse(CourseData);
+    const AddCourse = await coursDbRepo.addCourse(imageUrl,CourseData);
 
     return {
         AddCourse

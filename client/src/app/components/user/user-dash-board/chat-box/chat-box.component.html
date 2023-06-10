@@ -1,9 +1,15 @@
-<div *ngFor="let message of messageList">
-  <li>
+<app-dash-bord-nav-bar></app-dash-bord-nav-bar>
+
+
+<div class="p-4 sm:ml-64">
+
+  <div *ngFor="let message of messageList">
+    <li>
       {{message}}
-  </li>
+    </li>
+  </div>
+  
+  <input [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" />
+  
+  <button (click)="sendMessage()">Send Message</button>
 </div>
-
-<input [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" />
-
-<button (click)="sendMessage()">Send Message</button>

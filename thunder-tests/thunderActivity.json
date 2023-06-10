@@ -55,5 +55,30 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "8b123678-7dd3-4bf3-9ea4-f43e0fd67ecf",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/addCourse",
+    "url": "http://localhost:4000/addCourse",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-06-06T14:33:33.085Z",
+    "modified": "2023-06-07T09:14:16.371Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "../../../../../../../home/aslu/Downloads/Telegram Desktop/13_Flyer_Mockup.jpg"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { UserInterFace } from "../../../Types/UserInterFace";
 import { HttpStatus } from "../../../Types/httpStatus";
 import AppError from "../../../Utils/AppError";
@@ -10,7 +11,7 @@ export const addUser = async (
     UserData: UserInterFace,
     UserDb: ReturnType<typeOfUserRepo>,
     UserAuthService: ReturnType<typeOfUserAuthServiceInterFace>
-) => {
+) => {  
 
     UserData.Email = UserData.Email?.toLowerCase();
     UserData.Password = await UserAuthService.EncriptPassword(UserData.Password);

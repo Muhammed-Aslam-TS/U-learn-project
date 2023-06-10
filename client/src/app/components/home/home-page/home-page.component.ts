@@ -7,14 +7,14 @@ import { HomeService } from '../service/home.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit {
+  imageURL = '';
+  courseData: any[] = []
+  userId?: string
 
-  courseData:any[] =[]
-  userId?:string
-
-  constructor(private router: Router,private service:HomeService) {
+  constructor(private router: Router, private service: HomeService) {
     const user = localStorage.getItem('userToken');
-    user?this.show1=true :this.show1=false
+    user ? this.show1 = true : this.show1 = false
   }
 
   show1 = false;
@@ -26,24 +26,29 @@ export class HomePageComponent implements OnInit{
   ngOnInit() {
     this.service.GetAllCourse().subscribe((data: any) => {
       this.courseData = data
-      console.log(this.courseData,'course dataaaaaaaaaaaaaa');
-      
+      console.log(this.courseData, 'course dataaaaaaaaaaaaaa');
     })
   }
 
-  handleClick(ownerId:string,coursId:string){
+  handleClick(ownerId: string, coursId: string) {
     const UserId = localStorage.getItem('userId')
+    localStorage.setItem("courseId",coursId)
 
     const data = {
-    userId:UserId,
-    ownerId:ownerId,
-    coursId:coursId
+      userId: UserId,
+      ownerId: ownerId,
+      coursId: coursId
     }
 
-this.service.chatRoom(data).subscribe((data:any)=>{
-  console.log(data);
-})
 
-    this.router.navigate(['chatBox'])
+    // this.service.chatRoom(data).subscribe((data: any) => {
+    //   console.log(data);
+    // })
+
+    this.router.navigate(['courseDetails'])
+
   }
+
+
+
 }

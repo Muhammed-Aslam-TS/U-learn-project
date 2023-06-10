@@ -22,8 +22,6 @@ export class AdminService {
 
 
   adminLogIn(admin: any): Observable<any> {
-    console.log(admin,'admin______________________');
-    
     return this.http.post<any>(
       `${this.ApiUrl}admin/adminLogin`,
       (admin),
@@ -34,6 +32,13 @@ export class AdminService {
   AllUsers(): Observable<any> {
     return this.http.get<any>(
       `${this.ApiUrl}admin/allUsers`,
+      httpOptions
+    )
+  }
+
+  getAllCouress(): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}admin/allCourses`,
       httpOptions
     )
   }

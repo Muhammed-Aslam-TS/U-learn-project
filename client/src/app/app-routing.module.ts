@@ -11,6 +11,9 @@ import { DashBoardComponent } from './components/user/user-dash-board/dash-board
 import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { PremiumComponent } from './components/course/premium/premium.component';
 import { GetAllCoursesComponent } from './components/user/user-dash-board/get-all-courses/get-all-courses.component';
+import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
+import { PymentOptionsComponent } from './components/pyment-options/pyment-options.component';
+import { PaymentSuccessFullComponent } from './components/pyment-options/payment-success-full/payment-success-full.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
@@ -21,7 +24,9 @@ const routes: Routes = [
   { path: 'dashBoard', component: DashBoardComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'chatBox', component: ChatBoxComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'premium', component: PremiumComponent, canActivate: [UserAuthGuardeServiceService] },
-  { path: 'getAllCouress', component: GetAllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'courseDetails', component: CourseDetailsComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'placeOrder', component: PymentOptionsComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'paymentSuccess', component: PaymentSuccessFullComponent, canActivate: [UserAuthGuardeServiceService] },
   
 ];
 

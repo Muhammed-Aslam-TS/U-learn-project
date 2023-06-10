@@ -1,0 +1,58 @@
+
+<section class="hero bg-gray-200 py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 ps-10 pe-10">
+        <div class="flex container mx-auto w-50% rounded-2xl">
+            <img class="rounded-3xl drop-shadow-xl" src="{{this.image}}" alt
+                srcset>
+        </div>
+        <div
+            class="flex container mx-auto w-50% rounded-2xl justify-center items-center">
+            <div>
+                <div>
+                    <h1 class="md:font-bold text-3xl">{{this.name|uppercase}}</h1>
+                  <p> publisher: {{this.Fname}} {{this.Lname}}</p>
+                  <p> {{this.email}}</p>
+                </div><br>
+                <div class="w-auto">
+                    <p>{{this.description}}</p>
+                </div>
+                <br>
+                <div class="">
+                    <div class="col-2">
+                        <p>Price: {{this.Price}}</p>
+                    </div>
+                    <div class="flex justify-end">
+                        <button routerLink="/placeOrder" class="rounded-lg bg-blue-700 w-44 h-10 text-yellow-50">
+                            buy this course
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features bg-white py-16">
+    <div class="container mx-auto">
+        <h2 class="text-3xl text-center font-bold mb-8"> Relative Courses</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">Flexible Learning</h3>
+                <p class="text-gray-700">Learn at your own pace and on your own
+                    schedule. Our courses are designed to be flexible and
+                    accessible.</p>
+            </div>
+            <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">Expert Instructors</h3>
+                <p class="text-gray-700">Learn from industry experts and
+                    experienced instructors who are passionate about teaching.</p>
+            </div>
+            <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">Wide Course Selection</h3>
+                <p class="text-gray-700">Choose from a diverse range of courses
+                    across various disciplines and skill levels.</p>
+            </div>
+        </div>
+    </div>
+</section>
