@@ -11,15 +11,20 @@ export class CourseDetailsComponent implements OnInit {
 
   image = ''
   description = ''
-  name=''
-  Fname=''
-  Lname=''
-  email=''
-  Price=''
+  name = ''
+  Fname = ''
+  Lname = ''
+  email = ''
+  Price = ''
+  category:any[]
+
   ngOnInit() {
     const courseId = localStorage.getItem('courseId')
 
     this.service.getCoures(courseId).subscribe((data: any) => {
+
+      this.category = data.findCategory
+      console.log(this.category,"ddddddddddddddddddddddddddddddddddddd");
       this.image = data.course.CourseImage
       this.description = data.course.discription
       this.name = data.course.courseName
@@ -27,7 +32,7 @@ export class CourseDetailsComponent implements OnInit {
       this.Fname = data.user.Fname
       this.Lname = data.user.Lname
       this.email = data.user.Email
-  })
+    })
   }
 
 }

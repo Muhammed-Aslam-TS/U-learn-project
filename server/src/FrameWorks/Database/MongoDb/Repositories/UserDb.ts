@@ -7,6 +7,7 @@ export function UserDatabase() {
     const DoSignUP = async (userData: UserInterFace) => {
        
         userData.Status = "Offline";
+        userData.walletAmount = 0;
         const User = await userModel.create(userData);
         return User;
     };

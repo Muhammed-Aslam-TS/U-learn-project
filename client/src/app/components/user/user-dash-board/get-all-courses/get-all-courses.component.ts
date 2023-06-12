@@ -10,20 +10,23 @@ import { isDataSource } from '@angular/cdk/collections';
   styleUrls: ['./get-all-courses.component.css']
 })
 export class GetAllCoursesComponent {
-allCourses :any[] = []
+  userId = localStorage.getItem('userId')
+  allCourses: any[] = []
+  constructor(private service: ServiceService) { }
 
-constructor(private service:ServiceService){}
-// @ViewChild(MatPaginator)paginator: MatPaginator 
-// @ViewChild(MatSort):sort :MatSort 
-ngOnInit(){
-  this.service.getCourse().subscribe((response:any)=>{
-    console.log(response)
-    this.allCourses = response
-  })
-
-  // this.data
-}
-
-
+  ngOnInit() {
+    this.service.getCourse().subscribe((response: any) => {
+      console.log(response)
+      this.allCourses = response
+    })
+ 
+  }
 
 }
+
+
+
+
+
+
+

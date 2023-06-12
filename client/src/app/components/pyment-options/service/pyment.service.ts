@@ -26,8 +26,6 @@ export class PymentService {
 
 
   pymentMethord(patmentData: any): Observable<any> {
-    console.log(patmentData);
-    
       return this.http.post<any>(
         `${this.ApiUrl}placeOrder`,
         JSON.stringify(patmentData),

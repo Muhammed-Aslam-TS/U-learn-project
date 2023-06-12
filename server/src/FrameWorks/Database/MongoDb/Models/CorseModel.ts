@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import validator from "validator";
 
 const CourseSchema = new mongoose.Schema({
-    userId:{
-        type : String,
-        required:true
+    userId: {
+        type: String,
+        required: true
     },
     courseName: {
         type: String,
@@ -18,19 +18,26 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Price:{
+    Price: {
         type: Number,
-        required:true
+        required: true
     },
-    Category:{
+    Category: {
         type: String,
         required: true,
     },
-    discription:{
+    discription: {
         type: String,
         required: true,
-    }
+    },
+    status: {
+        tayp: String,
+    },
+    purtcherserId:{
+        type:String
+    },
    
+
 });
 
 const courseModel = mongoose.model("Course", CourseSchema);

@@ -8,143 +8,24 @@
             <div class="w-full lg:w-2/3">
                 <div>
                     <!-- component -->
-                    <div class="p-4">
-                        <div class="flex p-10 justify-between">
-                            <h1 class="text-3xl font-bold">Latast Courses</h1>
-                            <button type="button"
-                                class=" text-gray-900  focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-slate-200 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">All
-                                courses</button>
-                        </div>
-                        <div
-                            class="w-full p-4 shadow sm:p-8 bg-white rounded-3xl">
+                   
 
-                            <ul role="list"
-                                class="divide-y divide-gray-200 dark:divide-gray-700">
-                                <li class="py-3 sm:py-4"
-                                    *ngFor="let course of this.allCourseData">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="flex-shrink-0">
-                                            <img class="w-8 h-8 rounded-full"
-                                                src="{{course.CourseImage}}"
-                                                alt="Neil image">
-                                        </div>
-                                        <div class="flex-1 min-w-0 j">
-                                            <p class="flex justify-end">count of
-                                                purcherese</p>
+                    <app-latast-courses></app-latast-courses>
 
-                                            <p
-                                                class="text-sm font-medium text-gray-900 truncate dark:text-dark">
-                                                {{course.courseName}}
-                                            </p>
-                                            <p
-                                                class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                {{course.date|date}}
-                                            </p>
-                                        </div>
-
-                                        <div
-                                            class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                            Basic plan ${{course.plan1}}
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                        </div>
-                    </div>
                 </div>
+
+                <!-- Purchased Courses coponents__________________________________________ -->
+                <app-get-all-purchesed-course></app-get-all-purchesed-course>
+                <!-- Purchased Courses coponents__________________________________________ -->
+
             </div>
 
+            <!-- fowllowersComponents_______________________________________ -->
             <div class="w-full lg:w-1/3 bg-slate-50">
-                <!-- Content for small width screens -->
-                <!-- dp---------------------------------- -->
-                <div class="flex justify-end p-4 ">
-                    <img
-                        class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                        src="/docs/images/people/profile-picture-5.jpg"
-                        alt="Bordered avatar">
-                </div>
-
-                <div class="p-4">
-                    <div class="flex p-10 justify-between">
-                        <h1 class="text-3xl font-bold">Payments</h1>
-                        <button type="button"
-                            class=" text-gray-900  focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-slate-200 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">All
-                            Payments</button>
-                    </div>
-                    <div class="w-full p-4 shadow sm:p-8 bg-white rounded-3xl">
-
-                        <ul role="list"
-                            class="divide-y divide-gray-200 dark:divide-gray-700">
-                            <li class="py-3 sm:py-4">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex-shrink-0">
-                                        <img class="w-8 h-8 rounded-full"
-                                            src="/docs/images/people/profile-picture-1.jpg"
-                                            alt="Neil image">
-                                    </div>
-                                    <div class="flex-1 min-w-0 j">
-                                        <p class="flex justify-end">HKLGHYLKG44$$$$44</p>
-
-                                        <p
-                                            class="text-sm font-medium text-gray-900 truncate dark:text-dark">
-                                            Neil Sims
-                                        </p>
-                                        <p
-                                            class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                            email@windster.com
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                        $320
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="felx justify-center p-10">
-
-                    <div
-                        class="flex items-center justify-center bg-white h-16 m-5 rounded-2xl drop-shadow-md">
-                        <p class="text-xl font-medium">Fowllowers</p>
-                    </div>
-                    <ul
-                        class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
-                        <li class="pb-3 sm:pb-4">
-                            <div class="flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img class="w-8 h-8 rounded-full"
-                                        src="/docs/images/people/profile-picture-1.jpg"
-                                        alt="Neil image">
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <p
-                                        class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                        Neil Sims
-                                    </p>
-                                    <p
-                                        class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                        email@flowbite.com
-                                    </p>
-                                </div>
-                                <div
-                                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                    $320
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </div>
+                <app-fowllowers></app-fowllowers>
             </div>
+            <!-- fowllowersComponents_______________________________________ -->
+
         </div>
 
     </div>

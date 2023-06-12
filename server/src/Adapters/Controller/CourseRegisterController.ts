@@ -13,6 +13,8 @@ import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
 import dotenvConfig from "../../dotenvConfig";
 import admin from "firebase-admin";
 import userModel from "../../FrameWorks/Database/MongoDb/Models/UserModel";
+import PaymentModels from "../../FrameWorks/Database/MongoDb/Models/paymentModel";
+import { PaymentInterface } from "../../Types/paymentInterFace";
 // import AWS from "aws-sdk";
 // import { S3Client } from "@aws-sdk/client-s3";
 
@@ -91,29 +93,26 @@ const CourseController = (
 
         const courseId = req.query.courseId;
         const getCourse = await courseModel.findOne({ _id: courseId });
-        console.log(getCourse?.userId);
 
+        const category = getCourse?.Category;
+
+        const findCategory = await courseModel.find({Category:category});
         const userId = getCourse?.userId;
+
         const user = await userModel.findOne({ _id: userId });
-        console.log(getCourse);
-        res.json({ course: getCourse, user, message: true });
+        res.json({ course: getCourse, user, message: true,findCategory });
     });
 
     const placeOrderGetDetails = asyncHandler(async (req: Request, res: Response) => {
         const courseId = req.query.courseId;
         const getCourse = await courseModel.findOne({ _id: courseId });
-        console.log(getCourse?.userId);
 
         const userId = getCourse?.userId;
         const user = await userModel.findOne({ _id: userId });
-        console.log(getCourse);
         res.json({ course: getCourse, user, message: true });
     });
 
-    const paymentSuccess = asyncHandler(async (req: Request, res: Response)=>{
-        console.log(req.body,"payment detiaol");
-        
-    });
+
 
     return {
         addCourseDatails,
@@ -121,8 +120,7 @@ const CourseController = (
         GetCourses,
         Allcourse,
         GetCourse,
-        placeOrderGetDetails,
-        paymentSuccess
+        placeOrderGetDetails
     };
 };
 

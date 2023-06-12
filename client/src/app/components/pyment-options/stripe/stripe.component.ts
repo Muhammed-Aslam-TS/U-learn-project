@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 export class StripeComponent implements OnInit {
   @Input() parentData
 
+  userId = localStorage.getItem('userId')
+  courseId = localStorage.getItem('courseId')
 
   constructor(private service:PymentService,private router:Router){}
   HolderName='' 
@@ -46,12 +48,17 @@ console.log(this.parentData);
       };
       try {
         const result = await this.stripe.createSource(card, ownerInfo)
-        this.service.pymentMethord(result).subscribe((data)=>{
-          console.log(data);
+        
+        this.service.pymentMethord({data:result,userId:this.userId,courseId:this.courseId}).subscribe((data)=>{
+          console.log(data,"11111111111111111111111111111111111");
+          
+         if (data.response) {
+          this.router.navigate(['/paymentSuccess'])
+         }else{
+          this.router.navigate(['/paymentFaild'])
+         }
           
         })
-        this.router.navigate['/paymentSuccess']
-        console.log(result);
 
       } catch (e) {
         console.log(e.message);

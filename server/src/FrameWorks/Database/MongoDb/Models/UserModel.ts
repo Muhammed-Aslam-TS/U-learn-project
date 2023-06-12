@@ -40,8 +40,20 @@ const UserSchema = new mongoose.Schema({
     },
     Status:{
         type:String,
+    },
+    purcherseCourses:{
+        type:Array
+    },
+    Fowllowers:{
+        type:Array
+    },
+    wallet:{
+        type:Array
+    },
+    walletAmount:{
+        type:Number
     }
-    
+
 });
 
 const userModel = mongoose.model("users", UserSchema);

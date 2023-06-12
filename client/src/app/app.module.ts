@@ -38,6 +38,12 @@ import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { StripeComponent } from './components/pyment-options/stripe/stripe.component';
 import { PaymentSuccessFullComponent } from './components/pyment-options/payment-success-full/payment-success-full.component';
+import { PaymentFaildComponent } from './components/pyment-options/payment-faild/payment-faild.component';
+import { GetAllPurchesedCourseComponent } from './components/user/user-dash-board/get-all-purchesed-course/get-all-purchesed-course.component';
+import { PaymentDetailsComponent } from './components/user/user-dash-board/payment-details/payment-details.component';
+import { LatastCoursesComponent } from './components/user/user-dash-board/latast-courses/latast-courses.component';
+import { FowllowersComponent } from './components/user/user-dash-board/fowllowers/fowllowers.component';
+import { WalletComponent } from './components/user/user-dash-board/wallet/wallet.component';
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -70,7 +76,14 @@ const firebase = {
     CourseDetailsComponent,
     PymentOptionsComponent,
     StripeComponent,
-    PaymentSuccessFullComponent, 
+    PaymentSuccessFullComponent,
+    PaymentFaildComponent,
+    GetAllPurchesedCourseComponent,
+    PaymentDetailsComponent,
+    LatastCoursesComponent,
+    FowllowersComponent,
+    WalletComponent,
+    
   ],
   imports: [
     BrowserModule,

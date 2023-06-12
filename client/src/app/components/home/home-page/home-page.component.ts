@@ -12,6 +12,8 @@ export class HomePageComponent implements OnInit {
   courseData: any[] = []
   userId?: string
 
+  data: object;
+
   constructor(private router: Router, private service: HomeService) {
     const user = localStorage.getItem('userToken');
     user ? this.show1 = true : this.show1 = false
@@ -32,9 +34,9 @@ export class HomePageComponent implements OnInit {
 
   handleClick(ownerId: string, coursId: string) {
     const UserId = localStorage.getItem('userId')
-    localStorage.setItem("courseId",coursId)
+    localStorage.setItem("courseId", coursId)
 
-    const data = {
+    this.data = {
       userId: UserId,
       ownerId: ownerId,
       coursId: coursId

@@ -14,6 +14,8 @@ import { GetAllCoursesComponent } from './components/user/user-dash-board/get-al
 import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
 import { PymentOptionsComponent } from './components/pyment-options/pyment-options.component';
 import { PaymentSuccessFullComponent } from './components/pyment-options/payment-success-full/payment-success-full.component';
+import { PaymentFaildComponent } from './components/pyment-options/payment-faild/payment-faild.component';
+import { WalletComponent } from './components/user/user-dash-board/wallet/wallet.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
@@ -27,6 +29,9 @@ const routes: Routes = [
   { path: 'courseDetails', component: CourseDetailsComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'placeOrder', component: PymentOptionsComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'paymentSuccess', component: PaymentSuccessFullComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'paymentFaild', component: PaymentFaildComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'allCourses', component: GetAllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'userWallet', component: WalletComponent, canActivate: [UserAuthGuardeServiceService] },
   
 ];
 

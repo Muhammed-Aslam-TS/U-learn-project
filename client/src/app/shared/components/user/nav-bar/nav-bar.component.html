@@ -19,12 +19,15 @@
         <li><a class="px-4 hover:text-gray-800 transition-colors duration-300" href="#">About</a></li>
         <li><a class="px-4 hover:text-gray-800 transition-colors duration-300" href="#">Contact</a></li>
 
-        <li *ngIf="!show"><a class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="dashBoard">My Account</a></li>
+        <li *ngIf="!show">
+          <a class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="dashBoard">My Account</a>
+        </li>
         <li>
           <button *ngIf="show" (click)="logIn()" type="button" class="text-dark">LogIn</button>
           <button *ngIf="!show" (click)="LogOut()" type="button" class="text-dark">LogOut</button>
         </li>
 
+        
       </ul>
     </div>
   </div>

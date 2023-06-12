@@ -13,19 +13,42 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ServiceService {
+
+
   private ApiUrl = 'http://localhost:4000/';
   constructor(private http: HttpClient) { }
 
 
-  GetAllCourse(userId:any): Observable<any> {
+  GetAllCourse(userId: any): Observable<any> {
     return this.http.get<any>(
       `${this.ApiUrl}dashBoard?userId=${userId}`,
-      )
+    )
   }
   getCourse(): Observable<any> {
     return this.http.get<any>(
       `${this.ApiUrl}Allcourse`,
-      )
+    )
   }
+
+  GetAllPurchersCourse(userId:string): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}AllPurcherseCourse?userId=${userId}`,
+    )
+  }
+  GetFowllowers(userId:string): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}GetFowllowers?userId=${userId}`,
+    )
+  }
+
+  getWallet(userId:string): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}userWallet?userId=${userId}`,
+    )
+  }
+  
+  
 }

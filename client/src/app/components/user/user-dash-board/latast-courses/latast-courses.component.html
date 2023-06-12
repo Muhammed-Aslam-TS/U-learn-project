@@ -1,0 +1,45 @@
+<div class="p-4">
+    <div class="flex p-10 justify-between">
+        <h1 class="text-3xl font-bold">Latast Courses</h1>
+        <button type="button"
+            class=" text-gray-900  focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-slate-200 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">All
+            courses</button>
+    </div>
+    <div
+        class="w-full p-4 shadow sm:p-8 bg-white rounded-3xl">
+
+        <ul role="list"
+            class="divide-y divide-gray-200 dark:divide-gray-700">
+            <li class="py-3 sm:py-4"
+                *ngFor="let course of this.allCourseData">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full"
+                            src="{{course.CourseImage}}"
+                            alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0 j">
+                        <p class="flex justify-end">count of
+                            purcherese</p>
+
+                        <p
+                            class="text-sm font-medium text-gray-900 truncate dark:text-dark">
+                            {{course.courseName}}
+                        </p>
+                        <p
+                            class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            {{course.date|date}}
+                        </p>
+                    </div>
+
+                    <div
+                        class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        ${{course.Price}}
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</div>

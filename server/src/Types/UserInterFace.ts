@@ -7,6 +7,8 @@ export interface UserInterFace {
     Phone: number;
     Password: string;
     ConfirmPassword: string;
+    walletAmount:number
+
 
 }
 
