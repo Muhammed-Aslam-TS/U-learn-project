@@ -11,19 +11,10 @@ export class DashBoardNavBarComponent {
 
   AdminEmail = localStorage.getItem('adminEmail');
 
-  constructor(private router: Router) {
-    if (this.AdminEmail) {
-      this.show = false;
-    } else {
-      this.show = true;
-    }
+  isList: number;
+  isMenu = false;
+  isMenuBtn() {
+    this.isMenu = !this.isMenu;
   }
-  logIn() {
-    this.router.navigate(['admin/dashBoard'])
-  }
-
-  LogOut() {
-    localStorage.removeItem('adminEmail');
-    this.router.navigate(['admin/login']);
-  }
+  isSearch = false;
 }

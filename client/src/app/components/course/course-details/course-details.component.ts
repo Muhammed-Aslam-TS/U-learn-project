@@ -16,7 +16,9 @@ export class CourseDetailsComponent implements OnInit {
   Lname = ''
   email = ''
   Price = ''
-  category:any[]
+  category: any[]
+
+  status = false
 
   ngOnInit() {
     const courseId = localStorage.getItem('courseId')
@@ -24,7 +26,6 @@ export class CourseDetailsComponent implements OnInit {
     this.service.getCoures(courseId).subscribe((data: any) => {
 
       this.category = data.findCategory
-      console.log(this.category,"ddddddddddddddddddddddddddddddddddddd");
       this.image = data.course.CourseImage
       this.description = data.course.discription
       this.name = data.course.courseName
@@ -32,6 +33,14 @@ export class CourseDetailsComponent implements OnInit {
       this.Fname = data.user.Fname
       this.Lname = data.user.Lname
       this.email = data.user.Email
+
+
+      const user = data.user._id
+      const courseUserId = data.course.userId
+
+      if (user === courseUserId) {
+        this.status = true
+      }
     })
   }
 

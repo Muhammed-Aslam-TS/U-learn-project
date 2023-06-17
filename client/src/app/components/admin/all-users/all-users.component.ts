@@ -8,20 +8,26 @@ import { AdminService } from '../service/admin.service';
 })
 export class AllUsersComponent implements OnInit {
   allUsers: any[] = []
-  status = ''
+
   constructor(private service: AdminService) { }
   ngOnInit(): void {
     this.service.AllUsers().subscribe((response) => {
       this.allUsers = response
+      console.log(response);
+
+    })
+
+  }
+
+  isBlock(userId: string) {
+    console.log(userId);
+    localStorage.removeItem("userId")
+    localStorage.removeItem("userToken")
+    this.service.BlockUser(userId).subscribe((response) => {
+      console.log(response);
+
     })
 
 
-    // const token = localStorage.getItem('userToken');
-    // console.log(token);
-    
-    // if (!token) {
-    //   this.status = 'Ofline'
-    // }
   }
-
 }

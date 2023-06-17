@@ -22,9 +22,9 @@ export class AddCourseComponent implements OnInit {
       courseName: '',
       discription: '',
       userId: '',
-      Price:'',
-      date:'',
-      Category:'',
+      Price: '',
+      date: '',
+      Category: '',
       CourseImage: null
     });
   }
@@ -38,7 +38,7 @@ export class AddCourseComponent implements OnInit {
   }
 
   onSubmit() {
-console.log(this.uploadForm.get("date")?.value);
+    console.log(this.uploadForm.get("date")?.value);
 
     const formData = new FormData();
     formData.append('courseName', this.uploadForm.get("courseName")?.value);
@@ -49,7 +49,6 @@ console.log(this.uploadForm.get("date")?.value);
     formData.append('Price', this.uploadForm.get("Price")?.value);
     formData.append('Category', this.uploadForm.get("Category")?.value);
 
-    console.log('Form Data:', formData); // Console log the form data
     this.service.addCourse(formData).subscribe((response) => {
       console.log(response);
 

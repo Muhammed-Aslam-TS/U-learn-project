@@ -8,6 +8,12 @@ import { UserService } from '../user-service.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
+  menu = false;
+  menuDropdown() {
+    this.menu = !this.menu;
+  }
+
+
   // button = 'LogIn'
   UserId = localStorage.getItem('userId');
   UserToken = localStorage.getItem('userToken');

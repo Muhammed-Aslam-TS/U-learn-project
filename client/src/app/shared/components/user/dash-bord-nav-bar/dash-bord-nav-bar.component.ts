@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./dash-bord-nav-bar.component.css']
 })
 export class DashBordNavBarComponent {
-
+  isList: number;
+  isMenu = false;
+  isMenuBtn() {
+    this.isMenu = !this.isMenu;
+  }
+  isSearch = false;
 }

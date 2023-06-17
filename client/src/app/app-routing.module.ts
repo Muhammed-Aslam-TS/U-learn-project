@@ -16,6 +16,12 @@ import { PymentOptionsComponent } from './components/pyment-options/pyment-optio
 import { PaymentSuccessFullComponent } from './components/pyment-options/payment-success-full/payment-success-full.component';
 import { PaymentFaildComponent } from './components/pyment-options/payment-faild/payment-faild.component';
 import { WalletComponent } from './components/user/user-dash-board/wallet/wallet.component';
+import { UserAccountComponent } from './components/user/user-account/user-account.component';
+import { MyCoursesComponent } from './components/user/user-dash-board/my-courses/my-courses.component';
+import { FowllowersComponent } from './components/user/user-dash-board/fowllowers/fowllowers.component';
+import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
+import { SearchResultComponent } from './components/home/search-result/search-result.component';
+import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
@@ -32,6 +38,11 @@ const routes: Routes = [
   { path: 'paymentFaild', component: PaymentFaildComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'allCourses', component: GetAllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'userWallet', component: WalletComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'myAccount', component: UserAccountComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'myCourses', component: MyCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'subscibers', component: SubscribesComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'searchResult', component: SearchResultComponent, canActivate: [UserAuthGuardeServiceService] },
+  { path: 'ProAllCourse', component: AllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
   
 ];
 

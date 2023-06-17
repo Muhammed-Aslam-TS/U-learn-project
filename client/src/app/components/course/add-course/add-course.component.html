@@ -1,7 +1,11 @@
 <app-dash-bord-nav-bar></app-dash-bord-nav-bar>
-<div class="p-20 sm:ml-64">
 
-  <div class="flex justify-evenly h-screen items-center">
+<div>
+  <div class="p-20 sm:ml-64">
+    <h1 class="flex justify-center text-5xl relative font-sans">Create a new course..</h1>
+  </div>
+
+  <div class="flex h-full justify-center items-center sm:ml-64 p-5">
     <form
       action
       [formGroup]="uploadForm"
@@ -74,7 +78,7 @@
 
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 shadow-xl py-5 rounded-xl mt-2 items-center px-4 py-6 text-md uppercase hover:text-green-700">
+          class="bg-blue-500 shadow-xl rounded-xl mt-2 items-center px-4 py-6 text-md uppercase hover:text-green-700">
           Submit Course
         </button>
       </div>

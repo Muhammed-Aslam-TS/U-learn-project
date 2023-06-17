@@ -5,9 +5,11 @@ export interface UserInterFace {
     Lname?: string;
     Email: string;
     Phone: number;
+    Position:string;
     Password: string;
     ConfirmPassword: string;
     walletAmount:number
+    blockStatus:boolean
 
 
 }

@@ -8,6 +8,7 @@ export function UserDatabase() {
        
         userData.Status = "Offline";
         userData.walletAmount = 0;
+        userData.blockStatus = true;
         const User = await userModel.create(userData);
         return User;
     };

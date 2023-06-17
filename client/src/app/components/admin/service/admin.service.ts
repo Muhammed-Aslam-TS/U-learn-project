@@ -42,6 +42,12 @@ export class AdminService {
       httpOptions
     )
   }
-
+  BlockUser(userId:string){
+    console.log(userId);
+    
+    return this.http.put<any>(
+      `${this.ApiUrl}admin/BlockUser?userId=${userId}`,httpOptions
+    )
+  }
   
 }

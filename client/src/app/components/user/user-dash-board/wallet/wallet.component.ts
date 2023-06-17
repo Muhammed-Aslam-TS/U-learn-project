@@ -17,10 +17,7 @@ export class WalletComponent implements OnInit {
     this.service.getWallet(this.userId).subscribe((data: any) => {
       console.log(data);
       this.walletHistory = data.wallet.wallet
-      this.walletAmount = data.wallet.walletAmount
-      console.log(this.walletHistory,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-      
-
+      this.walletAmount = data.wallet.walletAmount      
     })
 
   }

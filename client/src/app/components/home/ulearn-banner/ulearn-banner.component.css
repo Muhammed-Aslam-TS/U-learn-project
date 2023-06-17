@@ -1,0 +1,12 @@
+#popup-div {
+    animation: popup 0.3s ease-out;
+  }
+
+  @keyframes popup {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

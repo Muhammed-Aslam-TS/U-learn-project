@@ -67,8 +67,8 @@ const PaymentController = (
             last4Digt: paymentData?.card.last4,
             purchaserId: paymentData?.userId
         };
-        const price = parseInt(paymetnDetails.price);console.log(price,"price____________________________");
-        
+        const price = parseInt(paymetnDetails.price);
+
         details.walletAmount = parseInt(details.walletAmount) + price;
 
         const wallet = paymetnDetails;
@@ -87,34 +87,25 @@ const PaymentController = (
         const purcherseCourses = response?.purcherseCourses;
 
         res.status(200).json({ message: "purcherseData successfully Geted", purcherseCourses });
-
     });
 
     const GetFowllowers = (async (req: Request, res: Response) => {
 
         const userId = req.query.userId;
         const response = await userModel.findOne({ _id: userId });
+        
+        const Fowllowers = response?.Fowllowers;
 
-        res.status(200).json({ message: "Fowllowers successfully Geted", response });
-
+        res.status(200).json({ message: "Fowllowers successfully Geted", Fowllowers });
     });
 
 
     const userWallet = (async (req: Request, res: Response) => {
 
-       const userId = req.query.userId;
+        const userId = req.query.userId;
+        const wallet = await userModel.findById({ _id: userId });
 
-       const wallet = await userModel.findById({_id:userId});
-
-
-
-
-
-        console.log(wallet, "wallet___________________________-");
-
-
-        res.status(200).json({ message: "wallet successfully Geted",wallet });
-
+        res.status(200).json({ message: "wallet successfully Geted", wallet });
     });
 
 

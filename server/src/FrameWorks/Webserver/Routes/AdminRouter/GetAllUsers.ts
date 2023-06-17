@@ -8,5 +8,7 @@ const Controller = AdminGetUserController();
 
 
 app.get("/allUsers",Controller.GetAllUsers);
+app.put("/BlockUser",Controller.BlockUser);
+
 
 export default app;

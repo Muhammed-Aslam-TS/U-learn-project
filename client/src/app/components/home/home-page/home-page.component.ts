@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from '../service/home.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   imageURL = '';
   courseData: any[] = []
   userId?: string
+  searchData = ''
 
-  data: object;
-
-  constructor(private router: Router, private service: HomeService) {
+  constructor(private router: Router, private service: HomeService, private formBuilder: FormBuilder) {
     const user = localStorage.getItem('userToken');
     user ? this.show1 = true : this.show1 = false
   }
@@ -25,32 +26,6 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  ngOnInit() {
-    this.service.GetAllCourse().subscribe((data: any) => {
-      this.courseData = data
-      console.log(this.courseData, 'course dataaaaaaaaaaaaaa');
-    })
-  }
-
-  handleClick(ownerId: string, coursId: string) {
-    const UserId = localStorage.getItem('userId')
-    localStorage.setItem("courseId", coursId)
-
-    this.data = {
-      userId: UserId,
-      ownerId: ownerId,
-      coursId: coursId
-    }
-
-
-    // this.service.chatRoom(data).subscribe((data: any) => {
-    //   console.log(data);
-    // })
-
-    this.router.navigate(['courseDetails'])
-
-  }
-
-
-
 }
+
+

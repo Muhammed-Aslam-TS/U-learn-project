@@ -10,6 +10,7 @@ import { typeOfUserAuthServiceInterFace } from "../../applications/Services/User
 import { googleData, googleLogin } from "../../applications/UseCases/Auth/googleFirebase";
 import userModel from "../../FrameWorks/Database/MongoDb/Models/UserModel";
 import GoogleUserModel from "../../FrameWorks/Database/MongoDb/Models/googleAuthModel";
+import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
 
 
 
@@ -23,9 +24,9 @@ const UserController = (
 
     const UserdbRepo = UserRepo(UserDatabase());
     const UserAuthServices = UserAuthServiceInterface(UserAuthservice());
-    
+
     const DoSignup = asyncHandler(async (req: Request, res: Response) => {
-        
+
         const UserData: UserInterFace = req.body;
         const Response: unknown = await addUser(UserData, UserdbRepo, UserAuthServices);
         res.json(Response);
@@ -33,25 +34,34 @@ const UserController = (
     });
 
     const DoLogin = asyncHandler(async (req: Request, res: Response) => {
-
         const { Email, Password }: UserInterFace = req.body;
-        const response = await userLogin(Email, Password, UserdbRepo, UserAuthServices);
-        const UserId = response.User._id;
-        if (UserId) {
-            const user = await userModel.findOneAndUpdate(
-                { _id: UserId }, { Status: "Online" }
-            );
+        const isUserBlocked = await userModel.findOne({ Email: Email });
+        console.log(isUserBlocked);
+
+        if (isUserBlocked?.blockStatus === true) {
+            res.json({ message: "this Account is Blocked" });
+        } else {
+            const response = await userLogin(Email, Password, UserdbRepo, UserAuthServices);
+            const UserId = response.User._id;
+            if (UserId) {
+                const user = await userModel.findOneAndUpdate(
+                    { _id: UserId }, { Status: "Online" }
+                );
+            }
+            res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
+            res.json(response);
         }
-        res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
-        res.json(response);
+
+
+
 
     });
     const logOut = asyncHandler(async (req: Request, res: Response) => {
         console.log(req.body, "b___________________");
 
         const userId = req.body.response.userId;
-        console.log(userId,"llllllllllllllllllllllllll");
-        
+        console.log(userId, "llllllllllllllllllllllllll");
+
         const user = await userModel.findOneAndUpdate({ _id: userId }, { $set: { Status: "Offline" } });
         console.log(user, "status____________________");
 
@@ -72,15 +82,11 @@ const UserController = (
         };
 
         const GoogleUser = await googleData(UserdbRepo, userData);
-        console.log(GoogleUser, "gggggggggggggggggggggggggg");
         const UserId = GoogleUser.googleData?._id;
-        console.log(UserId,"user_id________________gfvyfb");
-        
         if (UserId) {
             const user = await GoogleUserModel.findOneAndUpdate(
                 { _id: UserId }, { Status: "Online" }
             );
-            console.log(user, "......................user");
 
         }
 
@@ -92,11 +98,32 @@ const UserController = (
             res.json(response);
         }
 
+    });
+
+    const SerchDataData = asyncHandler(async (req: Request, res: Response) => {
+
+        try {
+            const SearchString = req.body.formData;
+            const courseSearchData = await courseModel.find({ courseName: { $regex: SearchString, $options: "i" } });
+            console.log(courseSearchData);
+            res.json(courseSearchData);
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    const getUserDetails = asyncHandler(async (req: Request, res: Response) => {
+
+        try {
+            const userId = req.query.userId;
+            const user = await userModel.findOne({ _id: userId });
+            res.json(user);
+        } catch (error) {
+            console.log(error);
+        }
 
 
     });
-
-
 
 
 
@@ -105,7 +132,9 @@ const UserController = (
         DoSignup,
         DoLogin,
         GoogleSignUp,
-        logOut
+        logOut,
+        SerchDataData,
+        getUserDetails
     };
 };
 

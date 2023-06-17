@@ -27,6 +27,8 @@ app.get("/dashBoard",Controller.GetCourses);
 app.get("/Allcourse",Controller.Allcourse);
 app.get("/courseDetails",Controller.GetCourse);
 app.get("/placeOrder",Controller.placeOrderGetDetails);
+app.get("/getMyCourse",Controller.getMyCourse);
+app.get("/removeCourse",Controller.removeCourse);
 // app.post("/placeOrder",Controller.paymentSuccess);
 // // app.get("/paymentSuccess",Controller.paymentSuccess);
 

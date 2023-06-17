@@ -30,6 +30,10 @@ const UserSchema = new mongoose.Schema({
             }
         ]
     },
+    Position:{
+        type: String,
+        required: true,
+    },
     Password: {
         type: String,
         required: true,
@@ -52,6 +56,9 @@ const UserSchema = new mongoose.Schema({
     },
     walletAmount:{
         type:Number
+    },
+    blockStatus:{
+        type: Boolean
     }
 
 });

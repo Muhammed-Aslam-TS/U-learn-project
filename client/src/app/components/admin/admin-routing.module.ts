@@ -7,6 +7,7 @@ import { AdminAuthGuardService } from 'src/app/guard/admin/admin-auth-guard.serv
 import { AdminUnAuthGuardService } from 'src/app/guard/admin/admin-un-auth-guard.service';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'dashBoard', component: AdminDashBoardComponent,canActivate: [AdminAuthGuardService] },
       { path: 'allUsers', component: AllUsersComponent,canActivate: [AdminAuthGuardService] },
       { path: 'allCourses', component: AllCoursesComponent,canActivate: [AdminAuthGuardService] },
+      { path: 'wallet', component: WalletComponent,canActivate: [AdminAuthGuardService] },
     ]
   },
 

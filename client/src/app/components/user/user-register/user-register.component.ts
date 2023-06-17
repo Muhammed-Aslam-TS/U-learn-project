@@ -35,6 +35,7 @@ export class UserRegisterComponent {
     Phone: '',
     Password: '',
     ConfirmPassword: '',
+    Position:''
   };
 
 

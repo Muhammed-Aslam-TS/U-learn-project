@@ -1,0 +1,4 @@
+#mobile-nav {
+    /* Remove md:h-full */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}

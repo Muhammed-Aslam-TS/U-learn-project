@@ -34,4 +34,14 @@ export class HomeService {
       httpOptions
     )
   }
+
+
+
+
+  serchData(formData: string): Observable<any> {
+    return this.http.post(`${this.ApiUrl}SerchData`, ({formData}),httpOptions);
+  }
+
+  
+
 }

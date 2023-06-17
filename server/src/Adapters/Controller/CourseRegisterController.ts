@@ -56,12 +56,9 @@ const CourseController = (
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
         const CorseData: CourseInterface = req.body;
         CorseData.Price as number;
-        console.log(CorseData);
-
         const storageRef = ref(storage, `u-learn-files/${req.file?.originalname}`);
 
         uploadBytes(storageRef, req.file?.buffer as Buffer).then(async (snapshort) => {
-            console.log("file uploded________");
             const imageUrl = await getDownloadURL(snapshort.ref);
 
             const response = await addCourse(imageUrl, CorseData, CourseAddRepo, UserCorseServices);
@@ -96,11 +93,11 @@ const CourseController = (
 
         const category = getCourse?.Category;
 
-        const findCategory = await courseModel.find({Category:category});
+        const findCategory = await courseModel.find({ Category: category });
         const userId = getCourse?.userId;
 
         const user = await userModel.findOne({ _id: userId });
-        res.json({ course: getCourse, user, message: true,findCategory });
+        res.json({ course: getCourse, user, message: true, findCategory });
     });
 
     const placeOrderGetDetails = asyncHandler(async (req: Request, res: Response) => {
@@ -112,7 +109,18 @@ const CourseController = (
         res.json({ course: getCourse, user, message: true });
     });
 
+    const getMyCourse = asyncHandler(async (req: Request, res: Response) => {
 
+        const userId = req.query.userId;
+        const MyCourse = await courseModel.find({ userId: userId });
+        const user = await userModel.findById({ _id: userId });
+        res.json({MyCourse,user});
+    });
+
+    const removeCourse = asyncHandler(async (req: Request, res: Response) => {
+        const courseId = req.query.courseId;
+        const MyCourse = await courseModel.findOneAndDelete({ _id: courseId });        
+    });
 
     return {
         addCourseDatails,
@@ -120,7 +128,9 @@ const CourseController = (
         GetCourses,
         Allcourse,
         GetCourse,
-        placeOrderGetDetails
+        placeOrderGetDetails,
+        getMyCourse,
+        removeCourse
     };
 };
 

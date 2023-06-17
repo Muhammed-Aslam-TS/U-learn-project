@@ -44,6 +44,13 @@ export class UserServiceService {
       httpOptions
     )
   }
+
+
+  getUserDetails(userId:string): Observable<any> {
+    return this.http.get<any>(
+      `${this.ApiUrl}getUserDetails?userId=${userId}`,
+    )
+  }
 }
 
 

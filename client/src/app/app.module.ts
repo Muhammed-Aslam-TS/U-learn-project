@@ -11,12 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AdminModule } from './components/admin/admin.module';
-
-
 import {MatPaginatorModule} from '@angular/material/paginator';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCourseComponent } from './components/course/add-course/add-course.component';
@@ -44,6 +39,18 @@ import { PaymentDetailsComponent } from './components/user/user-dash-board/payme
 import { LatastCoursesComponent } from './components/user/user-dash-board/latast-courses/latast-courses.component';
 import { FowllowersComponent } from './components/user/user-dash-board/fowllowers/fowllowers.component';
 import { WalletComponent } from './components/user/user-dash-board/wallet/wallet.component';
+import { FooterComponent } from './components/home/footer/footer.component';
+import { UserAccountComponent } from './components/user/user-account/user-account.component';
+import { CourseDisplayComponent } from './components/home/course-display/course-display.component';
+import { UlearnFeaturesComponent } from './components/home/ulearn-features/ulearn-features.component';
+import { UlearnBannerComponent } from './components/home/ulearn-banner/ulearn-banner.component';
+import { MyCoursesComponent } from './components/user/user-dash-board/my-courses/my-courses.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { StreamChatModule, StreamAutocompleteTextareaModule } from 'stream-chat-angular';
+import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
+import { SearchResultComponent } from './components/home/search-result/search-result.component';
+import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
+
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -83,6 +90,15 @@ const firebase = {
     LatastCoursesComponent,
     FowllowersComponent,
     WalletComponent,
+    FooterComponent,
+    UserAccountComponent,
+    CourseDisplayComponent,
+    UlearnFeaturesComponent,
+    UlearnBannerComponent,
+    MyCoursesComponent,
+    SubscribesComponent,
+    SearchResultComponent,
+    AllCoursesComponent,
     
   ],
   imports: [
@@ -100,7 +116,13 @@ const firebase = {
     AdminModule,
     MatPaginatorModule,
     GooglePayButtonModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    TranslateModule.forRoot(),
+    StreamChatModule,
+    StreamAutocompleteTextareaModule,
+    StreamChatModule
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

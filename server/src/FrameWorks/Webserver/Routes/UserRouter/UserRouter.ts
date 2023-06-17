@@ -20,6 +20,10 @@ app.post("/signup", Controller.DoSignup);
 app.post("/login", Controller.DoLogin); 
 app.post("/logOut", Controller.logOut); 
 app.post("/googleSignup", Controller.GoogleSignUp); 
+app.post("/SerchData", Controller.SerchDataData); 
+app.get("/getUserDetails", Controller.getUserDetails); 
+
+
 
 
 export default app;

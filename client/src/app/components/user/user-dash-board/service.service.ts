@@ -49,6 +49,16 @@ export class ServiceService {
       `${this.ApiUrl}userWallet?userId=${userId}`,
     )
   }
-  
+  getMyCourse(userId:string) {
+    return this.http.get<any>(
+      `${this.ApiUrl}getMyCourse?userId=${userId}`,
+    )
+  }
+
+  removeCourse(courseId:string) {
+    return this.http.get<any>(
+      `${this.ApiUrl}removeCourse?courseId=${courseId}`,
+    )
+  }
   
 }

@@ -7,6 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
+  
+  menu = false;
+  menuDropdown() {
+    this.menu = !this.menu;
+  }
+
   show = true;
 
   AdminEmail = localStorage.getItem('adminEmail');

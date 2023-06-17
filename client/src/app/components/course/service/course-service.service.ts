@@ -26,8 +26,6 @@ export class CourseServiceService {
 
 
   getCoures(data: any) {
-    console.log(data,"xxxxxxxxxxxxxxxxxxxxxxxxxx");
-
     return this.http.get<any>(
       `${this.ApiUrl}courseDetails?courseId=${data}`,
       httpOptions
