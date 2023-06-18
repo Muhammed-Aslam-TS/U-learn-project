@@ -70,44 +70,55 @@
         </button>
 
       </div>
+      <button
+          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+          (click)="toggleModal()">
+          <span
+            class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+            clere
+          </span>
+        </button> 
       <div
         class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
         <h3 class="text-3xl font-semibold">
           Search Results
         </h3>
-        <button
-          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-          (click)="toggleModal()">
-          <span
-            class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-            ×
-          </span>
-        </button>
+        
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto">
-        <div class="flex justify-between p-20 gap-5">
-          <div *ngFor="let course of courseData"
-            class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow light:bg-gray-800 light:border-gray-700">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          <div *ngFor="let course of courseData | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index"
+            class="w-full bg-white border border-gray-200 rounded-lg shadow light:bg-gray-800 light:border-gray-700">
             <div class="flex flex-col items-center pb-10">
-              <img class="w-full h-56 mb-3 rounded shadow-lg"
-                src="{{course.CourseImage}}" alt="Bonnie image" />
-              <h1 class="mb-1 text-xl font-medium text-gray-900 dark:text-black">{{course.courseName}}</h1>
+              <img class="w-full h-56 mb-3 rounded shadow-lg" src="{{ course.CourseImage }}" alt="Bonnie image" />
+              <h1 class="mb-1 text-xl font-medium text-gray-900 dark:text-black">{{ course.courseName }}</h1>
               <div class="w-full p-4">
-
                 <button type="button"
-                  (click)="handleClick(course.userId,course._id)"
-                  class="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 justify-center items-center">Shwo
-                  Details</button>
+                  (click)="handleClick(course.userId, course._id)"
+                  class="rounded-md flex items-center justify-center w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200">
+                  Show Details
+                </button>
               </div>
-
             </div>
           </div>
+        </div>
+      </div>
+      
+
+      <div class="flex justify-end">
+        <div class=" d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
         </div>
       </div>
       <!--footer-->
 
     </div>
   </div>
+
 </div>
 <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>`

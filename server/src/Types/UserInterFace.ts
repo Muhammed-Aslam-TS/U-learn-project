@@ -5,7 +5,7 @@ export interface UserInterFace {
     Lname?: string;
     Email: string;
     Phone: number;
-    Position:string;
+    CurrentPosition:string;
     Password: string;
     ConfirmPassword: string;
     walletAmount:number

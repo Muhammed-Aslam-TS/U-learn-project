@@ -13,7 +13,13 @@
             <ul role="list"
                 class="divide-y divide-gray-200 dark:divide-gray-700">
                 <li class="py-3 sm:py-4"
-                    *ngFor="let course of this.allPurchersCourseData">
+                    *ngFor="let course of this.allPurchersCourseData | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index">
                     <div class="flex items-center space-x-4">
                         <div class="flex-shrink-0">
                             <img class="w-8 h-8 rounded-full"
@@ -45,5 +51,15 @@
             </ul>
 
         </div>
+    </div>
+</div>
+
+<div class="flex justify-end">
+    <div class=" d-flex justify-content-center">
+        <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
     </div>
 </div>

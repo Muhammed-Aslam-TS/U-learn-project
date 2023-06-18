@@ -1,34 +1,59 @@
-<div class="flex h-screen w-full justify-center items-center">
-  <div class="card ">
-    <span class="card__title">SignUp your Account</span>
-
-
-    <div class="card__form">
-
-      <div>
-        <input placeholder="Last Name" type="text" [(ngModel)]="signupObj.Fname">
-        <input placeholder="Last Name" type="text" [(ngModel)]="signupObj.Lname">
-
-        <input placeholder="Your Email" type="email" [(ngModel)]="signupObj.Email">
-
-        <input placeholder="Your Phone" [(ngModel)]="signupObj.Phone" type="tel">
-
-        <input placeholder="Current Position" type="text" [(ngModel)]="signupObj.ConfirmPassword">
-
-
-        <input placeholder="Your Password" type="password" [(ngModel)]="signupObj.Password">
-        <input placeholder="Confirm Password" type="password" [(ngModel)]="signupObj.Position">
-
-      </div>
-      <button
-        class="justify-center text-white bg-[#4285F4] width-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-        (click)="DoSignUp()">Register Your Account</button>
+<div class="max-w-screen-3xl min-h-screen" style="background-image: url(../../../../assets/images/e-learning-banner-2.jpg); background-size: cover; background-position: center;">
+  <div class="p-7 ps-6 md:p-24">
+    <h1 class="text-4xl font-bold text-white">Sign Up <br> Your Account to U-learn</h1>
+    <div class="flex">
+      <p class="text-white mt-4">
+        Introducing U-Learn: Your Ultimate Online Learning Platform, offering a
+        <br>
+        wide range of courses taught by expert instructors, empowering you to
+        <br>
+        learn at your own pace. Start your learning journey with us today!
+      </p>
     </div>
 
+    <div class="lg:pt-16 max-w-sm mx-auto md:p-4 md:w-auto md:mx-0">
+      <form [formGroup]="signUpForm" (ngSubmit)="DoSignUp()" class="space-y-6" action="#">
+        <div class="flex flex-col md:flex-row gap-2">
+          <input class="rounded-xl p-4 w-full" placeholder="First Name" type="text" formControlName="Fname">
+        </div>
+        <span *ngIf="hasError('Fname')" class="error-message text-red-600">First Name is required.</span>
 
+        <div class="flex flex-col md:flex-row gap-2 w-full">
+          <input class="rounded-xl p-4 w-full" placeholder="Last Name" type="text" formControlName="Lname">
+        </div>
+        <span *ngIf="hasError('Lname')" class="error-message text-red-600">Lname is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2">
+          <input class="rounded-xl p-4 w-full" placeholder="Your Email" type="email" formControlName="Email">
+        </div>
+        <span *ngIf="hasError('Email')" class="error-message text-red-600">Email is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2 ">
+          <input class="rounded-xl p-4 w-full" placeholder="Your Phone" formControlName="Phone">
+        </div>
+        <span *ngIf="hasError('Phone')" class="error-message text-red-600">Phone is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2">
+          <input class="rounded-xl p-4 w-full" placeholder="Current Position" formControlName="CurrentPosition" type="text">
+        </div>
+        <span *ngIf="hasError('CurrentPosition')" class="error-message text-red-600">Current Position is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2">
+          <input class="rounded-xl p-4 w-full" placeholder="Your Password" formControlName="Password" type="password" >
+        </div>
+        <span *ngIf="hasError('Password')" class="error-message text-red-600">password is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2">
+          <input class="rounded-xl p-4 w-full" placeholder="Confirm Password" formControlName="ConfirmPassword" type="password">
+        </div>
+        <span *ngIf="hasError('ConfirmPassword')" class="error-message text-red-600">ConfirmPassword is required.</span>
+
+        <div class="flex flex-col md:flex-row gap-2">
+          <button type="submit" [disabled]="signUpForm.invalid" class="w-full justify-center text-white bg-[#4285F4] hover:text-black hover:bg-[#dfdfdf] focus:ring-4 rounded-xl p-4">
+            Register Your Account
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-
-
-
-
 </div>

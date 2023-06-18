@@ -24,7 +24,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let course of allCourses"
+                <tr *ngFor="let course of allCourses  | paginate
+                : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index"
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-32 p-4">
                         <img src="{{course.CourseImage}}"
@@ -50,8 +56,13 @@
 
             </tbody>
         </table>
-    </div>
-</div>
 
-<mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]"
-    aria-label="Select page"></mat-paginator>
+        <div class="flex justify-end">
+            <div class=" d-flex justify-content-center">
+                <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+            </div>
+        </div>

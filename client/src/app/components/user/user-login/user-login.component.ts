@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { GoogleAuthProvider, GithubAuthProvider, } from "@angular/fire/auth"
+import { GoogleAuthProvider, GithubAuthProvider } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
-export class UserLoginComponent {
+export class UserLoginComponent implements OnInit {
   form!: FormGroup;
-  token: any = ''
+  token: any = '';
 
 
   constructor(
@@ -23,18 +23,40 @@ export class UserLoginComponent {
     private http: HttpClient,
     private fireauth: AngularFireAuth
   ) { }
+
   loginObj: any = {
     Email: '',
     Password: '',
   };
 
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      Email: ['', [Validators.required, Validators.email]],
+      Password: ['', Validators.required]
+    });
+  }
+
+  get formControls() {
+    return this.form.controls;
+  }
+
+  hasError(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return control.touched && control.invalid;
+  }
+
   DoLogin() {
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.loginObj = this.form.value;
+
     this.userService.DoLogin(this.loginObj).subscribe((data) => {
       if (!data.token) {
-        window.alert('token not existed')
+        window.alert('Token does not exist');
       } else {
         if (data.token) {
-          
           localStorage.setItem('userToken', data.token);
           localStorage.setItem('userId', data.User._id);
           this.router.navigate(['']);
@@ -45,39 +67,23 @@ export class UserLoginComponent {
     });
   }
 
-  signInWithGoole() {
-    this.fireauth.signInWithPopup(new GoogleAuthProvider).then((res) => {
-      console.log(res,'________________________jjjjjjjjjjjjjjjjjjjjjj')
-      const data = res.additionalUserInfo?.profile
-      console.log(data);
+  signInWithGoogle() {
+    this.fireauth.signInWithPopup(new GoogleAuthProvider()).then((res) => {
+      const data = res.additionalUserInfo?.profile;
 
       this.userService.googleSignIn(res).subscribe((respons) => {
-        console.log(respons, '______________________________________');
         if (!respons.uid) {
-          window.alert('token not existed')
+          window.alert('Token does not exist');
         } else {
           if (respons.uid) {
-            window.alert('id ok')
-            localStorage.setItem('userToken', JSON.stringify(respons.uid))
-            localStorage.setItem('userId', JSON.stringify(respons.userId))
+            localStorage.setItem('userToken', JSON.stringify(respons.uid));
+            localStorage.setItem('userId', JSON.stringify(respons.userId));
             this.router.navigate(['']);
           } else {
             this.router.navigate(['login']);
           }
         }
-
-
-
-
-        // this.router.navigate([''])
-
-      })
-    })
+      });
+    });
   }
-
-  // ngOnInit(){
-
-  // }
 }
-
-

@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
             }
         ]
     },
-    Position:{
+    CurrentPosition:{
         type: String,
         required: true,
     },

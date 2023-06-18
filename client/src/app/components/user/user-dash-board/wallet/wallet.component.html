@@ -15,7 +15,13 @@
             <h2 class="text-lg font-semibold mb-2">Recent Transactions</h2>
 
             <ul class="space-y-4">
-                <li *ngFor="let history of this.walletHistory">
+                <li *ngFor="let history of this.walletHistory | paginate
+                : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index">
                     <div class="flex items-center">
                         <div
                             class="bg-blue-500 rounded-full h-8 w-8 flex items-center justify-center">
@@ -29,7 +35,8 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="font-medium">Payment received from {{history.courseName}}</p>
+                            <p class="font-medium">Payment received from
+                                {{history.courseName}}</p>
                             <p class="text-gray-500">{{history.date|date}}</p>
                         </div>
                         <div class="ml-auto">
@@ -65,6 +72,16 @@
                 <!-- Add more transaction items as needed -->
 
             </ul>
+
+        </div>
+        <div class="flex justify-end">
+            <div class=" d-flex justify-content-center">
+                <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+            </div>
         </div>
     </div>
 </div>

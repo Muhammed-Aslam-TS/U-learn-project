@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 // components___________________________________
 
@@ -16,6 +18,7 @@ import { DashBoardNavBarComponent } from 'src/app/shared/components/admin/dash-b
 import { AllUsersComponent } from './all-users/all-users.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -28,14 +31,16 @@ import { WalletComponent } from './wallet/wallet.component';
     DashBoardNavBarComponent,
     AllUsersComponent,
     AllCoursesComponent,
-    WalletComponent
+    WalletComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class AdminModule { }

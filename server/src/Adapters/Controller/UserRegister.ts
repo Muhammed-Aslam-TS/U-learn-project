@@ -12,8 +12,6 @@ import userModel from "../../FrameWorks/Database/MongoDb/Models/UserModel";
 import GoogleUserModel from "../../FrameWorks/Database/MongoDb/Models/googleAuthModel";
 import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
 
-
-
 const UserController = (
     UserDatabase: TypeOfUserDb,
     UserRepo: typeOfUserRepo,
@@ -21,13 +19,13 @@ const UserController = (
     UserAuthServiceInterface: typeOfUserAuthServiceInterFace
 
 ) => {
-
     const UserdbRepo = UserRepo(UserDatabase());
     const UserAuthServices = UserAuthServiceInterface(UserAuthservice());
 
     const DoSignup = asyncHandler(async (req: Request, res: Response) => {
-
         const UserData: UserInterFace = req.body;
+        console.log(UserData,"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+        
         const Response: unknown = await addUser(UserData, UserdbRepo, UserAuthServices);
         res.json(Response);
 
@@ -52,15 +50,12 @@ const UserController = (
             res.json(response);
         }
 
-
-
-
     });
+
     const logOut = asyncHandler(async (req: Request, res: Response) => {
         console.log(req.body, "b___________________");
 
         const userId = req.body.response.userId;
-        console.log(userId, "llllllllllllllllllllllllll");
 
         const user = await userModel.findOneAndUpdate({ _id: userId }, { $set: { Status: "Offline" } });
         console.log(user, "status____________________");
@@ -69,9 +64,7 @@ const UserController = (
 
     });
 
-
     const GoogleSignUp = asyncHandler(async (req: Request, res: Response) => {
-
         const user = req.body.data.user;
         const userData: GoogleUserInterface = {
             uid: user.uid,
@@ -87,7 +80,6 @@ const UserController = (
             const user = await GoogleUserModel.findOneAndUpdate(
                 { _id: UserId }, { Status: "Online" }
             );
-
         }
 
         if (userData.email === GoogleUser.googleData?.email) {
@@ -101,7 +93,6 @@ const UserController = (
     });
 
     const SerchDataData = asyncHandler(async (req: Request, res: Response) => {
-
         try {
             const SearchString = req.body.formData;
             const courseSearchData = await courseModel.find({ courseName: { $regex: SearchString, $options: "i" } });
@@ -113,7 +104,6 @@ const UserController = (
     });
 
     const getUserDetails = asyncHandler(async (req: Request, res: Response) => {
-
         try {
             const userId = req.query.userId;
             const user = await userModel.findOne({ _id: userId });
@@ -122,11 +112,7 @@ const UserController = (
             console.log(error);
         }
 
-
     });
-
-
-
 
     return {
         DoSignup,
@@ -137,6 +123,5 @@ const UserController = (
         getUserDetails
     };
 };
-
 
 export default UserController;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { PostService } from 'src/app/post.service';
+
 
 @Component({
   selector: 'app-my-courses',
@@ -7,7 +9,13 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./my-courses.component.css']
 })
 export class MyCoursesComponent implements OnInit {
-  constructor(private service: ServiceService) { }
+  POSTS: any;
+  page = 1;
+  count = 0;
+  tableSize = 7;
+  tableSizes: any = [3, 6, 9, 12];
+
+  constructor(private service: ServiceService,private PostService:PostService) { }
   userId = localStorage.getItem('userId')
   courseId = ''
   MyCourse: any[] = []
@@ -16,6 +24,7 @@ export class MyCoursesComponent implements OnInit {
 
 
   ngOnInit() {
+    this.fetchPosts();
     this.service.getMyCourse(this.userId).subscribe((data) => {
       this.MyCourse = data.MyCourse
       const user: any[] = data.user.purcherseCourses
@@ -42,5 +51,26 @@ export class MyCoursesComponent implements OnInit {
     })
 
 
+  }
+
+  fetchPosts(): void {
+    this.PostService.getAllPosts().subscribe(
+      (response) => {
+        this.POSTS = response;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.fetchPosts();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.fetchPosts();
   }
 }

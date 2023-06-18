@@ -20,6 +20,9 @@ export class AdminService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  DoSignUp(formData:any): Observable<any> {
+    return this.http.post(`${this.ApiUrl}admin/Signup`, formData);
+  }
 
   adminLogIn(admin: any): Observable<any> {
     return this.http.post<any>(
@@ -42,12 +45,11 @@ export class AdminService {
       httpOptions
     )
   }
-  BlockUser(userId:string){
-    console.log(userId);
-    
+
+  BlockUser(userId: string) {
     return this.http.put<any>(
-      `${this.ApiUrl}admin/BlockUser?userId=${userId}`,httpOptions
+      `${this.ApiUrl}admin/BlockUser?userId=${userId}`, httpOptions
     )
   }
-  
+
 }

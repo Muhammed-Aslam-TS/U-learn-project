@@ -1,74 +1,72 @@
+<!-- app.component.html -->
+
 <app-nav-bar></app-nav-bar>
+
 <div>
-    <app-dash-board-nav-bar></app-dash-board-nav-bar>
+  <app-dash-board-nav-bar></app-dash-board-nav-bar>
 </div>
-<!-- <div class="flex justify-center items-center h-screen w-screen"> -->
 
 <div class="p-4 sm:ml-64">
 
-    <div
-        class="flex relative overflow-x-auto shadow-md sm:rounded-lg items-center justify-center w-full">
+  <div class="flex relative overflow-x-auto shadow-md sm:rounded-lg items-center justify-center w-full">
 
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead
-                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        User Name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Position
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Status
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of this.allUsers"
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row"
-                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <div class="pl-3">
-                            <div class="text-base font-semibold">{{user.Fname}}
-                                {{user.Lname}}</div>
-                            <div class="font-normal text-gray-500">{{user.Email}}</div>
-                        </div>
-                    </th>
-                    <td class="px-6 py-4">
-                        {{user.Position}}
-                    </td>
-                    <td class="px-6 py-4">
-                        <div
-                            *ngIf="(user.Status)==='Online'"
-                            class="flex items-center">
-                            <div
-                                class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2">
-                            </div>
-                            {{user.Status}}
-                        </div>
-                        <div
-                            *ngIf="(user.Status)==='Offline'"
-                            class="flex items-center">
-                            <div
-                                class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2">
-                            </div>
-                            {{user.Status}}
-                        </div>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            User Name
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Position
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Status
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of allUsers | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+            <div class="pl-3">
+              <div class="text-base font-semibold">{{ user.Fname }} {{ user.Lname }}</div>
+              <div class="font-normal text-gray-500">{{ user.Email }}</div>
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            {{ user.CurrentPosition }}
+          </td>
+          <td class="px-6 py-4">
+            <div *ngIf="user.Status === 'Online'" class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
+              {{ user.Status }}
+            </div>
+            <div *ngIf="user.Status === 'Offline'" class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>
+              {{ user.Status }}
+            </div>
+          </td>
+          <td class="px-6 py-4" *ngIf="user.blockStatus === false">
+            <button (click)="isBlock(user._id)">Block</button>
+          </td>
+          <td class="px-6 py-4" *ngIf="user.blockStatus === true">
+            <button (click)="isBlock(user._id)">Unblock</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-                    </td>
-                    <td class="px-6 py-4" *ngIf="(user.blockStatus)===false ">
-                        <button (click)="isBlock(user._id)">block</button>
-                    </td>
-                    <td class="px-6 py-4" *ngIf="(user.blockStatus)===true">
-                        <button (click)="isBlock(user._id)">Un block</button>
-                    </td>
-                </tr>
+  </div>
+</div>
 
-            </tbody>
-        </table>
-
-    </div>
+<div class="flex justify-end">
+  <div class=" d-flex justify-content-end">
+      <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+  </div> 
+</div>

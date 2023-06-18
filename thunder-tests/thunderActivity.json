@@ -61,23 +61,17 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/addCourse",
-    "url": "http://localhost:4000/addCourse",
+    "url": "http://localhost:4000/signup",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-06-06T14:33:33.085Z",
-    "modified": "2023-06-07T09:14:16.371Z",
+    "modified": "2023-06-18T06:26:12.232Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "formdata",
-      "raw": "",
-      "form": [],
-      "files": [
-        {
-          "name": "file",
-          "value": "../../../../../../../home/aslu/Downloads/Telegram Desktop/13_Flyer_Mockup.jpg"
-        }
-      ]
+      "type": "json",
+      "raw": "{\n  \"Fname\":\"aslam\",\n  \"Lname\":\"aaa\",\n  \"Phone\":\"55555555555555678\",\n  \"Email\":\"as@gmail.com\",\n  \"CurrentPosition\":\"vvvvvvvvvvv\",\n  \"Password\":\"123\",\n    \"ConfirmPassword\":\"123\"\n}",
+      "form": []
     },
     "tests": []
   }

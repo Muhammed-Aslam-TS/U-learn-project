@@ -20,19 +20,18 @@ const AdminGetUserController = (
 
     const BlockUser = asyncHandler(async (req: Request, res: Response) => {
         const userId = req.query.userId;
-        const BlockUser = await userModel.findOneAndUpdate({ _id: userId });
+        const BlockUser = await userModel.findOne({ _id: userId });
         if (BlockUser?.blockStatus === true) {
-            const BlockUser = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "blockStatus": false } });
-            const Online = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "Status": "Online" } });
+            const BlockUser = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "blockStatus": false ,"Status": "Online" } });
+            // const Online = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "Status": "Online" } });
 
         } else {
-            const BlockUser = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "blockStatus": true } });
-            const Offline = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "Status": "Offline" } });
+            const BlockUser = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "blockStatus": true ,"Status": "Offline" } });
+            // const Offline = await userModel.findOneAndUpdate({ _id: userId }, { $set: { "Status": "Offline" } });
 
         }
 
         console.log(BlockUser);
-
 
     });
 

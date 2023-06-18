@@ -39,18 +39,15 @@ response = {
   }
 
   LogOut() {
-   console.log('kkkkkkkkkkkkkkkkkk');
-   console.log(this.UserId);
-   
-    this.service.logOut(this.response).subscribe((data:object)=>{
-      console.log(data,"data?>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      
+    this.service.logOut(this.response).subscribe((data:object)=>{      
       if(data){
         localStorage.removeItem('userToken');
         localStorage.removeItem('userId');
         this.router.navigate(['/']);
+        location.reload()
       }
     })
+    
   }
 }
 

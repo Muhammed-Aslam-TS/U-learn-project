@@ -60,7 +60,6 @@ const CourseController = (
 
         uploadBytes(storageRef, req.file?.buffer as Buffer).then(async (snapshort) => {
             const imageUrl = await getDownloadURL(snapshort.ref);
-
             const response = await addCourse(imageUrl, CorseData, CourseAddRepo, UserCorseServices);
             res.status(200).json({ message: "Course data received successfully", response });
         });

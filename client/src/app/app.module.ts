@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
@@ -50,6 +52,7 @@ import { StreamChatModule, StreamAutocompleteTextareaModule } from 'stream-chat-
 import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
+import { DarkModeComponent } from './dark-mode/dark-mode.component';
 
 
 const firebase = {
@@ -99,6 +102,7 @@ const firebase = {
     SubscribesComponent,
     SearchResultComponent,
     AllCoursesComponent,
+    DarkModeComponent,
     
   ],
   imports: [
@@ -120,7 +124,8 @@ const firebase = {
     TranslateModule.forRoot(),
     StreamChatModule,
     StreamAutocompleteTextareaModule,
-    StreamChatModule
+    StreamChatModule,
+    NgxPaginationModule
 
     
   ],

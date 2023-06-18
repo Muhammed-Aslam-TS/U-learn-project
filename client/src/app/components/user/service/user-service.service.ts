@@ -29,11 +29,11 @@ export class UserServiceService {
     )
   }
 
-  DoSignUp(UserData: any): Observable<any> {
+  DoSignUp(UserData: FormData): Observable<any> {
+    console.log(UserData,"llllllllllllllllllllllllll");
     return this.http.post<any>(
-      `${this.ApiUrl}signup`,
-      JSON.stringify(UserData),
-      httpOptions
+      `${this.ApiUrl}signup`,UserData,
+      
     )
   }
 
