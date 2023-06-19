@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CourseServiceService } from '../service/course-service.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-course',
@@ -14,7 +16,8 @@ export class AddCourseComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: CourseServiceService
+    private service: CourseServiceService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -49,11 +52,22 @@ export class AddCourseComponent implements OnInit {
     formData.append('Price', this.uploadForm.get("Price")?.value);
     formData.append('Category', this.uploadForm.get("Category")?.value);
 
-    this.service.addCourse(formData).subscribe((response) => {
-      console.log(response);
+if (formData) {
+  Swal.fire(
+    'Course is added successfully!',
+    'You clicked the button!',
+    'success'
+  )
 
-    })
-  }
+  this.service.addCourse(formData).subscribe((response) => {
+    console.log(response);
+
+  })
+
+this.router.navigate(['/dashBoard'])
+}
+}
+   
 }
 
 

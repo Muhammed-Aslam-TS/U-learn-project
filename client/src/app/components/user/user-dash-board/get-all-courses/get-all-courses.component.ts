@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { PostService } from 'src/app/post.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class GetAllCoursesComponent implements OnInit {
 
   userId = localStorage.getItem('userId')
   allCourses: any[] = []
-  constructor(private service: ServiceService,private postService:PostService) { }
+  data: { userId: string; ownerId: string; coursId: string; };
+  constructor(private service: ServiceService,private postService:PostService,private router:Router) { }
 
   ngOnInit() {
     this.fetchPosts();
@@ -51,6 +53,19 @@ export class GetAllCoursesComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.fetchPosts();
+  }
+
+
+  Onclick(ownerId: string, coursId: string) {
+    const UserId = localStorage.getItem('userId')
+    localStorage.setItem("courseId", coursId)
+
+    this.data = {
+      userId: UserId,
+      ownerId: ownerId,
+      coursId: coursId
+    }
+    this.router.navigate(['courseDetails'])
   }
 
 }

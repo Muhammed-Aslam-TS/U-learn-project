@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 // import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -53,6 +54,8 @@ import { SubscribesComponent } from './components/user/user-dash-board/subscribe
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
 import { DarkModeComponent } from './dark-mode/dark-mode.component';
+import { PageNOtfoundComponent } from './components/pagenotFound/page-notfound/page-notfound.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 const firebase = {
@@ -103,6 +106,8 @@ const firebase = {
     SearchResultComponent,
     AllCoursesComponent,
     DarkModeComponent,
+    PageNOtfoundComponent,
+    SpinnerComponent,
     
   ],
   imports: [
@@ -125,7 +130,8 @@ const firebase = {
     StreamChatModule,
     StreamAutocompleteTextareaModule,
     StreamChatModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSlideToggleModule
 
     
   ],

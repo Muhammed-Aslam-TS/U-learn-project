@@ -22,6 +22,7 @@ import { FowllowersComponent } from './components/user/user-dash-board/fowllower
 import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
+import { PageNOtfoundComponent } from './components/pagenotFound/page-notfound/page-notfound.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
@@ -43,6 +44,8 @@ const routes: Routes = [
   { path: 'subscibers', component: SubscribesComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'searchResult', component: SearchResultComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'ProAllCourse', component: AllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
+  {path: '**', component:PageNOtfoundComponent }
+
   
 ];
 

@@ -25,10 +25,12 @@ export class PymentService {
 
 
 
-  pymentMethord(patmentData: any): Observable<any> {
+  pymentMethord(paymentData: any): Observable<any> {
+    console.log(paymentData);
+    
       return this.http.post<any>(
         `${this.ApiUrl}placeOrder`,
-        JSON.stringify(patmentData),
+        JSON.stringify(paymentData),
         httpOptions
       )
     }

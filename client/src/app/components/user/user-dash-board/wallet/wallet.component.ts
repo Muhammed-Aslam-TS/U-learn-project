@@ -23,7 +23,7 @@ export class WalletComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchPosts()
-    console.log('jhgkugn');
+
     this.service.getWallet(this.userId).subscribe((data: any) => {
       console.log(data);
       this.walletHistory = data.wallet.wallet

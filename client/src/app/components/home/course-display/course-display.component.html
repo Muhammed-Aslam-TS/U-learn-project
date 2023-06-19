@@ -1,31 +1,30 @@
 <div class="flex justify-center p-5 text-5xl">
-    <h1>Latest Courses</h1>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center p-5">
-    <div *ngFor="let cours of courseData" class="relative flex flex-col w-full max-w-[20rem] rounded-xl bg-white text-gray-700 shadow-md">
-      <div class="relative overflow-hidden rounded-t-xl">
-        <img class="w-full h-56 object-cover" src="{{ cours.CourseImage }}" alt="ui/ux review check" />
-        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
+  <h1>Latest Courses</h1>
+</div>
+<div class="flex flex-wrap justify-evenly gap-4">
+  <div *ngFor="let cours of courseData" class="flex flex-col w-full max-w-[20rem] rounded-xl bg-white text-gray-700 shadow-md">
+    <div class="relative overflow-hidden rounded-t-xl">
+      <img class="w-full h-56 object-cover" src="{{ cours.CourseImage }}" alt="ui/ux review check" />
+      <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
+    </div>
+    <div class="p-4">
+      <h5>{{ cours.ownerName }}</h5>
+      <h5>{{ cours.email }}</h5>
+      <div class="mb-2 flex items-center justify-between">
+        <h5 class="block font-sans text-lg font-medium leading-snug tracking-normal text-blue-gray-900 antialiased uppercase">
+          {{ cours.courseName }}
+        </h5>
       </div>
-      <div class="p-4">
-        <h5>{{ cours.ownerName }}</h5>
-        <h5>{{ cours.email }}</h5>
-        <div class="mb-2 flex items-center justify-between">
-          <h5 class="block font-sans text-lg font-medium leading-snug tracking-normal text-blue-gray-900 antialiased uppercase">
-            {{ cours.courseName }}
-          </h5>
-        </div>
-        <p class="block font-sans text-sm font-light leading-relaxed text-gray-700 antialiased">
-          {{ cours.discription }}
-        </p>
-      </div>
-      <div class="p-2">
-        <button (click)="handleClick(cours.userId, cours._id)"
-          class="block w-full select-none rounded-lg bg-red-500 py-2.5 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button" data-ripple-light="true">
-          More Details
-        </button>
-      </div>
+      <p class="block font-sans text-sm font-light leading-relaxed text-gray-700 antialiased">
+        {{ cours.discription }}
+      </p>
+    </div>
+    <div class="p-2">
+      <button (click)="handleClick(cours.userId, cours._id)"
+        class="block w-full select-none rounded-lg bg-red-500 py-2.5 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button" data-ripple-light="true">
+        More Details
+      </button>
     </div>
   </div>
-  
+</div>

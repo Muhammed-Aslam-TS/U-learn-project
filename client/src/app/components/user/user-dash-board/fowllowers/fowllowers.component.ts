@@ -22,6 +22,7 @@ export class FowllowersComponent implements OnInit {
   ngOnInit() {
     this.fetchPosts();
     this.service.GetFowllowers(this.userId).subscribe((data: any) => {
+console.log(data);
 
       this.GetFowllowers = data.Fowllowers
 

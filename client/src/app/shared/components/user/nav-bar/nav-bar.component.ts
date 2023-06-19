@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user-service.service';
+import { FormControl } from '@angular/forms';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent  {
   menu = false;
   menuDropdown() {
     this.menu = !this.menu;
@@ -17,17 +19,17 @@ export class NavBarComponent {
   // button = 'LogIn'
   UserId = localStorage.getItem('userId');
   UserToken = localStorage.getItem('userToken');
-  
-response = {
-  response:"User LogOut",
-  userId:this.UserId
-}
+
+  response = {
+    response: "User LogOut",
+    userId: this.UserId
+  }
 
 
   show = true;
 
 
-  constructor(private router: Router,private service:UserService) {
+  constructor(private router: Router, private service: UserService, private overlay: OverlayContainer) {
     if (this.UserToken) {
       this.show = false;
     } else {
@@ -39,15 +41,18 @@ response = {
   }
 
   LogOut() {
-    this.service.logOut(this.response).subscribe((data:object)=>{      
-      if(data){
+    this.service.logOut(this.response).subscribe((data: object) => {
+      if (data) {
         localStorage.removeItem('userToken');
         localStorage.removeItem('userId');
         this.router.navigate(['/']);
         location.reload()
       }
     })
-    
+
   }
+ 
+ 
+
 }
 

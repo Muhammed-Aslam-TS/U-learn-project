@@ -68,7 +68,7 @@ const CourseController = (
 
 
     const GetallCourses = asyncHandler(async (req: Request, res: Response) => {
-        courseModel.find().find().limit(6).then((data) => {
+        courseModel.find().find().limit(8).then((data) => {
             res.json(data);
         });
     });

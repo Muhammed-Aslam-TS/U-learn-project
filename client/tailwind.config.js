@@ -13,16 +13,6 @@ module.exports = {
         nunito: ["nunito", "sans-serif"],
       },
     },
-
-    extend: {
-      backgroundImage: {
-        // "hero-pattern": "url('/images/login wallpaper.webp')",
-        // "footer-texture": "url('/img/footer-texture.png')",
-      },
-      // screens: {
-      //   'dark': {'raw': '(prefers-color-scheme: dark)'}
-      // },
-    },
   },
   plugins: [],
 };

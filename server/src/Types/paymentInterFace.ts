@@ -1,6 +1,6 @@
 export interface PaymentInterface {
     _id?: string
-    amount: string
+    amount: number
     user: object
     card: object
     userId: string

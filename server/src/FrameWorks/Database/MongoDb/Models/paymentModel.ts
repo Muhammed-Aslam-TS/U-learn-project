@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const paymentModel = new Schema({
 
     amount: {
-        type: String,
+        type: Number,
     },
     user: {
         type: Object

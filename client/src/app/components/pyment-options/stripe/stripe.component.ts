@@ -16,12 +16,12 @@ export class StripeComponent implements OnInit {
   userId = localStorage.getItem('userId')
   courseId = localStorage.getItem('courseId')
 
-  constructor(private service:PymentService,private router:Router){}
-  HolderName='' 
+  constructor(private service: PymentService, private router: Router) { }
+  HolderName = ''
   private stripe: Stripe;
 
   async ngOnInit() {
-console.log(this.parentData);
+    console.log(this.parentData);
 
 
     this.stripe = await loadStripe('pk_test_51NHCGGSDjPqbEiAbq6yIFenR8i5e6pTWnQrK18OzSElZaEunGXAHEIIVbnhOCDi8CwWCRpelgjnUPSYLH1lPw6wG00UjnOexzz')
@@ -48,16 +48,16 @@ console.log(this.parentData);
       };
       try {
         const result = await this.stripe.createSource(card, ownerInfo)
-        
-        this.service.pymentMethord({data:result,userId:this.userId,courseId:this.courseId}).subscribe((data)=>{
-          console.log(data,"11111111111111111111111111111111111");
-          
-         if (data.response) {
-          this.router.navigate(['/paymentSuccess'])
-         }else{
-          this.router.navigate(['/paymentFaild'])
-         }
-          
+
+        this.service.pymentMethord({ data: result, userId: this.userId, courseId: this.courseId }).subscribe((data) => {
+          console.log(data, "11111111111111111111111111111111111");
+
+          if (data.response) {
+            this.router.navigate(['/paymentSuccess'])
+          } else {
+            this.router.navigate(['/paymentFaild'])
+          }
+
         })
 
       } catch (e) {

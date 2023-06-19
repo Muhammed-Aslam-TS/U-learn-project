@@ -29,10 +29,11 @@ const PaymentController = (
     const paymentSuccess = asyncHandler(async (req: Request, res: Response) => {
 
         const payment = req.body.data;
+        const Price = parseInt(payment.source.amount);
         const { userId, courseId }: PaymentInterface = req.body;
 
         const paymentDetails: PaymentInterface = {
-            amount: payment.source.amount,
+            amount: Price,
             user: payment.source.owner,
             card: payment.source.card,
             userId: userId,
@@ -67,9 +68,13 @@ const PaymentController = (
             last4Digt: paymentData?.card.last4,
             purchaserId: paymentData?.userId
         };
-        const price = parseInt(paymetnDetails.price);
+        // console.log(paymentData,"paymetnDetails__________________________-");
+        
+        const price = paymetnDetails.price;
 
-        details.walletAmount = parseInt(details.walletAmount) + price;
+        details.walletAmount = details.walletAmount+ price;
+        console.log( details.walletAmount );
+        
 
         const wallet = paymetnDetails;
         details?.wallet.push(wallet);
