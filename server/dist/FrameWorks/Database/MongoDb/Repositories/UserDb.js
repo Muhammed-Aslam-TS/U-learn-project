@@ -14,19 +14,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDatabase = void 0;
 const UserModel_1 = __importDefault(require("../Models/UserModel"));
+const googleAuthModel_1 = __importDefault(require("../Models/googleAuthModel"));
 function UserDatabase() {
     const DoSignUP = (userData) => __awaiter(this, void 0, void 0, function* () {
+        userData.Status = "Offline";
+        userData.walletAmount = 0;
+        userData.blockStatus = false;
         const User = yield UserModel_1.default.create(userData);
         return User;
     });
     const findByEmail = (Email) => __awaiter(this, void 0, void 0, function* () {
-        const User = yield UserModel_1.default.findOne({ 'Email': Email });
-        console.log(User, 'usere kitty=======================');
+        const User = yield UserModel_1.default.findOne({ "Email": Email });
         return User;
+    });
+    const googleSignUp = (userData) => __awaiter(this, void 0, void 0, function* () {
+        userData.Status = "Offline";
+        const User = yield googleAuthModel_1.default.create(userData);
+        return User;
+    });
+    const findGoogleData = (userData) => __awaiter(this, void 0, void 0, function* () {
+        const Email = userData.email;
+        const googleData = yield googleAuthModel_1.default.findOne({ "email": Email });
+        return googleData;
     });
     return {
         DoSignUP,
-        findByEmail
+        findByEmail,
+        googleSignUp,
+        findGoogleData
     };
 }
 exports.UserDatabase = UserDatabase;

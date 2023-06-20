@@ -30,11 +30,6 @@ const ExpressConfig = (app: Application) => {
   app.use(compression());
   app.use(cors(corsOption));
 
-
-
-  
-
-
 };
 
 

@@ -18,22 +18,35 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenvConfig_1 = __importDefault(require("../../dotenvConfig"));
 const UserAuthService = () => {
     const EncriptPassword = (Password) => __awaiter(void 0, void 0, void 0, function* () {
-        const genSalt = yield bcrypt_1.default.genSalt(10);
-        Password = yield bcrypt_1.default.hash(Password, genSalt);
-        return Password;
+        const password = yield bcrypt_1.default.hash(Password, 10);
+        return password;
     });
     const CompairePassword = (Password, EncriptPassword) => __awaiter(void 0, void 0, void 0, function* () {
         const Status = yield bcrypt_1.default.compare(Password, EncriptPassword);
         return Status;
     });
     const GenerateAccessToken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-        const token = yield jsonwebtoken_1.default.sign({ payload }, dotenvConfig_1.default.access_token_key, { expiresIn: '50s' });
+        const token = yield jsonwebtoken_1.default.sign({ payload }, dotenvConfig_1.default.access_token_key, { expiresIn: "30s" });
         return token;
+    });
+    const generateRefreshToken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
+        const token = yield jsonwebtoken_1.default.sign({ payload }, dotenvConfig_1.default.refresh_token_key, { expiresIn: "1h" });
+        return token;
+    });
+    const verifyRefreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield jsonwebtoken_1.default.verify(token, dotenvConfig_1.default.refresh_token_key);
+        return response;
+    });
+    const verifyAccessToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
+        return jsonwebtoken_1.default.verify(token, dotenvConfig_1.default.access_token_key);
     });
     return {
         EncriptPassword,
         CompairePassword,
-        GenerateAccessToken
+        GenerateAccessToken,
+        generateRefreshToken,
+        verifyRefreshToken,
+        verifyAccessToken
     };
 };
 exports.UserAuthService = UserAuthService;

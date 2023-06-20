@@ -21,10 +21,12 @@ const connectDb = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // mongodb connection string
         mongoose_1.default.set("strictQuery", false);
-        const connect = yield mongoose_1.default.connect('mongodb://127.0.0.1:27017/U-learn_Project', dbOpt);
-        console.log(`MongoDB connected`);
+        yield mongoose_1.default.connect("mongodb://127.0.0.1:27017/U-learn_Project", dbOpt);
+        // eslint-disable-next-line no-console
+        console.log("MongoDB connected");
     }
     catch (err) {
+        // eslint-disable-next-line no-console
         console.log(err);
         process.exit(1);
     }

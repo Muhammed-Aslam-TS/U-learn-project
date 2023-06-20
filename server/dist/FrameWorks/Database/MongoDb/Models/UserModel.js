@@ -24,6 +24,7 @@ const UserSchema = new mongoose_1.default.Schema({
     Phone: {
         type: Number,
         required: true,
+        unique: true,
         validator: [
             {
                 validator: function (value) {
@@ -33,14 +34,36 @@ const UserSchema = new mongoose_1.default.Schema({
             }
         ]
     },
+    CurrentPosition: {
+        type: String,
+        required: true,
+    },
     Password: {
         type: String,
         required: true,
     },
-    ConformPassword: {
+    ConfirmPassword: {
         type: String,
         required: true,
+    },
+    Status: {
+        type: String,
+    },
+    purcherseCourses: {
+        type: Array
+    },
+    Fowllowers: {
+        type: Array
+    },
+    wallet: {
+        type: Array
+    },
+    walletAmount: {
+        type: Number
+    },
+    blockStatus: {
+        type: Boolean
     }
 });
-const userModel = mongoose_1.default.model('users', UserSchema);
+const userModel = mongoose_1.default.model("users", UserSchema);
 exports.default = userModel;

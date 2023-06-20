@@ -11,10 +11,14 @@ const UserAuthServiceInterFace = (Service) => {
     const GenerateAccessToken = (UserId) => {
         return Service.GenerateAccessToken(UserId);
     };
+    const generateRefreshToken = (UserId) => {
+        return Service.generateRefreshToken(UserId);
+    };
     return {
         EncriptPassword,
         CompairePassword,
-        GenerateAccessToken
+        GenerateAccessToken,
+        generateRefreshToken
     };
 };
 exports.UserAuthServiceInterFace = UserAuthServiceInterFace;

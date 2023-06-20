@@ -21,7 +21,7 @@ export class UserServiceService {
 
   constructor(private http: HttpClient, private router: Router, private fireauth: AngularFireAuth) { }
 
-  DoLogin(user: any): Observable<any> {
+  DoLogin(user: object): Observable<any> {
     return this.http.post<any>(
       `${this.ApiUrl}login`,
       JSON.stringify(user),
@@ -37,7 +37,7 @@ export class UserServiceService {
     )
   }
 
-  googleSignIn(data: any): Observable<any> {
+  googleSignIn(data: object): Observable<any> {
     return this.http.post<any>(
       `${this.ApiUrl}dashBoard`,
       JSON.stringify({ data }),

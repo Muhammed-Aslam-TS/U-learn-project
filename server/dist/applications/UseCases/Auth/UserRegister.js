@@ -19,8 +19,8 @@ const addUser = (UserData, UserDb, UserAuthService) => __awaiter(void 0, void 0,
     var _a;
     UserData.Email = (_a = UserData.Email) === null || _a === void 0 ? void 0 : _a.toLowerCase();
     UserData.Password = yield UserAuthService.EncriptPassword(UserData.Password);
-    UserData.ConformPassword = yield UserAuthService.EncriptPassword(UserData.ConformPassword);
-    const User = UserDb.DoSignUP(UserData);
+    UserData.ConfirmPassword = yield UserAuthService.EncriptPassword(UserData.ConfirmPassword);
+    const User = yield UserDb.DoSignUP(UserData);
     return {
         User
     };
@@ -28,7 +28,6 @@ const addUser = (UserData, UserDb, UserAuthService) => __awaiter(void 0, void 0,
 exports.addUser = addUser;
 const userLogin = (Email, Password, UserDb, UserAuthService) => __awaiter(void 0, void 0, void 0, function* () {
     const User = yield UserDb.findByEmail(Email);
-    console.log(User, 'user und');
     if (!User) {
         throw new AppError_1.default("this user does't exist", httpStatus_1.HttpStatus.UNAUTHORIZED);
     }
@@ -38,6 +37,8 @@ const userLogin = (Email, Password, UserDb, UserAuthService) => __awaiter(void 0
             throw new AppError_1.default("Sory,  Password entered incorrectly", httpStatus_1.HttpStatus.UNAUTHORIZED);
         }
         const token = yield UserAuthService.GenerateAccessToken(User._id);
+        const refreshToken = yield UserAuthService.generateRefreshToken(User._id);
+        return { User, token, refreshToken };
     }
 });
 exports.userLogin = userLogin;

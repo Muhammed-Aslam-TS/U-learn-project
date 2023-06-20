@@ -18,7 +18,6 @@ import { PaymentFaildComponent } from './components/pyment-options/payment-faild
 import { WalletComponent } from './components/user/user-dash-board/wallet/wallet.component';
 import { UserAccountComponent } from './components/user/user-account/user-account.component';
 import { MyCoursesComponent } from './components/user/user-dash-board/my-courses/my-courses.component';
-import { FowllowersComponent } from './components/user/user-dash-board/fowllowers/fowllowers.component';
 import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';

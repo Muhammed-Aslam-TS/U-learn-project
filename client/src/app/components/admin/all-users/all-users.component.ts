@@ -7,7 +7,7 @@ import { PostService } from 'src/app/post.service';
   templateUrl: './all-users.component.html',
   styleUrls: ['./all-users.component.css']
 })
-export class AllUsersComponent implements OnInit {
+export class AllUsersComponent implements OnInit {z
   allUsers: any[] = []
   POSTS: any;
   page = 1;
