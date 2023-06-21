@@ -10,10 +10,9 @@ const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 // const Io = sockeIo(server)
 const corsOption = {
-    origin: ["ulearn.shop", "www.ulearn.shop"],
+    origin: ["https://ulearn.shop", "https://www.ulearn.shop"],
     methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true,
-    // Access-Control-Allow-Origin: *
 };
 const ExpressConfig = (app) => {
     app.use(express_1.default.json());
@@ -23,11 +22,5 @@ const ExpressConfig = (app) => {
     app.use(express_1.default.static("public"));
     app.use((0, compression_1.default)());
     app.use((0, cors_1.default)(corsOption));
-    app.use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", "https://ulearn.shop");
-        res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        next();
-    });
 };
 exports.default = ExpressConfig;

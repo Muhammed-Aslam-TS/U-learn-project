@@ -5,11 +5,11 @@ import { Observable } from 'rxjs/internal/Observable';
 
 
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'content-type': 'application/json',
-  }),
-};
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     'content-type': 'application/json',
+//   }),
+// };
 @Injectable({
   providedIn: 'root'
 })
