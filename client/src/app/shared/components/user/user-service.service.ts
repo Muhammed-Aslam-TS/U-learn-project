@@ -14,13 +14,12 @@ const httpOptions = {
 })
 export class UserService {
 
-  private ApiUrl = 'http://localhost:4000/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
   logOut(response:any): Observable<any> {
-    console.log(response,"jjjjjjjjjjjjjjjjj");
     
     return this.http.post<any>(
       `${this.ApiUrl}logOut`,

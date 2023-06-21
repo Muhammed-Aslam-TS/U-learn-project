@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class UserServiceService {
 
-  private ApiUrl = 'http://localhost:4000/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
 
   constructor(private http: HttpClient, private router: Router, private fireauth: AngularFireAuth) { }
@@ -30,7 +30,6 @@ export class UserServiceService {
   }
 
   DoSignUp(UserData: FormData): Observable<any> {
-    console.log(UserData,"llllllllllllllllllllllllll");
     return this.http.post<any>(
       `${this.ApiUrl}signup`,UserData,
       

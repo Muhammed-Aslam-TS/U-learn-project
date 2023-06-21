@@ -74,5 +74,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "ee23201b-e9e7-41ce-9f86-6f81f7310407",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://api.ulearn.shop/",
+    "url": "https://api.ulearn.shop/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-06-21T09:47:06.477Z",
+    "modified": "2023-06-21T09:47:06.477Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
