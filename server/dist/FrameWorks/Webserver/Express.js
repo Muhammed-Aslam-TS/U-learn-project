@@ -10,7 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 // const Io = sockeIo(server)
 const corsOption = {
-    origin: "http://localhost:4200",
+    origin: "*",
     methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true
 };

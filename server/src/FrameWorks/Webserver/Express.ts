@@ -13,7 +13,7 @@ import compression from "compression";
 
 
 const corsOption = {
-  origin: "http://localhost:4200",
+  origin: "*",
   methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
   credentials: true
 

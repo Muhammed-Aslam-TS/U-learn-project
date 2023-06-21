@@ -17,7 +17,7 @@ const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: "http://localhost:4200",
+        origin: "*",
         // methods:["GET","POST"]
     },
     path: "/socket.io/"
