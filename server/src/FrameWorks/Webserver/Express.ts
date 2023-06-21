@@ -15,7 +15,8 @@ import compression from "compression";
 const corsOption = {
   origin:[ "ulearn.shop","www.ulearn.shop"],
   methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
-  credentials: true
+  credentials: true,
+  // Access-Control-Allow-Origin: *
 
 };
 
@@ -29,7 +30,12 @@ const ExpressConfig = (app: Application) => {
   app.use(express.static("public"));
   app.use(compression());
   app.use(cors(corsOption));
-
+  app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://ulearn.shop");
+    res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    next();
+  });
 };
 
 
