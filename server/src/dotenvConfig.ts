@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const dotenvConfig = {
+ const  dotenvConfig = {
     // jwt_access_token and refresh_token___________________
 
     access_token_key: process.env.JWT_ACCESS_TOKEN_KEY as string,

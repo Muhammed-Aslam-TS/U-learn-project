@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenvConfig from "../../dotenvConfig";
@@ -19,11 +20,15 @@ export const UserAuthService = ()=>{
 
     const GenerateAccessToken = async (payload:string)=>{
         const token = await jwt.sign({payload},dotenvConfig.access_token_key,{expiresIn:"30s"});
+        console.log(token,"GenerateAccessToken___________________________in use case");
+        
         return token;
     };
 
     const generateRefreshToken = async(payload : string )=>{
         const token = await jwt.sign({payload}, dotenvConfig.refresh_token_key , {expiresIn:"1h"});
+        console.log(token,"generateRefreshToken___________________________in use case");
+
         return token;
     };
 

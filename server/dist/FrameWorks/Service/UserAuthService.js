@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserAuthService = void 0;
+/* eslint-disable no-console */
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenvConfig_1 = __importDefault(require("../../dotenvConfig"));
@@ -27,10 +28,12 @@ const UserAuthService = () => {
     });
     const GenerateAccessToken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
         const token = yield jsonwebtoken_1.default.sign({ payload }, dotenvConfig_1.default.access_token_key, { expiresIn: "30s" });
+        console.log(token, "GenerateAccessToken___________________________in use case");
         return token;
     });
     const generateRefreshToken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
         const token = yield jsonwebtoken_1.default.sign({ payload }, dotenvConfig_1.default.refresh_token_key, { expiresIn: "1h" });
+        console.log(token, "generateRefreshToken___________________________in use case");
         return token;
     });
     const verifyRefreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
