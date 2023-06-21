@@ -16,8 +16,7 @@ const httpOptions = {
 })
 export class HomeService {
 
-  private ApiUrl = 'http://localhost:4000/';
-
+  private ApiUrl = 'https://api.ulearn.shop/';
   constructor(private http: HttpClient) { }
   
   GetAllCourse(): Observable<any> {

@@ -13,7 +13,7 @@ import compression from "compression";
 
 
 const corsOption = {
-  origin: "*",
+  origin:[ "ulearn.shop","www.ulearn.shop"],
   methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
   credentials: true
 

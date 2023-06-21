@@ -10,7 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 // const Io = sockeIo(server)
 const corsOption = {
-    origin: "*",
+    origin: ["ulearn.shop", "www.ulearn.shop"],
     methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true
 };

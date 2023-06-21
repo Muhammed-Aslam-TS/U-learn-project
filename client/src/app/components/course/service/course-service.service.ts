@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class CourseServiceService {
 
-  private ApiUrl = 'http://localhost:4000/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
   constructor(private http: HttpClient) { }
 
