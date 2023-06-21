@@ -24,7 +24,6 @@ const UserController = (
 
     const DoSignup = asyncHandler(async (req: Request, res: Response) => {
         const UserData: UserInterFace = req.body;
-        console.log(UserData,"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
         
         const Response: unknown = await addUser(UserData, UserdbRepo, UserAuthServices);
         res.json(Response);

@@ -23,7 +23,6 @@ const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthService
     const UserAuthServices = UserAuthServiceInterface(UserAuthservice());
     const DoSignup = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const UserData = req.body;
-        console.log(UserData, "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
         const Response = yield (0, UserRegister_1.addUser)(UserData, UserdbRepo, UserAuthServices);
         res.json(Response);
     }));
