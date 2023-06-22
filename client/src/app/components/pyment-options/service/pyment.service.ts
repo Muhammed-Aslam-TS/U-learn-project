@@ -13,6 +13,8 @@ const httpOptions = {
 })
 export class PymentService {
   private ApiUrl = 'https://api.ulearn.shop/';
+  // private ApiUrl = 'http://localhost:4000/';
+
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +28,7 @@ export class PymentService {
 
 
   pymentMethord(paymentData: any): Observable<any> {
-    console.log(paymentData);
+    console.log(paymentData,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
     
       return this.http.post<any>(
         `${this.ApiUrl}placeOrder`,

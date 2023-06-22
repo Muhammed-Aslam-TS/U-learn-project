@@ -22,16 +22,16 @@ const PaymentController = (paymentDatabase, paymentRepo, PaymentService, payment
     const UserCorseServices = paymentServiceInterface(PaymentService());
     const paymentSuccess = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const payment = req.body.data;
-        const Price = parseInt(payment.source.amount);
         const { userId, courseId } = req.body;
         const paymentDetails = {
-            amount: Price,
+            amount: payment.source.amount,
             user: payment.source.owner,
             card: payment.source.card,
             userId: userId,
             courseId: courseId,
             date: new Date
         };
+        console.log(paymentDetails, "______________________paymentDetails");
         const status = yield UserModel_1.default.findById({ _id: userId });
         const CourseStatus = yield CorseModel_1.default.findById({ _id: courseId });
         const purcherseCourses = CourseStatus;
@@ -45,18 +45,20 @@ const PaymentController = (paymentDatabase, paymentRepo, PaymentService, payment
         yield details.save();
         const courseData = yield CorseModel_1.default.findById({ _id: courseId });
         const paymentData = yield paymentModel_1.default.findOne({ courseId: courseId });
+        console.log(paymentData, "______________________ppppppppppppfh_____");
         const paymetnDetails = {
             courseName: courseData === null || courseData === void 0 ? void 0 : courseData.courseName,
             image: courseData === null || courseData === void 0 ? void 0 : courseData.CourseImage,
-            price: paymentData === null || paymentData === void 0 ? void 0 : paymentData.amount,
+            price: paymentDetails.amount,
             date: paymentData === null || paymentData === void 0 ? void 0 : paymentData.date,
             status: paymentData === null || paymentData === void 0 ? void 0 : paymentData.card.funding,
             last4Digt: paymentData === null || paymentData === void 0 ? void 0 : paymentData.card.last4,
             purchaserId: paymentData === null || paymentData === void 0 ? void 0 : paymentData.userId
         };
-        // console.log(paymentData,"paymetnDetails__________________________-");
-        const price = paymetnDetails.price;
-        details.walletAmount = details.walletAmount + price;
+        const Price = paymetnDetails.price;
+        console.log(Price, "paymetnDetails__________________________-");
+        console.log(details.wallet.walletAmount, "_______________________________details.wallet.walletAmount");
+        details.walletAmount = details.walletAmount + Price;
         console.log(details.walletAmount);
         const wallet = paymetnDetails;
         details === null || details === void 0 ? void 0 : details.wallet.push(wallet);

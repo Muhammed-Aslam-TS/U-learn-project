@@ -16,8 +16,8 @@ const httpOptions = {
 })
 export class UserServiceService {
 
-  private ApiUrl = 'https://api.ulearn.shop/';
-  // private ApiUrl = 'http://localhost:4000/';
+  // private ApiUrl = 'https://api.ulearn.shop/';
+  private ApiUrl = 'http://localhost:4000/';
 
 
 

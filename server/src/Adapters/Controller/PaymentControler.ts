@@ -27,19 +27,19 @@ const PaymentController = (
 
 
     const paymentSuccess = asyncHandler(async (req: Request, res: Response) => {
-
+        
         const payment = req.body.data;
-        const Price = parseInt(payment.source.amount);
         const { userId, courseId }: PaymentInterface = req.body;
 
         const paymentDetails: PaymentInterface = {
-            amount: Price,
+            amount: payment.source.amount,
             user: payment.source.owner,
             card: payment.source.card,
             userId: userId,
             courseId: courseId,
             date: new Date
         };
+console.log(paymentDetails,"______________________paymentDetails");
 
         const status: any = await userModel.findById({ _id: userId });
         const CourseStatus: any = await courseModel.findById({ _id: courseId });
@@ -58,21 +58,24 @@ const PaymentController = (
 
         const courseData = await courseModel.findById({ _id: courseId });
         const paymentData = await PaymentModels.findOne({ courseId: courseId });
+console.log(paymentData,"______________________ppppppppppppfh_____");
 
         const paymetnDetails: any = {
             courseName: courseData?.courseName,
             image: courseData?.CourseImage,
-            price: paymentData?.amount,
+            price: paymentDetails.amount,
             date: paymentData?.date,
             status: paymentData?.card.funding,
             last4Digt: paymentData?.card.last4,
             purchaserId: paymentData?.userId
         };
-        // console.log(paymentData,"paymetnDetails__________________________-");
         
-        const price = paymetnDetails.price;
+        const Price = paymetnDetails.price;
+        console.log(Price,"paymetnDetails__________________________-");
+        console.log(details.wallet.walletAmount,"_______________________________details.wallet.walletAmount");
+        
 
-        details.walletAmount = details.walletAmount+ price;
+        details.walletAmount = details.walletAmount+ Price;
         console.log( details.walletAmount );
         
 

@@ -8,7 +8,7 @@ export interface UserInterFace {
     CurrentPosition:string;
     Password: string;
     ConfirmPassword: string;
-    walletAmount:number
+    walletAmount?:number
     blockStatus:boolean
 
 

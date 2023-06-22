@@ -1,10 +1,12 @@
+/* eslint-disable no-console */
 
-import express, {  } from "express";
+import express, { Request, Response} from "express";
 import { PaymentServiceInterFace } from "../../../../applications/Services/paymentServiceInterFace";
 import {PaymentService} from "../../../Service/PaymentServic";
 import PaymentController from "../../../../Adapters/Controller/PaymentControler";
 import { paymentDatabase } from "../../../Database/MongoDb/Repositories/paymentDb";
 import PaymentReppo from "../../../../applications/Repositories/paymentDbRepo";
+
 
 
 
@@ -19,6 +21,7 @@ const Controller = PaymentController(
 
 
 app.post("/placeOrder",Controller.paymentSuccess);
+
 app.get("/AllPurcherseCourse",Controller.gettpurchesedCourses);
 app.get("/GetFowllowers",Controller.GetFowllowers);
 app.get("/userWallet",Controller.userWallet);

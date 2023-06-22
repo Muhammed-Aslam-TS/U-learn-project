@@ -43,7 +43,9 @@ export class PymentOptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getDetails(this.courseId).subscribe((data: any) => {
-      console.log(data);
+      console.log(data,"dddddddddddddddddddddddddd");
+      
+      console.log(data,"lllllllllllllllllllll");
       this.courseData.image = data.course.CourseImage
       this.courseData.description = data.course.discription
       this.courseData.name = data.course.courseName
