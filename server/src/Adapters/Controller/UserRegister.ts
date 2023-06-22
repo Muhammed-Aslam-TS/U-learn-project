@@ -46,6 +46,8 @@ const UserController = (
                 );
             }
             res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
+            console.log(response,"controller_____________________");
+            
             res.json(response);
         }
 

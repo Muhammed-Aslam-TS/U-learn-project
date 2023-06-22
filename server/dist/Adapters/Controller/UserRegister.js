@@ -40,6 +40,7 @@ const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthService
                 const user = yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
             }
             res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
+            console.log(response, "controller_____________________");
             res.json(response);
         }
     }));
