@@ -15,7 +15,6 @@ const httpOptions = {
 })
 export class AdminService {
 
-  // private ApiUrl = 'http://localhost:4200/';
   private ApiUrl = 'https://api.ulearn.shop/';
 
 

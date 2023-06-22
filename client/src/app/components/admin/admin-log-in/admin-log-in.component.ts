@@ -3,6 +3,7 @@ import { AdminService } from '../service/admin.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import {admin} from "../../../models/interFace"
 
 @Component({
   selector: 'app-admin-log-in',
@@ -11,8 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminLogInComponent {
   form!: FormGroup;
-  token: any = ''
-  admin: any;
+  token = ''
+
 
 
   constructor(
@@ -21,14 +22,15 @@ export class AdminLogInComponent {
     private formBuilder: FormBuilder,
     private http: HttpClient,
   ) { }
-  loginObj: any = {
+
+
+  loginObj: admin = {
     Email: 'admin@gmail.com',
     Password: 'admin123',
-  };
+  }
 
   DoLogin() {
     this.adminService.adminLogIn(this.loginObj).subscribe((data) => {
-      console.log(data,'_____________________________data');
       
       if (!data.admin.Email) {
         window.alert('Email not existed')

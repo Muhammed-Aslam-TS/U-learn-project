@@ -6,3 +6,8 @@ export interface addCourseInterface {
     courseName:string,
     discription:string;
 }
+
+export interface admin {
+    Email:string,
+    Password:string
+  }
