@@ -11,6 +11,7 @@ let AdminService = class AdminService {
         this.http = http;
         this.router = router;
         this.ApiUrl = 'http://localhost:4000/';
+        
     }
     DoSignUp(formData) {
         return this.http.post(`${this.ApiUrl}admin/Signup`, formData);

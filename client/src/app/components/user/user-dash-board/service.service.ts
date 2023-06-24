@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ServiceService {
 
 
-  private ApiUrl = 'https://api.ulearn.shop/';
+   ApiUrl = 'https://api.ulearn.shop/';
 
 
   constructor(private http: HttpClient) { }
