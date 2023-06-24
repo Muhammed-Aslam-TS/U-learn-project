@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class UserService {
 
-   ApiUrl = 'https://api.ulearn.shop/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
 
 

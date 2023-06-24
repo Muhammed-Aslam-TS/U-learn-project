@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class HomeService {
 
-   ApiUrl = 'https://api.ulearn.shop/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
 
   constructor(private http: HttpClient) { }

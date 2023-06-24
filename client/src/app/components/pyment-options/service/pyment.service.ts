@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PymentService {
-   ApiUrl = 'https://api.ulearn.shop/';
+  private ApiUrl = 'https://api.ulearn.shop/';
 
 
 
