@@ -76,7 +76,7 @@ const CourseController = (
 
     const GetCourses = asyncHandler(async (req: Request, res: Response) => {
         const { userId } = req.query;
-        courseModel.find({ userId: userId }).sort({date:-1}).limit(5).then((data) => {
+        courseModel.find({ userId: userId }).limit(5).then((data) => {
             res.json(data);
         });
     });
