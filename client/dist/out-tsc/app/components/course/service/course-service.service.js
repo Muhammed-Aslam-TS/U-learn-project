@@ -10,7 +10,7 @@ const httpOptions = {
 let CourseServiceService = class CourseServiceService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
     }
     addCourse(formData) {
         return this.http.post(`${this.ApiUrl}addCourse`, formData);

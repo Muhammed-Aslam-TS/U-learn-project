@@ -10,7 +10,7 @@ let AdminService = class AdminService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
         
     }
     DoSignUp(formData) {

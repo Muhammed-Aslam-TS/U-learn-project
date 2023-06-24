@@ -11,7 +11,7 @@ let UserServiceService = class UserServiceService {
         this.http = http;
         this.router = router;
         this.fireauth = fireauth;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
     }
     DoLogin(user) {
         return this.http.post(`${this.ApiUrl}login`, JSON.stringify(user), httpOptions);

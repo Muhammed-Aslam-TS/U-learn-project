@@ -10,7 +10,7 @@ let UserService = class UserService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
     }
     logOut(response) {
         console.log(response, "jjjjjjjjjjjjjjjjj");

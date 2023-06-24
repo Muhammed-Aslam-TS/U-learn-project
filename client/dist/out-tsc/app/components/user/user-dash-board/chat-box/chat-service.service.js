@@ -11,9 +11,9 @@ const httpOptions = {
 let ChatServiceService = class ChatServiceService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
         this.message$ = new BehaviorSubject('');
-        this.socket = io('http://localhost:4000');
+        this.socket = io('https://api.ulearn.shop/');
         this.getNewMessage = () => {
             this.socket.on('message', (message) => {
                 console.log(message, "_______recive message");
