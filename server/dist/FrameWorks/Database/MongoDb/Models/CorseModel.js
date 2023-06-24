@@ -17,9 +17,6 @@ const CourseSchema = new mongoose_1.default.Schema({
         type: Date,
         required: true,
     },
-    time: {
-        timestamps: true
-    },
     CourseImage: {
         type: String,
         required: true,
