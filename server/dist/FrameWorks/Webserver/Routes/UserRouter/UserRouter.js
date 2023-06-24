@@ -17,4 +17,5 @@ app.post("/logOut", Controller.logOut);
 app.post("/googleSignup", Controller.GoogleSignUp);
 app.post("/SerchData", Controller.SerchDataData);
 app.get("/getUserDetails", Controller.getUserDetails);
+app.post("/getUserDetailsEdit", Controller.getUserDetailsEdit);
 exports.default = app;

@@ -8,7 +8,6 @@ import { UserRegisterComponent } from './components/user/user-register/user-regi
 import { AddCourseComponent } from './components/course/add-course/add-course.component';
 // import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
 import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
-import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { PremiumComponent } from './components/course/premium/premium.component';
 import { GetAllCoursesComponent } from './components/user/user-dash-board/get-all-courses/get-all-courses.component';
 import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
   { path: 'addCourse', component: AddCourseComponent, canActivate: [UserAuthGuardeServiceService] },
   // { path: 'userDashboard', component: UserDashBoardComponent,canActivate:[UserAuthGuardeServiceService]},
   { path: 'dashBoard', component: DashBoardComponent, canActivate: [UserAuthGuardeServiceService] },
-  { path: 'chatBox', component: ChatBoxComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'premium', component: PremiumComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'courseDetails', component: CourseDetailsComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'placeOrder', component: PymentOptionsComponent, canActivate: [UserAuthGuardeServiceService] },

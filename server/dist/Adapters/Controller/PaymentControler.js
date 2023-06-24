@@ -68,7 +68,7 @@ const PaymentController = (paymentDatabase, paymentRepo, PaymentService, payment
     }));
     const gettpurchesedCourses = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const userId = req.query.userId;
-        const response = yield UserModel_1.default.findOne({ _id: userId });
+        const response = yield UserModel_1.default.findOne({ _id: userId }).sort({ date: -1 });
         const purcherseCourses = response === null || response === void 0 ? void 0 : response.purcherseCourses;
         res.status(200).json({ message: "purcherseData successfully Geted", purcherseCourses });
     }));

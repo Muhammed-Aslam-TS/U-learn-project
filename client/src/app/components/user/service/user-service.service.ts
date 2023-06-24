@@ -17,6 +17,8 @@ const httpOptions = {
 export class UserServiceService {
 
   private ApiUrl = 'https://api.ulearn.shop/';
+  // private ApiUrl = 'http://localhost:4000/';
+
 
 
 
@@ -33,8 +35,8 @@ export class UserServiceService {
 
   DoSignUp(UserData: FormData): Observable<any> {
     return this.http.post<any>(
-      `${this.ApiUrl}signup`,UserData,
-      
+      `${this.ApiUrl}signup`, UserData,
+
     )
   }
 
@@ -47,9 +49,16 @@ export class UserServiceService {
   }
 
 
-  getUserDetails(userId:string): Observable<any> {
+  getUserDetails(userId: string): Observable<any> {
     return this.http.get<any>(
       `${this.ApiUrl}getUserDetails?userId=${userId}`,
+    )
+  }
+
+  getUserDetailsEdit(formData: object): Observable<any> {    
+    return this.http.post<any>(
+      `${this.ApiUrl}getUserDetailsEdit`, 
+      JSON.stringify( formData ), httpOptions
     )
   }
 }

@@ -96,13 +96,21 @@ const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthService
             console.log(error);
         }
     }));
+    const getUserDetailsEdit = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const data = req.body;
+        const userId = data.userId;
+        console.log(data);
+        const user = yield UserModel_1.default.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
+        res.json({ message: "this user is updated" });
+    }));
     return {
         DoSignup,
         DoLogin,
         GoogleSignUp,
         logOut,
         SerchDataData,
-        getUserDetails
+        getUserDetails,
+        getUserDetailsEdit
     };
 };
 exports.default = UserController;

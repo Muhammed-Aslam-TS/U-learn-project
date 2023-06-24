@@ -17,6 +17,8 @@ const httpOptions = {
 export class HomeService {
 
   private ApiUrl = 'https://api.ulearn.shop/';
+  // private ApiUrl = 'http://localhost:4000/';
+
 
   constructor(private http: HttpClient) { }
   
@@ -27,21 +29,8 @@ export class HomeService {
     )
   }
 
-  chatRoom(data:object):Observable<any>{
-    return this.http.post<any>(
-      `${this.ApiUrl}ChattText`,
-      (data),
-      httpOptions
-    )
-  }
-
-
-
-
   serchData(formData: string): Observable<any> {
     return this.http.post(`${this.ApiUrl}SerchData`, ({formData}),httpOptions);
   }
-
-  
 
 }

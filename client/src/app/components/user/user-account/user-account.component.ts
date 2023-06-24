@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-user-account',
@@ -7,10 +11,7 @@ import { UserServiceService } from '../service/user-service.service';
   styleUrls: ['./user-account.component.css']
 })
 export class UserAccountComponent implements OnInit {
-
-  constructor(private service: UserServiceService) { }
-
-
+  uploadForm: FormGroup
   userId = localStorage.getItem('userId')
   userFname = ''
   userLname = ''
@@ -18,16 +19,52 @@ export class UserAccountComponent implements OnInit {
   userPhone = ''
 
 
+ editObj = {
+  Fname: '',
+  Lname: '',
+  Email: '',
+  Phone: '',
+  userId: this.userId
+ }
+
+  constructor(
+    private service: UserServiceService,
+    private formBuilder: FormBuilder,
+    private router: Router) {
+  }
+
+  modal = true;
+  modalBtn() {
+    this.modal = !this.modal
+  }
+
+
+
+
   ngOnInit() {
     this.service.getUserDetails(this.userId).subscribe(((data: any) => {
       console.log(data);
-      
+
       this.userFname = data.Fname
-      this.userEmail=data.Email
-      this.userLname=data.Lname
-      this.userPhone=data.Phone
+      this.userLname = data.Lname
+      this.userEmail = data.Email
+      this.userPhone = data.Phone
     }))
   }
 
+
+  onSubmit() {
+    this.service.getUserDetailsEdit(this.editObj).subscribe(((data: any) => {
+      if (data.message) {
+        Swal.fire(
+          'Your Details Updated',
+          'You clicked the button!',
+          'success'
+        )
+      }
+      location.reload()
+    }))
+  
+  }
 
 }

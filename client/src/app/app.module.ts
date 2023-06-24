@@ -24,9 +24,7 @@ import { AboutPageComponent } from './components/home/about-page/about-page.comp
 import { NavBarComponent } from './shared/components/user/nav-bar/nav-bar.component';
 import { TextEditorComponent } from './components/course/text-editor/text-editor.component';
 import { DashBoardComponent } from './components/user/user-dash-board/dash-board/dash-board.component';
-import { ChatBoxComponent } from './components/user/user-dash-board/chat-box/chat-box.component';
 import { DashBordNavBarComponent } from './shared/components/user/dash-bord-nav-bar/dash-bord-nav-bar.component';
-import { ChatUserComponent } from './components/user/user-dash-board/chat-user/chat-user.component';
 import { PremiumComponent } from './components/course/premium/premium.component';
 import { GetAllCoursesComponent } from './components/user/user-dash-board/get-all-courses/get-all-courses.component';
 import { CourseDetailsComponent } from './components/course/course-details/course-details.component';
@@ -80,9 +78,7 @@ const firebase = {
     NavBarComponent,
     TextEditorComponent,
     DashBoardComponent,
-    ChatBoxComponent,
     DashBordNavBarComponent,
-    ChatUserComponent,
     PremiumComponent,
     GetAllCoursesComponent,
     CourseDetailsComponent,

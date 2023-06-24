@@ -21,7 +21,7 @@ export class GetAllCoursesComponent implements OnInit {
   userId = localStorage.getItem('userId')
   allCourses: any[] = []
   data: { userId: string; ownerId: string; coursId: string; };
-  constructor(private service: ServiceService,private postService:PostService,private router:Router) { }
+  constructor(private service: ServiceService,private postService:PostService,private router:Router,private PostService:PostService) { }
 
   ngOnInit() {
     this.fetchPosts();
@@ -35,7 +35,7 @@ export class GetAllCoursesComponent implements OnInit {
 
 
   fetchPosts(): void {
-    this.postService.getAllPosts().subscribe(
+    this.PostService.getAllPosts().subscribe(
       (response) => {
         this.POSTS = response;
         console.log(response);

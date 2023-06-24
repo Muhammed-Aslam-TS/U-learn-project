@@ -19,15 +19,6 @@ const addCourse_1 = require("../../applications/UseCases/AddCourse/addCourse");
 const CorseModel_1 = __importDefault(require("../../FrameWorks/Database/MongoDb/Models/CorseModel"));
 const dotenvConfig_1 = __importDefault(require("../../dotenvConfig"));
 const UserModel_1 = __importDefault(require("../../FrameWorks/Database/MongoDb/Models/UserModel"));
-// import AWS from "aws-sdk";
-// import { S3Client } from "@aws-sdk/client-s3";
-// const s3 = new S3Client({
-//     credentials: {
-//         accessKeyId: dotenvConfig.aws_accessKeyId,
-//         secretAccessKey: dotenvConfig.aws_secretAccessKey
-//     }, 
-//     region: dotenvConfig.aws_bucket_name
-// });
 const firebaseConfig = {
     apiKey: dotenvConfig_1.default.firebase_apiKey,
     authDomain: dotenvConfig_1.default.firebase_authDomain,
@@ -54,13 +45,13 @@ const CourseController = (CourseDatabase, CourseRepo, UserCorseService, UserCour
         }));
     }));
     const GetallCourses = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        CorseModel_1.default.find().find().limit(8).then((data) => {
+        CorseModel_1.default.find().find().sort({ date: -1 }).limit(8).then((data) => {
             res.json(data);
         });
     }));
     const GetCourses = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { userId } = req.query;
-        CorseModel_1.default.find({ userId: userId }).limit(5).then((data) => {
+        CorseModel_1.default.find({ userId: userId }).sort({ date: -1 }).limit(5).then((data) => {
             res.json(data);
         });
     }));
@@ -70,7 +61,7 @@ const CourseController = (CourseDatabase, CourseRepo, UserCorseService, UserCour
     }));
     const GetCourse = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const courseId = req.query.courseId;
-        const getCourse = yield CorseModel_1.default.findOne({ _id: courseId });
+        const getCourse = yield CorseModel_1.default.findOne({ _id: courseId }).sort({ date: -1 });
         const category = getCourse === null || getCourse === void 0 ? void 0 : getCourse.Category;
         const findCategory = yield CorseModel_1.default.find({ Category: category });
         const userId = getCourse === null || getCourse === void 0 ? void 0 : getCourse.userId;
@@ -79,14 +70,14 @@ const CourseController = (CourseDatabase, CourseRepo, UserCorseService, UserCour
     }));
     const placeOrderGetDetails = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const courseId = req.query.courseId;
-        const getCourse = yield CorseModel_1.default.findOne({ _id: courseId });
+        const getCourse = yield CorseModel_1.default.findOne({ _id: courseId }).sort({ date: -1 });
         const userId = getCourse === null || getCourse === void 0 ? void 0 : getCourse.userId;
         const user = yield UserModel_1.default.findOne({ _id: userId });
         res.json({ course: getCourse, user, message: true });
     }));
     const getMyCourse = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const userId = req.query.userId;
-        const MyCourse = yield CorseModel_1.default.find({ userId: userId });
+        const MyCourse = yield CorseModel_1.default.find({ userId: userId }).sort({ date: -1 });
         const user = yield UserModel_1.default.findById({ _id: userId });
         res.json({ MyCourse, user });
     }));

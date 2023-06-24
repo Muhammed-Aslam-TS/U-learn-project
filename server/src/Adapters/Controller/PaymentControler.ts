@@ -91,7 +91,7 @@ console.log(paymentData,"______________________ppppppppppppfh_____");
     const gettpurchesedCourses = (async (req: Request, res: Response) => {
 
         const userId = req.query.userId;
-        const response = await userModel.findOne({ _id: userId });
+        const response = await userModel.findOne({ _id: userId }).sort({date:-1});
         const purcherseCourses = response?.purcherseCourses;
 
         res.status(200).json({ message: "purcherseData successfully Geted", purcherseCourses });

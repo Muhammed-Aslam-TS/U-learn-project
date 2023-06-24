@@ -24,7 +24,7 @@ const UserController = (
 
     const DoSignup = asyncHandler(async (req: Request, res: Response) => {
         const UserData: UserInterFace = req.body;
-        
+
         const Response: unknown = await addUser(UserData, UserdbRepo, UserAuthServices);
         res.json(Response);
 
@@ -46,8 +46,8 @@ const UserController = (
                 );
             }
             res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
-            console.log(response,"controller_____________________");
-            
+            console.log(response, "controller_____________________");
+
             res.json(response);
         }
 
@@ -115,13 +115,30 @@ const UserController = (
 
     });
 
+    const getUserDetailsEdit = asyncHandler(async (req: Request, res: Response) => {
+
+        const data = req.body;
+        const userId = data.userId;
+        console.log(data);
+
+      const user = await userModel.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
+      res.json({message: "this user is updated" });
+
+      
+
+    });
+
+
+
+
     return {
         DoSignup,
         DoLogin,
         GoogleSignUp,
         logOut,
         SerchDataData,
-        getUserDetails
+        getUserDetails,
+        getUserDetailsEdit
     };
 };
 

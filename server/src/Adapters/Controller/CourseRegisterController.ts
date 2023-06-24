@@ -11,20 +11,7 @@ import { TypeOfCourseDb } from "../../FrameWorks/Database/MongoDb/Repositories/A
 import { typeOfCourseRepo } from "../../applications/Repositories/CourseReppo";
 import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
 import dotenvConfig from "../../dotenvConfig";
-import admin from "firebase-admin";
 import userModel from "../../FrameWorks/Database/MongoDb/Models/UserModel";
-import PaymentModels from "../../FrameWorks/Database/MongoDb/Models/paymentModel";
-import { PaymentInterface } from "../../Types/paymentInterFace";
-// import AWS from "aws-sdk";
-// import { S3Client } from "@aws-sdk/client-s3";
-
-// const s3 = new S3Client({
-//     credentials: {
-//         accessKeyId: dotenvConfig.aws_accessKeyId,
-//         secretAccessKey: dotenvConfig.aws_secretAccessKey
-//     }, 
-//     region: dotenvConfig.aws_bucket_name
-// });
 
 
 const firebaseConfig = {
@@ -57,6 +44,7 @@ const CourseController = (
         const CorseData: CourseInterface = req.body;
         CorseData.Price as number;
 
+
         const storageRef = ref(storage, `u-learn-files/${req.file?.originalname}`);
 
         uploadBytes(storageRef, req.file?.buffer as Buffer).then(async (snapshort) => {
@@ -69,14 +57,14 @@ const CourseController = (
 
 
     const GetallCourses = asyncHandler(async (req: Request, res: Response) => {
-        courseModel.find().find().limit(8).then((data) => {
+        courseModel.find().find().sort({date:-1}).limit(8).then((data) => {
             res.json(data);
         });
     });
 
     const GetCourses = asyncHandler(async (req: Request, res: Response) => {
         const { userId } = req.query;
-        courseModel.find({ userId: userId }).limit(5).then((data) => {
+        courseModel.find({ userId: userId }).sort({date:-1}).limit(5).then((data) => {
             res.json(data);
         });
     });
@@ -89,7 +77,7 @@ const CourseController = (
     const GetCourse = asyncHandler(async (req: Request, res: Response) => {
 
         const courseId = req.query.courseId;
-        const getCourse = await courseModel.findOne({ _id: courseId });
+        const getCourse = await courseModel.findOne({ _id: courseId }).sort({date:-1});
 
         const category = getCourse?.Category;
 
@@ -102,7 +90,7 @@ const CourseController = (
 
     const placeOrderGetDetails = asyncHandler(async (req: Request, res: Response) => {
         const courseId = req.query.courseId;
-        const getCourse = await courseModel.findOne({ _id: courseId });
+        const getCourse = await courseModel.findOne({ _id: courseId }).sort({date:-1});
 
         const userId = getCourse?.userId;
         const user = await userModel.findOne({ _id: userId });
@@ -112,7 +100,7 @@ const CourseController = (
     const getMyCourse = asyncHandler(async (req: Request, res: Response) => {
 
         const userId = req.query.userId;
-        const MyCourse = await courseModel.find({ userId: userId });
+        const MyCourse = await courseModel.find({ userId: userId }).sort({date:-1});
         const user = await userModel.findById({ _id: userId });
         res.json({MyCourse,user});
     });

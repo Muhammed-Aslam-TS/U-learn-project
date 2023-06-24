@@ -26,7 +26,7 @@ export class AddCourseComponent implements OnInit {
       discription: '',
       userId: '',
       Price: '',
-      date: '',
+      date: new Date(),
       Category: '',
       CourseImage: null
     });
@@ -41,7 +41,6 @@ export class AddCourseComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.uploadForm.get("date")?.value);
 
     const formData = new FormData();
     formData.append('courseName', this.uploadForm.get("courseName")?.value);
