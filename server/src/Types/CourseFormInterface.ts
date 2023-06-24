@@ -1,4 +1,5 @@
 export interface CourseInterface {
+    time: any;
     _id?: string
     courseName?: string
     date?: Date

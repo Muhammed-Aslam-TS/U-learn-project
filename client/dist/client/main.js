@@ -1334,7 +1334,7 @@ class AddCourseComponent {
       discription: '',
       userId: '',
       Price: '',
-      date: '',
+      date: new Date(),
       Category: '',
       CourseImage: null
     });
@@ -1371,9 +1371,9 @@ AddCourseComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3
   type: AddCourseComponent,
   selectors: [["app-add-course"]],
   features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵProvidersFeature"]([])],
-  decls: 33,
+  decls: 32,
   vars: 2,
-  consts: [[1, "p-20", "sm:ml-64"], [1, "flex", "justify-center", "text-5xl", "relative", "font-sans"], [1, "flex", "h-full", "justify-center", "items-center", "sm:ml-64", "p-5"], ["action", "", 1, "bg-gray-100", "from-indigo-401", "to-cyan-400", "rounded-xl", "shadow-lg", "p-8", 3, "formGroup", "ngSubmit"], ["for", "Enter your Course"], ["formControlName", "courseName", "type", "text", "name", "courseName", "placeholder", "Enter your Course", 1, "w-full", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["for", ""], ["formControlName", "Price", "type", "number", "name", "Price", "placeholder", "Price", 1, "w-2/2", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["formControlName", "Category", "type", "text", "name", "Category", "placeholder", "Enter your Course", 1, "w-full", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["formControlName", "date", "type", "date", "name", "date", 1, "w-2/2", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["type", "file", "enctype", "multipart/form-data", "accept", "file_type | audio/* | video/* | image/* | media_type", "formControlName", "file", "name", "file", "placeholder", "5 Month", 1, "w-2/2", "py-2", "border", "border-gray-300", "rounded-lg", "px-4", 3, "change"], ["formControlName", "discription", "type", "text", "name", "description", "placeholder", "Enter your Description", 1, "w-full", "h-20", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["formControlName", "userId", "hidden", "", "type", "text", "name", "userId", 1, "w-full", "h-20", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4", 3, "ngModel", "ngModelChange"], [1, "flex", "justify-end"], [1, "bg-blue-500", "shadow-xl", "rounded-xl", "mt-2", "items-center", "px-4", "py-6", "text-md", "uppercase", "hover:text-green-700"]],
+  consts: [[1, "p-20", "sm:ml-64"], [1, "flex", "justify-center", "text-5xl", "relative", "font-sans"], [1, "flex", "h-full", "justify-center", "items-center", "sm:ml-64", "p-5"], ["action", "", 1, "bg-gray-100", "from-indigo-401", "to-cyan-400", "rounded-xl", "shadow-lg", "p-8", 3, "formGroup", "ngSubmit"], ["for", "Enter your Course"], ["formControlName", "courseName", "type", "text", "name", "courseName", "placeholder", "Enter your Course", 1, "w-full", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["for", ""], ["formControlName", "Price", "type", "number", "name", "Price", "placeholder", "Price", 1, "w-2/2", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["formControlName", "Category", "type", "text", "name", "Category", "placeholder", "Enter your Course", 1, "w-full", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["type", "file", "enctype", "multipart/form-data", "accept", "file_type | audio/* | video/* | image/* | media_type", "formControlName", "file", "name", "file", "placeholder", "5 Month", 1, "w-2/2", "py-2", "border", "border-gray-300", "rounded-lg", "px-4", 3, "change"], ["formControlName", "discription", "type", "text", "name", "description", "placeholder", "Enter your Description", 1, "w-full", "h-20", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4"], ["formControlName", "userId", "hidden", "", "type", "text", "name", "userId", 1, "w-full", "h-20", "mb-5", "py-2", "border", "border-gray-300", "rounded-lg", "px-4", 3, "ngModel", "ngModelChange"], [1, "flex", "justify-end"], [1, "bg-blue-500", "shadow-xl", "rounded-xl", "mt-2", "items-center", "px-4", "py-6", "text-md", "uppercase", "hover:text-green-700"]],
   template: function AddCourseComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "app-dash-bord-nav-bar");
@@ -1405,32 +1405,30 @@ AddCourseComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](19, "label", 6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](20, "Upload Date");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "div");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](22, "input", 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](23, "input", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("change", function AddCourseComponent_Template_input_change_23_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "div")(22, "input", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("change", function AddCourseComponent_Template_input_change_22_listener($event) {
         return ctx.onFileSelected($event);
       });
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](24, "br");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](25, "label", 6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](26, "Description About Course");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](23, "br");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "label", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](25, "Description About Course");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "div");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](28, "input", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "input", 12);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function AddCourseComponent_Template_input_ngModelChange_29_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](26, "div");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](27, "input", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "input", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function AddCourseComponent_Template_input_ngModelChange_28_listener($event) {
         return ctx.userId = $event;
       });
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "div", 13)(31, "button", 14);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](32, " Submit Course ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "div", 12)(30, "button", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](31, " Submit Course ");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()()();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.uploadForm);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](23);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](22);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.userId);
     }
   },

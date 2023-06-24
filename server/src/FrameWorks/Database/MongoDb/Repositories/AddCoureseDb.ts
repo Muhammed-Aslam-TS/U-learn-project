@@ -8,7 +8,6 @@ export function CourseDatabase() {
         return User;
     };
 
-
     return {
         addCourse
     };

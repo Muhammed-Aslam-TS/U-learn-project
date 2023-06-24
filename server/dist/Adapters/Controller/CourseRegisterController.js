@@ -60,7 +60,7 @@ const CourseController = (CourseDatabase, CourseRepo, UserCorseService, UserCour
     }));
     const GetCourses = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { userId } = req.query;
-        CorseModel_1.default.find({ userId: userId }).limit(5).then((data) => {
+        CorseModel_1.default.find({ userId: userId }).sort({ date: -1 }).limit(5).then((data) => {
             res.json(data);
         });
     }));

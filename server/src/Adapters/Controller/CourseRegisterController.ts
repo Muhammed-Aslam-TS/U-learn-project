@@ -56,6 +56,7 @@ const CourseController = (
     const addCourseDatails = asyncHandler(async (req: Request, res: Response) => {
         const CorseData: CourseInterface = req.body;
         CorseData.Price as number;
+
         const storageRef = ref(storage, `u-learn-files/${req.file?.originalname}`);
 
         uploadBytes(storageRef, req.file?.buffer as Buffer).then(async (snapshort) => {
@@ -75,7 +76,7 @@ const CourseController = (
 
     const GetCourses = asyncHandler(async (req: Request, res: Response) => {
         const { userId } = req.query;
-        courseModel.find({ userId: userId }).limit(5).then((data) => {
+        courseModel.find({ userId: userId }).sort({date:-1}).limit(5).then((data) => {
             res.json(data);
         });
     });

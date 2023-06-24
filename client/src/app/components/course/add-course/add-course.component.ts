@@ -26,7 +26,7 @@ export class AddCourseComponent implements OnInit {
       discription: '',
       userId: '',
       Price: '',
-      date: '',
+      date: new Date(),
       Category: '',
       CourseImage: null
     });

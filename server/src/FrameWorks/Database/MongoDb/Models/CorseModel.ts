@@ -14,6 +14,9 @@ const CourseSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
+    time: {
+        timestamps: true
+    },
     CourseImage: {
         type: String,
         required: true,
@@ -33,10 +36,10 @@ const CourseSchema = new mongoose.Schema({
     status: {
         tayp: String,
     },
-    purtcherserId:{
-        type:String
+    purtcherserId: {
+        type: String
     },
-   
+
 
 });
 
