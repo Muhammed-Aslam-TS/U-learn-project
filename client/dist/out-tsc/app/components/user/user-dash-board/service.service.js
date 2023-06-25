@@ -10,7 +10,7 @@ const httpOptions = {
 let ServiceService = class ServiceService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = 'http://localhost:4000/';
+        this.ApiUrl = 'https://api.ulearn.shop/';
     }
     GetAllCourse(userId) {
         return this.http.get(`${this.ApiUrl}dashBoard?userId=${userId}`);
