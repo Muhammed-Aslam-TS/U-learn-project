@@ -53,27 +53,17 @@ import { AllCoursesComponent } from './components/home/all-courses/all-courses.c
 import { PageNOtfoundComponent } from './components/pagenotFound/page-notfound/page-notfound.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MoreCourseDetailsComponent } from './components/user/user-dash-board/more-course-details/more-course-details.component';
-// import { firebases } from "../environments/environment";
+import { Environment } from "../environments/environment";
 
 const firebase = {
-  apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
-  authDomain: "auth-1dbcc.firebaseapp.com",
-  projectId: "auth-1dbcc",
-  storageBucket: "auth-1dbcc.appspot.com",
-  messagingSenderId: "623488054012",
-  appId: "1:623488054012:web:33c7ba239d5c84aaa09d79",
-  measurementId: "G-G5SE36HY2F"
+  apiKey: Environment.apiKey,
+  authDomain: Environment.authDomain,
+  projectId: Environment.projectId,
+  storageBucket: Environment.storageBucket,
+  messagingSenderId: Environment.messagingSenderId,
+  appId: Environment.appId,
+  measurementId: Environment.measurementId
 }
-
-// const firebase = {
-//   apiKey: firebases.apiKey,
-//   authDomain: firebases.authDomain,
-//   projectId:firebases.projectId,
-//   storageBucket:firebases.storageBucket,
-//   messagingSenderId:firebases.messagingSenderId,
-//   appId:firebases.appId,
-//   measurementId:firebases.measurementId
-// }
 
 
 
