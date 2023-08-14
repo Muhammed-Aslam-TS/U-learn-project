@@ -1,11 +1,10 @@
-
 <app-nav-bar></app-nav-bar>
 <hr>
 <div class="flex justify-center p-5  text-5xl">
     <h1>Latest Courses</h1>
 </div>
 
-<div class="bg-blue-50 h-screen">
+<div class="dark:bg-gray-700 bg-blue-50 h-screen">
     <section>
 
         <div class="flex flex-cols-4 justify-evenly md-2 gap-4 p-20">
@@ -20,25 +19,19 @@
                 class="relative flex w-full max-w-[20rem] max-h-[30rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div
                     class="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img class="w-full h-56"
-                        src="{{cours.CourseImage}}"
-                        alt="ui/ux review c heck" />
+                    <img class="w-full h-56" src="{{cours.CourseImage}}" alt="ui/ux review c heck" />
                     <div
-                        class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
+                        class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60">
+                    </div>
                     <button
                         class="!absolute top-2 right-2 h-6 max-h-[24px] w-6 max-w-[24px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        type="button"
-                        data-ripple-dark="true">
-                        <span
-                            class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transform">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                aria-hidden="true"
-                                class="h-4 w-4">
+                        type="button" data-ripple-dark="true">
+                        <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" class="h-4 w-4">
                                 <path
-                                    d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"></path>
+                                    d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z">
+                                </path>
                             </svg>
                         </span>
                     </button>
@@ -53,10 +46,8 @@
                         </h5>
                         <p
                             class="flex items-center gap-1 font-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24" fill="currentColor"
-                                aria-hidden="true"
-                                class="-mt-0.5 h-4 w-4 text-yellow-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" class="-mt-0.5 h-4 w-4 text-yellow-700">
                                 <path fill-rule="evenodd"
                                     d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
                                     clip-rule="evenodd"></path>
@@ -64,8 +55,7 @@
                             5.0
                         </p>
                     </div>
-                    <p
-                        class="block font-sans text-sm font-light leading-relaxed text-gray-700 antialiased">
+                    <p class="block font-sans text-sm font-light leading-relaxed text-gray-700 antialiased">
                         {{cours.discription}}
                     </p>
                 </div>
@@ -82,10 +72,7 @@
 
     <div class="flex justify-end">
         <div class=" d-flex justify-content-center">
-            <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                (pageChange)="onTableDataChange($event)">
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
             </pagination-controls>
         </div>
     </div>

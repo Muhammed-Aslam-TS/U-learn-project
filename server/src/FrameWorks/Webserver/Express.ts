@@ -22,11 +22,6 @@ const corsOption = {
 
 
 
-
-
-
-
-
 const ExpressConfig = (app: Application) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));

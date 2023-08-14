@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
 
   {
-    path: 'admin', component: AdminComponent,
+    path: '', component: AdminComponent,
     children: [
       { path: 'login', component: AdminLogInComponent,canActivate: [AdminUnAuthGuardService] },
       { path: 'adminSignup', component: RegisterComponent},

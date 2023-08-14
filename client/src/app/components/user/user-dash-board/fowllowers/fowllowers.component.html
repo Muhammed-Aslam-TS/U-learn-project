@@ -50,9 +50,8 @@
         </div>
     </div> -->
 
-<div class="felx justify-center p-10">
-    <div
-        class="flex items-center justify-center bg-white h-16 m-5 rounded-2xl drop-shadow-md">
+<div class="dark:bg-gray-700 felx justify-center p-10">
+    <div class="dark:bg-gray-600 dark:text-white flex items-center justify-center bg-white h-16 m-5 rounded-2xl drop-shadow-md">
         <p class="text-xl font-medium">Fowllowers</p>
     </div>
     <div *ngFor="let fowllowers of this.Fowllowers | paginate
@@ -61,22 +60,19 @@
         currentPage: page,
         totalItems: count
       };
-let i = index">
+        let i = index">
         <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
             <li class="pb-3 sm:pb-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full"
-                            src="/docs/images/people/profile-picture-1.jpg"
+                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg"
                             alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p
-                            class="text-sm font-medium text-blue-900 truncate dark:text-blue-700">
+                        <p class="text-sm font-medium text-blue-900 truncate dark:text-white">
                             {{fowllowers.Fname}} {{fowllowers.Lname}}
                         </p>
-                        <p
-                            class="text-sm text-gray-500 truncate dark:text-gray-400">
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
                             {{fowllowers.Email}}
                         </p>
                     </div>
@@ -91,10 +87,9 @@ let i = index">
     </div>
 
 </div>
-<div class="flex justify-end">
+<div class="dark:bg-gray-700 dark:text-white flex justify-end">
     <div class=" d-flex justify-content-center">
-        <pagination-controls previousLabel="Prev" nextLabel="Next"
-            (pageChange)="onTableDataChange($event)">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
 </div>

@@ -17,15 +17,17 @@ export class UserAccountComponent implements OnInit {
   userLname = ''
   userEmail = ''
   userPhone = ''
+  image = ''
 
 
- editObj = {
-  Fname: '',
-  Lname: '',
-  Email: '',
-  Phone: '',
-  userId: this.userId
- }
+  editObj = {
+    Fname: '',
+    Lname: '',
+    Email: '',
+    Phone: '',
+    userId: this.userId
+  }
+
 
   constructor(
     private service: UserServiceService,
@@ -49,6 +51,7 @@ export class UserAccountComponent implements OnInit {
       this.userLname = data.Lname
       this.userEmail = data.Email
       this.userPhone = data.Phone
+      this.image= data.image
     }))
   }
 
@@ -64,7 +67,7 @@ export class UserAccountComponent implements OnInit {
       }
       location.reload()
     }))
-  
+
   }
 
 }

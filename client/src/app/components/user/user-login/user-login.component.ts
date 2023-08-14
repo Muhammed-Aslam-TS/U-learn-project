@@ -53,6 +53,8 @@ export class UserLoginComponent implements OnInit {
     this.loginObj = this.form.value;
 
     this.userService.DoLogin(this.loginObj).subscribe((data) => {
+      console.log(data,'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+      
       if (!data.token) {
         window.alert('Token does not exist');
       } else {
@@ -69,15 +71,20 @@ export class UserLoginComponent implements OnInit {
 
   signInWithGoogle() {
     this.fireauth.signInWithPopup(new GoogleAuthProvider()).then((res) => {
-      const data = res.additionalUserInfo?.profile;
+      // const data = res.additionalUserInfo?.profile;
+      // const user =res.user.phoneNumber
+      // console.log(res,"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+      
 
       this.userService.googleSignIn(res).subscribe((respons) => {
+        console.log(respons);
+        
         if (!respons.uid) {
           window.alert('Token does not exist');
         } else {
           if (respons.uid) {
             localStorage.setItem('userToken', JSON.stringify(respons.uid));
-            localStorage.setItem('userId', JSON.stringify(respons.userId));
+            localStorage.setItem('userId', respons.userId);
             this.router.navigate(['']);
           } else {
             this.router.navigate(['login']);

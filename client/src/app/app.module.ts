@@ -50,10 +50,10 @@ import { StreamChatModule, StreamAutocompleteTextareaModule } from 'stream-chat-
 import { SubscribesComponent } from './components/user/user-dash-board/subscribes/subscribes.component';
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
-import { DarkModeComponent } from './dark-mode/dark-mode.component';
 import { PageNOtfoundComponent } from './components/pagenotFound/page-notfound/page-notfound.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-
+import { MoreCourseDetailsComponent } from './components/user/user-dash-board/more-course-details/more-course-details.component';
+// import { firebases } from "../environments/environment";
 
 const firebase = {
   apiKey: "AIzaSyBC4y6cT6FCm00SA6CfQeomtW_4YRPYdI4",
@@ -64,6 +64,16 @@ const firebase = {
   appId: "1:623488054012:web:33c7ba239d5c84aaa09d79",
   measurementId: "G-G5SE36HY2F"
 }
+
+// const firebase = {
+//   apiKey: firebases.apiKey,
+//   authDomain: firebases.authDomain,
+//   projectId:firebases.projectId,
+//   storageBucket:firebases.storageBucket,
+//   messagingSenderId:firebases.messagingSenderId,
+//   appId:firebases.appId,
+//   measurementId:firebases.measurementId
+// }
 
 
 
@@ -100,9 +110,9 @@ const firebase = {
     SubscribesComponent,
     SearchResultComponent,
     AllCoursesComponent,
-    DarkModeComponent,
     PageNOtfoundComponent,
     SpinnerComponent,
+    MoreCourseDetailsComponent,
     
   ],
   imports: [

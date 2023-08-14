@@ -21,6 +21,7 @@ import { SubscribesComponent } from './components/user/user-dash-board/subscribe
 import { SearchResultComponent } from './components/home/search-result/search-result.component';
 import { AllCoursesComponent } from './components/home/all-courses/all-courses.component';
 import { PageNOtfoundComponent } from './components/pagenotFound/page-notfound/page-notfound.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [UserUnAuthGuardeServiceService] },
@@ -41,9 +42,14 @@ const routes: Routes = [
   { path: 'subscibers', component: SubscribesComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'searchResult', component: SearchResultComponent, canActivate: [UserAuthGuardeServiceService] },
   { path: 'ProAllCourse', component: AllCoursesComponent, canActivate: [UserAuthGuardeServiceService] },
-  {path: '**', component:PageNOtfoundComponent }
+  {
+    path: 'admin', // The path for the lazy-loaded module
+    loadChildren: () => import('./components/admin/admin.module').then((m) => m.AdminModule),
+  },
+  { path: '**', component: PageNOtfoundComponent }
 
-  
+
+
 ];
 
 @NgModule({

@@ -1,16 +1,22 @@
-<div class="bg-gray-100 min-h-screen py-8">
+
+
+
+<app-nav-bar></app-nav-bar>
+
+
+<div class="dark:bg-gray-700 bg-gray-100 min-h-screen py-8">
   <div class="max-w-3xl mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Place Your
+    <h2 class="dark:text-white text-4xl font-bold text-center text-gray-800 mb-8">Place Your
       Order</h2>
 
-    <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-      <h3 class="text-2xl font-bold text-gray-800 mb-4">Order Details</h3>
+    <div class="dark:bg-gray-600 bg-white shadow-lg rounded-lg p-8 mb-8">
+      <h3 class="dark:text-white text-2xl font-bold text-gray-800 mb-4">Order Details</h3>
 
       <!-- card__________________________________ -->
-      <div class="flex flex-col md:flex-row">
+      <div class="dark:bg-gray-700 flex flex-col md:flex-row">
         <div class="md:w-1/2 border-spacing-5">
           <div
-            class="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+            class="dark:bg-gray-700 relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
             <div
               class="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
@@ -39,7 +45,7 @@
             <div class="p-6">
               <div class="mb-3 flex items-center justify-between">
                 <h5
-                  class="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  class="dark:text-white block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
                   {{this.courseData.name|uppercase}}
                 </h5>
               </div>
@@ -49,7 +55,7 @@
           </div>
         </div>
 
-        <div class="md:w-1/2 mt-10 p-10 md:mt-0">
+        <div class="dark:text-white md:w-1/2 mt-10 p-10 md:mt-0">
           <div>
             <h1>Publisher: {{this.courseData.Fname|uppercase}} {{this.courseData.Lname|uppercase}}</h1>
             <h1>{{this.courseData.email}}</h1>
@@ -62,7 +68,7 @@
       </div>
 
       <div class="mt-8">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Payment Methord</h3>
+        <h3 class="dark:text-white text-2xl font-bold text-gray-800 mb-4">Payment Methord</h3>
 
         <app-stripe [parentData]="courseData"></app-stripe>
 

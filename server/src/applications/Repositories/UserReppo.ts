@@ -10,7 +10,7 @@ const UserReppo = (Repository: ReturnType<TypeOfUserDb>) => {
 
     const findByEmail = (Email: string) => { return Repository.findByEmail(Email); };
 
-    const GoogleSignUP = (userData: GoogleUserInterface) => { return Repository.googleSignUp(userData); };
+    const GoogleSignUP = (userData: UserInterFace) => { return Repository.googleSignUp(userData); };
 
     const findUid = (userData:GoogleUserInterface)=>{ return Repository.findGoogleData(userData);};
 

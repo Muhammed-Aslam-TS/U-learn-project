@@ -11,6 +11,9 @@ import { googleData, googleLogin } from "../../applications/UseCases/Auth/google
 import userModel from "../../FrameWorks/Database/MongoDb/Models/UserModel";
 import GoogleUserModel from "../../FrameWorks/Database/MongoDb/Models/googleAuthModel";
 import courseModel from "../../FrameWorks/Database/MongoDb/Models/CorseModel";
+import { ObjectId, Types, isValidObjectId } from "mongoose";
+import mongoose from "mongoose";
+
 
 const UserController = (
     UserDatabase: TypeOfUserDb,
@@ -31,6 +34,7 @@ const UserController = (
     });
 
     const DoLogin = asyncHandler(async (req: Request, res: Response) => {
+
         const { Email, Password }: UserInterFace = req.body;
         const isUserBlocked = await userModel.findOne({ Email: Email });
         console.log(isUserBlocked);
@@ -41,55 +45,86 @@ const UserController = (
             const response = await userLogin(Email, Password, UserdbRepo, UserAuthServices);
             const UserId = response.User._id;
             if (UserId) {
-                const user = await userModel.findOneAndUpdate(
+                await userModel.findOneAndUpdate(
                     { _id: UserId }, { Status: "Online" }
                 );
             }
             res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
-            console.log(response, "controller_____________________");
-
             res.json(response);
         }
 
     });
 
     const logOut = asyncHandler(async (req: Request, res: Response) => {
-        console.log(req.body, "b___________________");
-
-        const userId = req.body.response.userId;
-
-        const user = await userModel.findOneAndUpdate({ _id: userId }, { $set: { Status: "Offline" } });
-        console.log(user, "status____________________");
-
+        const UserId: string = req.body.response.userId as string;
+        const user = await userModel.findOneAndUpdate({ _id: UserId }, { $set: { Status: "Offline" } });
         res.json(user);
-
     });
 
     const GoogleSignUp = asyncHandler(async (req: Request, res: Response) => {
+
         const user = req.body.data.user;
-        const userData: GoogleUserInterface = {
-            uid: user.uid,
-            userName: user.displayName,
-            email: user.email,
-            image: user.photoURL,
-            Status: ""
-        };
+        // const uid = user.uid;
+        const userexist = await userModel.findOne({ uid: user.uid });
 
-        const GoogleUser = await googleData(UserdbRepo, userData);
-        const UserId = GoogleUser.googleData?._id;
-        if (UserId) {
-            const user = await GoogleUserModel.findOneAndUpdate(
-                { _id: UserId }, { Status: "Online" }
-            );
-        }
+        if (!userexist) {
+            console.log("this function is ok");
 
-        if (userData.email === GoogleUser.googleData?.email) {
-            const response = { email: GoogleUser.googleData?.email, uid: GoogleUser.googleData?.uid, userId: UserId };
-            res.json(response);
+            const userData: UserInterFace = {
+                uid: user.uid,
+                Fname: user.displayName,
+                Email: user.email,
+                image: user.photoURL,
+                Status: "",
+                Phone: 0,
+                CurrentPosition: "",
+                Password: "",
+                ConfirmPassword: "",
+                blockStatus: false
+            };
+            console.log(userData);
+            
+
+            await addUser(userData, UserdbRepo, UserAuthServices);
+            const userexist = await userModel.findOne({ uid: user.uid });
+            const UserId = userexist?._id;
+            if (UserId) {
+                await userModel.findOneAndUpdate(
+                    { _id: UserId }, { Status: "Online" }
+                );
+            }
+
+            if (user.email === userexist?.Email) {
+                const response = { email: userexist?.Email, uid: userexist?.uid, userId: UserId };
+                res.json(response);
+            } else {
+                const response = await googleLogin(userexist, UserdbRepo);
+                res.json(response);
+            }
+
+
         } else {
-            const response = await googleLogin(userData, UserdbRepo);
-            res.json(response);
+            const userexist = await userModel.findOne({ uid: user.uid });
+            const UserId = userexist?._id;
+            if (UserId) {
+                await userModel.findOneAndUpdate(
+                    { _id: UserId }, { Status: "Online" }
+                );
+            }
+
+            if (user.email === userexist?.Email) {
+                const response = { email: userexist?.Email, uid: userexist?.uid, userId: UserId };
+                res.json(response);
+            } else {
+                const response = await googleLogin(userexist, UserdbRepo);
+                res.json(response);
+            }
+
         }
+
+
+
+
 
     });
 
@@ -121,10 +156,10 @@ const UserController = (
         const userId = data.userId;
         console.log(data);
 
-      const user = await userModel.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
-      res.json({message: "this user is updated" });
+        await userModel.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
+        res.json({ message: "this user is updated" });
 
-      
+
 
     });
 

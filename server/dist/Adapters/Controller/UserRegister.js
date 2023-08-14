@@ -16,7 +16,6 @@ const express_async_handler_1 = __importDefault(require("express-async-handler")
 const UserRegister_1 = require("../../applications/UseCases/Auth/UserRegister");
 const googleFirebase_1 = require("../../applications/UseCases/Auth/googleFirebase");
 const UserModel_1 = __importDefault(require("../../FrameWorks/Database/MongoDb/Models/UserModel"));
-const googleAuthModel_1 = __importDefault(require("../../FrameWorks/Database/MongoDb/Models/googleAuthModel"));
 const CorseModel_1 = __importDefault(require("../../FrameWorks/Database/MongoDb/Models/CorseModel"));
 const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthServiceInterface) => {
     const UserdbRepo = UserRepo(UserDatabase());
@@ -37,42 +36,65 @@ const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthService
             const response = yield (0, UserRegister_1.userLogin)(Email, Password, UserdbRepo, UserAuthServices);
             const UserId = response.User._id;
             if (UserId) {
-                const user = yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
+                yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
             }
             res.cookie("refreshtoken", response.refreshToken, { httpOnly: true });
-            console.log(response, "controller_____________________");
             res.json(response);
         }
     }));
     const logOut = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        console.log(req.body, "b___________________");
-        const userId = req.body.response.userId;
-        const user = yield UserModel_1.default.findOneAndUpdate({ _id: userId }, { $set: { Status: "Offline" } });
-        console.log(user, "status____________________");
+        const UserId = req.body.response.userId;
+        const user = yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { $set: { Status: "Offline" } });
         res.json(user);
     }));
     const GoogleSignUp = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        var _a, _b, _c, _d;
         const user = req.body.data.user;
-        const userData = {
-            uid: user.uid,
-            userName: user.displayName,
-            email: user.email,
-            image: user.photoURL,
-            Status: ""
-        };
-        const GoogleUser = yield (0, googleFirebase_1.googleData)(UserdbRepo, userData);
-        const UserId = (_a = GoogleUser.googleData) === null || _a === void 0 ? void 0 : _a._id;
-        if (UserId) {
-            const user = yield googleAuthModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
-        }
-        if (userData.email === ((_b = GoogleUser.googleData) === null || _b === void 0 ? void 0 : _b.email)) {
-            const response = { email: (_c = GoogleUser.googleData) === null || _c === void 0 ? void 0 : _c.email, uid: (_d = GoogleUser.googleData) === null || _d === void 0 ? void 0 : _d.uid, userId: UserId };
-            res.json(response);
+        // const uid = user.uid;
+        const userexist = yield UserModel_1.default.findOne({ uid: user.uid });
+        if (!userexist) {
+            console.log("this function is ok");
+            const userData = {
+                uid: user.uid,
+                Fname: user.displayName,
+                Email: user.email,
+                image: user.photoURL,
+                Status: "",
+                Phone: 0,
+                CurrentPosition: "",
+                Password: "",
+                ConfirmPassword: "",
+                blockStatus: false
+            };
+            console.log(userData);
+            yield (0, UserRegister_1.addUser)(userData, UserdbRepo, UserAuthServices);
+            const userexist = yield UserModel_1.default.findOne({ uid: user.uid });
+            const UserId = userexist === null || userexist === void 0 ? void 0 : userexist._id;
+            if (UserId) {
+                yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
+            }
+            if (user.email === (userexist === null || userexist === void 0 ? void 0 : userexist.Email)) {
+                const response = { email: userexist === null || userexist === void 0 ? void 0 : userexist.Email, uid: userexist === null || userexist === void 0 ? void 0 : userexist.uid, userId: UserId };
+                res.json(response);
+            }
+            else {
+                const response = yield (0, googleFirebase_1.googleLogin)(userexist, UserdbRepo);
+                res.json(response);
+            }
         }
         else {
-            const response = yield (0, googleFirebase_1.googleLogin)(userData, UserdbRepo);
-            res.json(response);
+            const userexist = yield UserModel_1.default.findOne({ uid: user.uid });
+            const UserId = userexist === null || userexist === void 0 ? void 0 : userexist._id;
+            if (UserId) {
+                yield UserModel_1.default.findOneAndUpdate({ _id: UserId }, { Status: "Online" });
+            }
+            if (user.email === (userexist === null || userexist === void 0 ? void 0 : userexist.Email)) {
+                const response = { email: userexist === null || userexist === void 0 ? void 0 : userexist.Email, uid: userexist === null || userexist === void 0 ? void 0 : userexist.uid, userId: UserId };
+                res.json(response);
+            }
+            else {
+                const response = yield (0, googleFirebase_1.googleLogin)(userexist, UserdbRepo);
+                res.json(response);
+            }
         }
     }));
     const SerchDataData = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -100,7 +122,7 @@ const UserController = (UserDatabase, UserRepo, UserAuthservice, UserAuthService
         const data = req.body;
         const userId = data.userId;
         console.log(data);
-        const user = yield UserModel_1.default.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
+        yield UserModel_1.default.findOneAndUpdate({ _id: userId }, { $set: { Fname: data.Fname, Lname: data.Lname, Email: data.Email, Phone: data.Phone } });
         res.json({ message: "this user is updated" });
     }));
     return {

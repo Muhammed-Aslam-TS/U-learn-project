@@ -1,7 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-# /dist
+
+#environment file
+/dist/out-tsc/environments
+/src/environments
+
+
+
 /tmp
 /out-tsc
 /bazel-out

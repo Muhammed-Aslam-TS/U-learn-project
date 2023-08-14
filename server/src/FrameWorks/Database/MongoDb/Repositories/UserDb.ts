@@ -1,11 +1,11 @@
+/* eslint-disable no-console */
 import userModel from "../Models/UserModel";
 import GoogleUserModel from "../Models/googleAuthModel";
 import { GoogleUserInterface, UserInterFace } from "../../../../Types/UserInterFace";
 
 export function UserDatabase() {
 
-    const DoSignUP = async (userData: UserInterFace) => {
-       
+    const DoSignUP = async (userData: UserInterFace) => {       
         userData.Status = "Offline";
         userData.walletAmount = 0;
         userData.blockStatus = false;
@@ -18,9 +18,11 @@ export function UserDatabase() {
         return User;
     };
 
-    const googleSignUp = async (userData: GoogleUserInterface) => {
+    const googleSignUp = async (userData: UserInterFace) => {
+        console.log("gooleSignup");
+        
         userData.Status = "Offline";
-        const User = await GoogleUserModel.create(userData);
+        const User = await userModel.create(userData);
         return User;
     };
 

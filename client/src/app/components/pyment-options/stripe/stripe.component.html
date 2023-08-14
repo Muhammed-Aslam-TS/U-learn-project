@@ -1,8 +1,8 @@
 <div class>
-    <div class="flex">
-        <div class="payment-box flex gap-3">
+    <div class="flexdark:text-white">
+        <div class="dark:text-white payment-box flex gap-3">
             <div id="card"
-                class="border border-solid h-10 rounded-xl w-80 items-center justify-center">
+                class="border border-solid h-10 rounded-xl w-80 items-center justify-center dark:bg-gray-700 ">
             </div>
             <p class="card-errors" role="alert"></p>
         </div>
@@ -13,7 +13,7 @@
         <div>
             
             <input placeholder="Card Holder Name" [(ngModel)]="HolderName" (ngModelChange)="HolderName = HolderName.toUpperCase()"
-                class="border rounded-xl w-80 h-10 outline-none" type="text">
+                class="dark:bg-gray-700 dark:placeholder:text-white border rounded-xl w-80 h-10 outline-none" type="text">
         </div>
     </div>
     <br>

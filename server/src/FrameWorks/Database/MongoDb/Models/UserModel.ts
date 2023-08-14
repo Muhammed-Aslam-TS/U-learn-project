@@ -4,23 +4,23 @@ import validator from "validator";
 const UserSchema = new mongoose.Schema({
     Fname: {
         type: String,
-        required: true,
+        // required: true,
     },
     Lname: {
         type: String,
-        required: true,
+        // required: true,
     },
     Email: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         lowercase:true,
         validator : [validator.isEmail,"Invalid Email"]
     },
     Phone: {
         type: Number,
-        required: true,
-        unique:true,
+        // required: true,
+        // unique:true,
         validator: [
             {
                 validator: function(value: string ) {
@@ -32,15 +32,15 @@ const UserSchema = new mongoose.Schema({
     },
     CurrentPosition:{
         type: String,
-        required: true,
+        // required: true,
     },
     Password: {
         type: String,
-        required: true,
+        // required: true,
     },
     ConfirmPassword: {
         type: String,
-        required: true,
+        // required: true,
     },
     Status:{
         type:String,
@@ -59,6 +59,12 @@ const UserSchema = new mongoose.Schema({
     },
     blockStatus:{
         type: Boolean
+    },
+    uid:{
+        type:String
+    },
+    image:{
+        type:String
     }
 
 });

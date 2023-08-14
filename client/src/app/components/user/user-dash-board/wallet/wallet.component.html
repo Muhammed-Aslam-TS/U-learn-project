@@ -1,18 +1,18 @@
 <app-dash-bord-nav-bar></app-dash-bord-nav-bar>
 
-<div class="bg-gray-100 h-screen p-4 sm:ml-64 ">
+<div class="dark:bg-gray-600 bg-gray-100 h-screen p-4 sm:ml-64 ">
     <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-4">My Wallet</h1>
+        <h1 class="dark:text-white text-2xl font-bold mb-4">My Wallet</h1>
 
         <!-- Wallet Balance -->
-        <div class="bg-white rounded-md shadow p-4 mb-4">
-            <h2 class="text-lg font-semibold mb-2">Wallet Balance</h2>
-            <p class="text-2xl">${{walletAmount}}</p>
+        <div class="dark:bg-gray-700 bg-white rounded-md shadow p-4 mb-4">
+            <h2 class="dark:text-white text-lg font-semibold mb-2">Wallet Balance</h2>
+            <p class="dark:text-white text-2xl">${{walletAmount}}</p>
         </div>
 
         <!-- Transactions -->
-        <div class="bg-white rounded-md shadow p-4">
-            <h2 class="text-lg font-semibold mb-2">Recent Transactions</h2>
+        <div class="dark:bg-gray-700 bg-white rounded-md shadow p-4">
+            <h2 class="dark:text-white text-lg font-semibold mb-2">Recent Transactions</h2>
 
             <ul class="space-y-4">
                 <li *ngFor="let history of this.walletHistory | paginate
@@ -35,7 +35,7 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="font-medium">Payment received from
+                            <p class="dark:text-white font-medium">Payment received from
                                 {{history.courseName}}</p>
                             <p class="text-gray-500">{{history.date|date}}</p>
                         </div>
@@ -60,7 +60,7 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="font-medium">Purchase</p>
+                            <p class="dark:text-white font-medium">Purchase</p>
                             <p class="text-gray-500">June 8, 2023</p>
                         </div>
                         <div class="ml-auto">

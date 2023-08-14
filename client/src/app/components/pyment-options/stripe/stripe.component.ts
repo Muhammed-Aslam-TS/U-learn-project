@@ -21,8 +21,6 @@ export class StripeComponent implements OnInit {
   private stripe: Stripe;
 
   async ngOnInit() {
-// console.log(this.parentData,"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-
 
     this.stripe = await loadStripe('pk_test_51NHCGGSDjPqbEiAbq6yIFenR8i5e6pTWnQrK18OzSElZaEunGXAHEIIVbnhOCDi8CwWCRpelgjnUPSYLH1lPw6wG00UjnOexzz')
 
@@ -50,11 +48,7 @@ export class StripeComponent implements OnInit {
         const result = await this.stripe.createSource(card, ownerInfo)
         
         this.service.pymentMethord({data:result,userId:this.userId,courseId:this.courseId}).subscribe((data)=>{
-          console.log(data,"11111111111111111111111111111111111");
-          
-         if (data.response) {
-          console.log(data.response,'rrrrrrrrrrrrrrrrrrrrrrrrrrr');
-          
+         if (data.response) {          
           this.router.navigate(['/paymentSuccess'])
          }else{
           this.router.navigate(['/paymentFaild'])
@@ -63,7 +57,7 @@ export class StripeComponent implements OnInit {
         })
 
       } catch (e) {
-        // console.log(e.message);
+        console.log(e.message);
       }
 
     })

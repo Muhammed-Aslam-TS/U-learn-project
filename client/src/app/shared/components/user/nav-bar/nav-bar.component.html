@@ -1,30 +1,22 @@
-
-
-<div class="bg-white">
+<div class="dark:text-white dark:bg-gray-700 bg-white">
+ 
   <nav class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
     <!-- For large and Medium-sized Screen -->
     <div class="flex justify-between">
       <div class="hidden sm:flex flex-row items-center space-x-6 cursor-pointer">
 
-        <p
-          class="px-4 font-bold hover:text-gray-800 transition-colors duration-300"
-          routerLink="/">Home</p>
-        <p *ngIf="!show"
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          routerLink="/ProAllCourse">Courses</p>
-        <p
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          href="#">Contact</p>
+        <p class="px-4 font-bold hover:text-gray-800 transition-colors duration-300" routerLink="/">Home</p>
+        <p *ngIf="!show" class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="/ProAllCourse">
+          Courses</p>
+        <p class="px-4 hover:text-gray-800 transition-colors duration-300" href="#">Contact</p>
 
-        <p *ngIf="!show"
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          routerLink="dashBoard">My Account</p>
+        <p *ngIf="!show" class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="dashBoard">My
+          Account</p>
 
       </div>
 
       <div class="flex space-x-3 items-center cursor-pointer">
-        <p class="text-3xl"
-          href="#">
+        <p class="text-3xl" href="#">
           U-learn
         </p>
       </div>
@@ -38,27 +30,33 @@
           Out</button>
 
 
-
+          <button
+          class=" bg-gray-300 hover:bg-slate-400 hover:dark:bg-slate-200 rounded-lg mt-0.5 hover:cursor-pointer h-9 w-9 flex justify-center items-center"
+          (click)="handleToggleClick()">
+          <ng-container *ngIf="!isDarkMode; else lightModeIcon">
+            <h1 class="text-2xl">☀️</h1>
+          </ng-container>
+          <ng-template #lightModeIcon>
+            <h1 class="text-2xl">🌚</h1>
+          </ng-template>
+        </button>
       </div>
 
       <!-- Burger Icon -->
       <button (click)="menuDropdown()"
         class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 flex justify-center items-center sm:hidden cursor-pointer">
-        <svg [ngClass]="menu ? 'hidden' : 'block'" width="24" height="24"
-          viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="transform duration-150" d="M4 6H20" stroke="#1F2937"
-            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M4 12H20" stroke="#1F2937" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round" />
-          <path class="transform duration-150" d="M4 18H20" stroke="#1F2937"
-            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <svg [ngClass]="menu ? 'hidden' : 'block'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path class="transform duration-150" d="M4 6H20" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M4 12H20" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="transform duration-150" d="M4 18H20" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
-        <svg *ngIf="menu === true" width="24" height="24" viewBox="0 0 24 24"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18" stroke="#1F2937" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M6 6L18 18" stroke="#1F2937" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round" />
+        <svg *ngIf="menu === true" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 6L18 18" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
     </div>
@@ -67,23 +65,16 @@
     <div [ngClass]="'mt-4 mx-auto ' + (menu ? ' ' : 'hidden sm:hidden')">
       <div class="flex flex-row justify-center cursor-pointer">
 
-        <p
-          class="px-4 font-bold hover:text-gray-800 transition-colors duration-300"
-         routerLink="/">Home
+        <p class="px-4 font-bold hover:text-gray-800 transition-colors duration-300" routerLink="/">Home
         </p>
 
-        <p *ngIf="!show"
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          routerLink="/ProAllCourse">Courses
+        <p *ngIf="!show" class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="/ProAllCourse">
+          Courses
         </p>
-        <p
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          href="#">Contact
+        <p class="px-4 hover:text-gray-800 transition-colors duration-300" href="#">Contact
         </p>
 
-        <p *ngIf="!show"
-          class="px-4 hover:text-gray-800 transition-colors duration-300"
-          routerLink="dashBoard">Account
+        <p *ngIf="!show" class="px-4 hover:text-gray-800 transition-colors duration-300" routerLink="dashBoard">Account
         </p>
 
       </div>

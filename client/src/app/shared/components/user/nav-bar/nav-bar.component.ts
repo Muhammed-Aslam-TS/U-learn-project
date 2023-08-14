@@ -9,7 +9,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent  {
+export class NavBarComponent {
+  isDarkMode = true;
   menu = false;
   menuDropdown() {
     this.menu = !this.menu;
@@ -35,13 +36,27 @@ export class NavBarComponent  {
     } else {
       this.show = true;
     }
+
+    this.setTheme();
+  }
+  setTheme() {
+    const value = localStorage.getItem('isDarkMode');
+    if (value) {
+      this.isDarkMode = false;
+      document.documentElement.classList.add('dark');
+    }
   }
   logIn() {
     this.router.navigate(['login'])
   }
 
   LogOut() {
-    this.service.logOut(this.response).subscribe((data: object) => {
+    console.log(this.response);
+    this.service.logOut(this.response).subscribe((data: any) => {
+
+      
+      console.log(data);
+
       if (data) {
         localStorage.removeItem('userToken');
         localStorage.removeItem('userId');
@@ -51,8 +66,17 @@ export class NavBarComponent  {
     })
 
   }
- 
- 
+  handleToggleClick() {
+    if (this.isDarkMode) {
+      localStorage.setItem('isDarkMode', 'true');
+      document.documentElement.classList.add('dark');
+    } else {
+      localStorage.removeItem('isDarkMode');
+      document.documentElement.classList.remove('dark');
+    }
+    this.isDarkMode = !this.isDarkMode;
+  }
+
 
 }
 

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, GithubAuthProvider, } from "@angular/fire/auth"
+import { ApiUrl } from 'src/environments/api';
 
 
 const httpOptions = {
@@ -16,12 +17,7 @@ const httpOptions = {
 })
 export class UserServiceService {
 
-  private ApiUrl = 'https://api.ulearn.shop/';
-  // private ApiUrl = 'http://localhost:4000/';
-
-
-
-
+  private ApiUrl = ApiUrl.ApiUrl
 
   constructor(private http: HttpClient, private router: Router, private fireauth: AngularFireAuth) { }
 
@@ -42,7 +38,7 @@ export class UserServiceService {
 
   googleSignIn(data: object): Observable<any> {
     return this.http.post<any>(
-      `${this.ApiUrl}dashBoard`,
+      `${this.ApiUrl}googleSignup`,
       JSON.stringify({ data }),
       httpOptions
     )

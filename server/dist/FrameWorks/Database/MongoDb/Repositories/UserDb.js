@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDatabase = void 0;
+/* eslint-disable no-console */
 const UserModel_1 = __importDefault(require("../Models/UserModel"));
 const googleAuthModel_1 = __importDefault(require("../Models/googleAuthModel"));
 function UserDatabase() {
@@ -28,8 +29,9 @@ function UserDatabase() {
         return User;
     });
     const googleSignUp = (userData) => __awaiter(this, void 0, void 0, function* () {
+        console.log("gooleSignup");
         userData.Status = "Offline";
-        const User = yield googleAuthModel_1.default.create(userData);
+        const User = yield UserModel_1.default.create(userData);
         return User;
     });
     const findGoogleData = (userData) => __awaiter(this, void 0, void 0, function* () {

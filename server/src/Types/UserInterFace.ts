@@ -4,14 +4,14 @@ export interface UserInterFace {
     Fname?: string;
     Lname?: string;
     Email: string;
-    Phone: number;
+    Phone?: number
     CurrentPosition:string;
     Password: string;
     ConfirmPassword: string;
     walletAmount?:number
     blockStatus:boolean
-
-
+    uid?:string;
+    image?:string
 }
 
 export interface GoogleUserInterface {

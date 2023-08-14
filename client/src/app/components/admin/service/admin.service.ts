@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { ApiUrl } from 'src/environments/api';
 
 
 const httpOptions = {
@@ -15,8 +16,8 @@ const httpOptions = {
 })
 export class AdminService {
 
-  private ApiUrl = 'https://api.ulearn.shop/';
-  // private ApiUrl = '  http://localhost:4000/';
+  private ApiUrl = ApiUrl.ApiUrl
+
 
 
 

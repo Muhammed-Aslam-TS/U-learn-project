@@ -2,22 +2,22 @@
 
 <div>
   <div class="p-20 sm:ml-64">
-    <h1 class="flex justify-center text-5xl relative font-sans">Create a new course..</h1>
+    <h1 class="dark:text-white flex justify-center text-5xl relative font-sans">Create a new course..</h1>
   </div>
 
-  <div class="flex h-full justify-center items-center sm:ml-64 p-5">
+  <div class=" flex h-full justify-center items-center sm:ml-64 p-5">
     <form
       action
       [formGroup]="uploadForm"
       (ngSubmit)="onSubmit()"
-      class="bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8">
+      class="dark:text-white dark:bg-gray-700 bg-gray-100 from-indigo-401 to-cyan-400 rounded-xl shadow-lg p-8">
       <label for="Enter your Course">Enter your Course</label>
       <div>
         <input
           formControlName="courseName"
           type="text"
           name="courseName"
-          class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          class="dark:bg-gray-400 dark:placeholder:text-white w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
           placeholder="Enter your Course" />
       </div>
       <label for>Course Price</label>
@@ -26,7 +26,7 @@
           formControlName="Price"
           type="number"
           name="Price"
-          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          class="dark:bg-gray-400 w-2/2 py-2 border dark:placeholder:text-white border-gray-300 rounded-lg px-4"
           placeholder="Price" />
 
       </div>
@@ -36,7 +36,7 @@
           formControlName="Category"
           type="text"
           name="Category"
-          class="w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          class="dark:bg-gray-400 dark:placeholder:text-white w-full mb-5 py-2 border border-gray-300 rounded-lg px-4"
           placeholder="Enter your Course" />
       </div>
 
@@ -54,7 +54,7 @@
           formControlName="file"
           name="file"
           (change)="onFileSelected($event)"
-          class="w-2/2 py-2 border border-gray-300 rounded-lg px-4"
+          class="dark:bg-gray-400 dark:placeholder:text-white w-2/2 py-2 border border-gray-300 rounded-lg px-4"
           placeholder="5 Month" />
       </div>
       <br />
@@ -64,7 +64,7 @@
           formControlName="discription"
           type="text"
           name="description"
-          class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4"
+          class="dark:bg-gray-400 dark:placeholder:text-white w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4"
           placeholder="Enter your Description" />
 
         <input
@@ -73,7 +73,7 @@
           hidden
           type="text"
           name="userId"
-          class="w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4" />
+          class="dark:bg-gray-400 dark:placeholder:text-white w-full h-20 mb-5 py-2 border border-gray-300 rounded-lg px-4" />
       </div>
 
       <div class="flex justify-end">

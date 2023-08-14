@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
+import { ApiUrl } from 'src/environments/api';
 // import { addCourseInterface } from 'src/app/models/interFace';
 
 
@@ -15,9 +16,8 @@ const httpOptions = {
 })
 export class CourseServiceService {
 
+  private ApiUrl = ApiUrl.ApiUrl
 
-  private ApiUrl = 'https://api.ulearn.shop/';
-  // private ApiUrl = 'http://localhost:4000/';
 
 
 

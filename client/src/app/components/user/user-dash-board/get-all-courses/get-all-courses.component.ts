@@ -27,7 +27,6 @@ export class GetAllCoursesComponent implements OnInit {
     this.fetchPosts();
 
     this.service.getCourse().subscribe((response: any) => {
-      console.log(response)
       this.allCourses = response
     })
  
