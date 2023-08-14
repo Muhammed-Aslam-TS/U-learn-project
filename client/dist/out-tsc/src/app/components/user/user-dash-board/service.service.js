@@ -1,16 +1,10 @@
 import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
-import { ApiUrl } from 'src/environments/api';
-// import { addCourseInterface } from 'src/app/models/interFace';
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'content-type': 'application/json',
-//   }),
-// };
+import { Environment } from 'src/environments/environment';
 export let ServiceService = class ServiceService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = ApiUrl.ApiUrl;
+        this.ApiUrl = Environment.ApiUrl;
     }
     GetAllCourse(userId) {
         return this.http.get(`${this.ApiUrl}dashBoard?userId=${userId}`);

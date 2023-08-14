@@ -1,8 +1,7 @@
 import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from "@angular/common/http";
-import { ApiUrl } from 'src/environments/api';
-// import { addCourseInterface } from 'src/app/models/interFace';
+import { Environment } from 'src/environments/environment';
 const httpOptions = {
     headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -11,7 +10,7 @@ const httpOptions = {
 export let CourseServiceService = class CourseServiceService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = ApiUrl.ApiUrl;
+        this.ApiUrl = Environment.ApiUrl;
     }
     addCourse(formData) {
         return this.http.post(`${this.ApiUrl}addCourse`, formData);

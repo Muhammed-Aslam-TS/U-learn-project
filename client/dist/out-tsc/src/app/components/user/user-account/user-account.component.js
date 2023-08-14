@@ -26,7 +26,6 @@ export let UserAccountComponent = class UserAccountComponent {
     }
     ngOnInit() {
         this.service.getUserDetails(this.userId).subscribe(((data) => {
-            console.log(data);
             this.userFname = data.Fname;
             this.userLname = data.Lname;
             this.userEmail = data.Email;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PymentService {
-  private ApiUrl = ApiUrl.ApiUrl
+  private ApiUrl = Environment.ApiUrl
 
 
 

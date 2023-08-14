@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,8 +35,6 @@ export class UserRegisterComponent implements OnInit {
     const control = this.signUpForm.get(controlName);
     return control.touched && control.invalid;
   }
-
-  
 
 
   DoSignUp() {

@@ -1,7 +1,7 @@
 import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from "@angular/common/http";
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 // import { addCourseInterface } from 'src/app/models/interFace';
 const httpOptions = {
     headers: new HttpHeaders({
@@ -11,7 +11,7 @@ const httpOptions = {
 export let HomeService = class HomeService {
     constructor(http) {
         this.http = http;
-        this.ApiUrl = ApiUrl.ApiUrl;
+        this.ApiUrl = Environment.ApiUrl;
     }
     GetAllCourse() {
         return this.http.get(`${this.ApiUrl}`, httpOptions);

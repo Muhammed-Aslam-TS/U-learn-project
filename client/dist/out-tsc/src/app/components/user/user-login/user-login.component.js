@@ -34,7 +34,7 @@ export let UserLoginComponent = class UserLoginComponent {
         }
         this.loginObj = this.form.value;
         this.userService.DoLogin(this.loginObj).subscribe((data) => {
-            console.log(data, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+            console.log(data);
             if (!data.token) {
                 window.alert('Token does not exist');
             }
@@ -52,9 +52,6 @@ export let UserLoginComponent = class UserLoginComponent {
     }
     signInWithGoogle() {
         this.fireauth.signInWithPopup(new GoogleAuthProvider()).then((res) => {
-            // const data = res.additionalUserInfo?.profile;
-            // const user =res.user.phoneNumber
-            // console.log(res,"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
             this.userService.googleSignIn(res).subscribe((respons) => {
                 console.log(respons);
                 if (!respons.uid) {

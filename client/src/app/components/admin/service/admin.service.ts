@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class AdminService {
 
-  private ApiUrl = ApiUrl.ApiUrl
+  private ApiUrl = Environment.ApiUrl
 
 
 

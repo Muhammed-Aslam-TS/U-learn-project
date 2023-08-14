@@ -1,7 +1,7 @@
 import { __decorate } from "tslib";
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 const httpOptions = {
     headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -11,7 +11,7 @@ export let AdminService = class AdminService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.ApiUrl = ApiUrl.ApiUrl;
+        this.ApiUrl = Environment.ApiUrl;
     }
     DoSignUp(formData) {
         return this.http.post(`${this.ApiUrl}admin/Signup`, formData);

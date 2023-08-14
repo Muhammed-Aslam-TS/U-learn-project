@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 // import { addCourseInterface } from 'src/app/models/interFace';
 
 
@@ -18,7 +18,7 @@ const httpOptions = {
 })
 export class HomeService {
 
-  private ApiUrl = ApiUrl.ApiUrl
+  private ApiUrl = Environment.ApiUrl
 
 
   constructor(private http: HttpClient) { }

@@ -1,18 +1,17 @@
 import { __decorate } from "tslib";
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 const httpOptions = {
     headers: new HttpHeaders({
         'content-type': 'application/json',
     }),
 };
 export let UserService = class UserService {
-    // private ApiUrl = '  http://localhost:4000/';
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.ApiUrl = ApiUrl.ApiUrl;
+        this.ApiUrl = Environment.ApiUrl;
     }
     logOut(response) {
         return this.http.post(`${this.ApiUrl}logOut`, JSON.stringify({ response }), httpOptions);

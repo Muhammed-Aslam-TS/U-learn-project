@@ -1,27 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/internal/Observable';
-import { ApiUrl } from 'src/environments/api';
-// import { addCourseInterface } from 'src/app/models/interFace';
+import { Environment } from 'src/environments/environment';
 
 
 
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'content-type': 'application/json',
-//   }),
-// };
+
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class ServiceService {
 
-
-  private ApiUrl = ApiUrl.ApiUrl
-
-
+  private ApiUrl = Environment.ApiUrl
 
   constructor(private http: HttpClient) { }
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ApiUrl } from 'src/environments/api';
+import { Environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class UserServiceService {
 
-  private ApiUrl = ApiUrl.ApiUrl
+  private ApiUrl = Environment.ApiUrl
 
   constructor(private http: HttpClient, private router: Router, private fireauth: AngularFireAuth) { }
 
