@@ -2,11 +2,6 @@
 
 # Compiled output
 
-#environment file
-/dist/out-tsc/src/environments
-/src/environments
-
-
 
 
 /tmp
@@ -47,3 +42,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#environment file
+/dist/out-tsc/src/environments
+/src/environments
