@@ -3,8 +3,9 @@
 # Compiled output
 
 #environment file
-/dist/out-tsc/environments
+/dist/out-tsc/src/environments
 /src/environments
+
 
 
 
